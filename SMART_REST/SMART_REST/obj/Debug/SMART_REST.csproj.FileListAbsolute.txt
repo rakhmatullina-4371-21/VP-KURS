@@ -45,3 +45,19 @@ C:\Users\rakhm\Desktop\ВП\КУРСОВАЯ\SMART REST\SMART_REST\SMART_REST\ob
 C:\Users\rakhm\Desktop\ВП\КУРСОВАЯ\SMART REST\SMART_REST\SMART_REST\obj\Debug\SMART_REST.MENU_ADM_WAITER.resources
 C:\Users\rakhm\Desktop\ВП\КУРСОВАЯ\SMART REST\SMART_REST\SMART_REST\obj\Debug\SMART_REST.MessageForm.resources
 C:\Users\rakhm\Desktop\ВП\КУРСОВАЯ\SMART REST\SMART_REST\SMART_REST\obj\Debug\SMART_REST.csprojAssemblyReference.cache
+C:\Users\rakhm\Desktop\КУРСАЧ\SMART_REST\SMART_REST\obj\Debug\SMART_REST.csprojAssemblyReference.cache
+C:\Users\rakhm\Desktop\КУРСАЧ\SMART_REST\SMART_REST\obj\Debug\SMART_REST.CHEQUE.resources
+C:\Users\rakhm\Desktop\КУРСАЧ\SMART_REST\SMART_REST\obj\Debug\SMART_REST.ADD_EDIT_DISH.resources
+C:\Users\rakhm\Desktop\КУРСАЧ\SMART_REST\SMART_REST\obj\Debug\SMART_REST.MessageForm.resources
+C:\Users\rakhm\Desktop\КУРСАЧ\SMART_REST\SMART_REST\obj\Debug\SMART_REST.ORDER_EDIT.resources
+C:\Users\rakhm\Desktop\КУРСАЧ\SMART_REST\SMART_REST\obj\Debug\SMART_REST.ADD_EDIT_EMPLOYEE.resources
+C:\Users\rakhm\Desktop\КУРСАЧ\SMART_REST\SMART_REST\obj\Debug\SMART_REST.INPUT.resources
+C:\Users\rakhm\Desktop\КУРСАЧ\SMART_REST\SMART_REST\obj\Debug\SMART_REST.SELECT_LIST.resources
+C:\Users\rakhm\Desktop\КУРСАЧ\SMART_REST\SMART_REST\obj\Debug\SMART_REST.Properties.Resources.resources
+C:\Users\rakhm\Desktop\КУРСАЧ\SMART_REST\SMART_REST\obj\Debug\SMART_REST.MENU_ADM_WAITER.resources
+C:\Users\rakhm\Desktop\КУРСАЧ\SMART_REST\SMART_REST\obj\Debug\SMART_REST.ORDER_ADD.resources
+C:\Users\rakhm\Desktop\КУРСАЧ\SMART_REST\SMART_REST\obj\Debug\SMART_REST.ADD_EDIT_STOCK.resources
+C:\Users\rakhm\Desktop\КУРСАЧ\SMART_REST\SMART_REST\obj\Debug\SMART_REST.csproj.GenerateResource.cache
+C:\Users\rakhm\Desktop\КУРСАЧ\SMART_REST\SMART_REST\obj\Debug\SMART_REST.csproj.CoreCompileInputs.cache
+C:\Users\rakhm\Desktop\КУРСАЧ\SMART_REST\SMART_REST\obj\Debug\SMART_REST.exe
+C:\Users\rakhm\Desktop\КУРСАЧ\SMART_REST\SMART_REST\obj\Debug\SMART_REST.pdb
