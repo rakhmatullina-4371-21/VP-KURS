@@ -11,77 +11,65 @@ namespace SMART_REST
 {
     using System;
     using System.Collections.Generic;
-    using System.Data.Entity.Migrations;
     using System.Linq;
     using System.Windows.Forms;
 
     public partial class content_orders
     {
+        public int id_content_order { get; set; }
         public Nullable<int> id_order { get; set; }
         public Nullable<int> id_dish { get; set; }
         public int count_dish { get; set; }
-
-        SREntities db = new SREntities();
-
-        //public List<content_orders> SaveCont( int? id_ord)   //сохранение 
-        //{
-        //    //try
-        //    //{
-        //        var list = new List<content_orders>();
-        //        foreach (int i in ListOrder.Keys)
-        //        {
-        //            var content = new content_orders();
-        //            var id = db.orders.First(p => p.id_order == id_ord);
-        //            content.id_order = id.id_order;
-        //            var dish = db.list_of_dishes.First(p => p.id_dish == i);
-        //            content.id_dish = dish.id_dish;
-        //            var count = ListOrder.FirstOrDefault(p => p.Key == i);
-        //            content.count_dish = count.Value;
-        //            list.Add(content);
-        //        }
-        //        return list;
-        //    //}
-        //    //catch { return false; }
-
-
-        //}
-        public static Dictionary<int?, int> ListOrder = new Dictionary<int?, int>();
-        public static void ListContOrder(int? id, int count)
-        {
-            if (!ListOrder.ContainsKey(id))
-            {
-                ListOrder.Add(id, count);
-            }
-            else
-            {
-                ListOrder.Remove(id);
-                ListOrder.Add(id, count);
-            }
-        }
-        public static List<content_orders> Listtt = new List<content_orders>();
-        public static void ListContOrderrrrrrrr(int? id_order, int? id_dish,int count)
-        {
-            content_orders c = new content_orders();
-            c.id_order = id_order;
-            c.id_dish = id_dish;
-            c.count_dish=count;
-            Listtt.Add(c);
-        }
-        public  Dictionary<string,int> SelectOrdCont()
-        {
-            
-            Dictionary<string, int> sel = new Dictionary<string, int>();
-            foreach (int? i in ListOrder.Keys) 
-            {
-                var dish = db.list_of_dishes.First(p => p.id_dish == i);
-                var count = ListOrder.First(p => p.Key == i);
-                sel.Add(dish.name_dish, count.Value);
-
-            }
-            return sel;
-        }
-
+    
         public virtual list_of_dishes list_of_dishes { get; set; }
         public virtual orders orders { get; set; }
+
+        SmartRestaurantEntities db = new SmartRestaurantEntities();
+
+        public bool SaveCont(int? id_ord)   //сохранение 
+        {
+            try
+            {
+                var list = new List<content_orders>();
+                foreach (content_orders i in ListDishesinOrd)
+                {
+
+                    var content = new content_orders();
+                    content.id_content_order = i.id_content_order;
+                    content.id_order = db.orders.First(p => p.id_order == id_ord).id_order;
+                    content.id_dish = db.list_of_dishes.First(p => p.id_dish == i.id_dish).id_dish;
+                    content.count_dish = i.count_dish;
+                    list.Add(content);
+                    db.content_orders.Add(content);
+                    db.SaveChanges();
+                }
+                return true;
+            }
+            catch { return false; }
+        }
+        public List<content_orders> ListDishesinOrd = new List<content_orders>();
+        public void ListDihInOrder(int id_dish, int count)
+        {
+            if (count != 0) 
+            {
+                var content = new content_orders();
+
+                int MaxId;
+                try
+                {
+                    MaxId = int.Parse(db.content_orders.Max(p => p.id_content_order).ToString()) + 1;
+                }
+                catch { MaxId = 1; }
+                content.id_content_order = MaxId;
+                content.id_dish = id_dish;
+                content.count_dish = count;
+                ListDishesinOrd.Add(content);
+            }
+
+          
+        }
+        public static Dictionary<string, int> list = new Dictionary<string, int>();
+ 
+
     }
 }

@@ -4,13 +4,12 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище Model" Provider="Npgsql" ProviderManifestToken="12.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "SMART REST.public.content_orders" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+      <Schema Namespace="Хранилище SmartRestaurantModel" Provider="Npgsql" ProviderManifestToken="12.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="content_orders">
           <Key>
-            <PropertyRef Name="count_dish" />
+            <PropertyRef Name="id_content_order" />
           </Key>
+          <Property Name="id_content_order" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="id_order" Type="int4" />
           <Property Name="id_dish" Type="int4" />
           <Property Name="count_dish" Type="int4" Nullable="false" />
@@ -41,8 +40,7 @@
           <Key>
             <PropertyRef Name="id_table" />
           </Key>
-          <Property Name="id_table" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="name_table" Type="int4" Nullable="false" />
+          <Property Name="id_table" Type="int4" Nullable="false" />
         </EntityType>
         <EntityType Name="menu">
           <Key>
@@ -57,10 +55,10 @@
           </Key>
           <Property Name="id_order" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="id_employee" Type="int4" />
+          <Property Name="id_table" Type="int4" />
           <Property Name="time_order" Type="time" Precision="6" Nullable="false" />
           <Property Name="id_stock" Type="int4" />
           <Property Name="full_price" Type="numeric" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="idtable" Type="int4" />
         </EntityType>
         <EntityType Name="positions">
           <Key>
@@ -150,7 +148,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="orders_idtable_fkey">
+        <Association Name="orders_id_table_fkey">
           <End Role="list_of_table" Type="Self.list_of_table" Multiplicity="0..1" />
           <End Role="orders" Type="Self.orders" Multiplicity="*" />
           <ReferentialConstraint>
@@ -158,11 +156,12 @@
               <PropertyRef Name="id_table" />
             </Principal>
             <Dependent Role="orders">
-              <PropertyRef Name="idtable" />
+              <PropertyRef Name="id_table" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище ModelContainer">
+        <EntityContainer Name="Хранилище SmartRestaurantModelContainer">
+          <EntitySet Name="content_orders" EntityType="Self.content_orders" Schema="public" store:Type="Tables" />
           <EntitySet Name="employee" EntityType="Self.employee" Schema="public" store:Type="Tables" />
           <EntitySet Name="list_of_dishes" EntityType="Self.list_of_dishes" Schema="public" store:Type="Tables" />
           <EntitySet Name="list_of_table" EntityType="Self.list_of_table" Schema="public" store:Type="Tables" />
@@ -170,9 +169,6 @@
           <EntitySet Name="orders" EntityType="Self.orders" Schema="public" store:Type="Tables" />
           <EntitySet Name="positions" EntityType="Self.positions" Schema="public" store:Type="Tables" />
           <EntitySet Name="stocks" EntityType="Self.stocks" Schema="public" store:Type="Tables" />
-          <EntitySet Name="content_orders" EntityType="Self.content_orders" store:Type="Tables" store:Schema="public">
-            <DefiningQuery>SELECT "content_orders"."id_order", "content_orders"."id_dish", "content_orders"."count_dish" FROM "public"."content_orders" AS "content_orders"</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="content_orders_id_dish_fkey" Association="Self.content_orders_id_dish_fkey">
             <End Role="list_of_dishes" EntitySet="list_of_dishes" />
             <End Role="content_orders" EntitySet="content_orders" />
@@ -197,7 +193,7 @@
             <End Role="stocks" EntitySet="stocks" />
             <End Role="orders" EntitySet="orders" />
           </AssociationSet>
-          <AssociationSet Name="orders_idtable_fkey" Association="Self.orders_idtable_fkey">
+          <AssociationSet Name="orders_id_table_fkey" Association="Self.orders_id_table_fkey">
             <End Role="list_of_table" EntitySet="list_of_table" />
             <End Role="orders" EntitySet="orders" />
           </AssociationSet>
@@ -206,7 +202,18 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="SmartRestaurantModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="content_orders">
+          <Key>
+            <PropertyRef Name="id_content_order" />
+          </Key>
+          <Property Name="id_content_order" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_order" Type="Int32" />
+          <Property Name="id_dish" Type="Int32" />
+          <Property Name="count_dish" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="list_of_dishes" Relationship="Self.content_orders_id_dish_fkey" FromRole="content_orders" ToRole="list_of_dishes" />
+          <NavigationProperty Name="orders" Relationship="Self.content_orders_id_order_fkey" FromRole="content_orders" ToRole="orders" />
+        </EntityType>
         <EntityType Name="employee">
           <Key>
             <PropertyRef Name="id_employee" />
@@ -237,9 +244,8 @@
           <Key>
             <PropertyRef Name="id_table" />
           </Key>
-          <Property Name="id_table" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name_table" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="orders" Relationship="Self.orders_idtable_fkey" FromRole="list_of_table" ToRole="orders" />
+          <Property Name="id_table" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="orders" Relationship="Self.orders_id_table_fkey" FromRole="list_of_table" ToRole="orders" />
         </EntityType>
         <EntityType Name="menu">
           <Key>
@@ -255,13 +261,13 @@
           </Key>
           <Property Name="id_order" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="id_employee" Type="Int32" />
+          <Property Name="id_table" Type="Int32" />
           <Property Name="time_order" Type="Time" Precision="6" Nullable="false" />
           <Property Name="id_stock" Type="Int32" />
           <Property Name="full_price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="idtable" Type="Int32" />
-          <NavigationProperty Name="employee" Relationship="Self.orders_id_employee_fkey" FromRole="orders" ToRole="employee" />
-          <NavigationProperty Name="list_of_table" Relationship="Self.orders_idtable_fkey" FromRole="orders" ToRole="list_of_table" />
           <NavigationProperty Name="content_orders" Relationship="Self.content_orders_id_order_fkey" FromRole="orders" ToRole="content_orders" />
+          <NavigationProperty Name="employee" Relationship="Self.orders_id_employee_fkey" FromRole="orders" ToRole="employee" />
+          <NavigationProperty Name="list_of_table" Relationship="Self.orders_id_table_fkey" FromRole="orders" ToRole="list_of_table" />
           <NavigationProperty Name="stocks" Relationship="Self.orders_id_stock_fkey" FromRole="orders" ToRole="stocks" />
         </EntityType>
         <EntityType Name="positions">
@@ -282,16 +288,30 @@
           <Property Name="discount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <NavigationProperty Name="orders" Relationship="Self.orders_id_stock_fkey" FromRole="stocks" ToRole="orders" />
         </EntityType>
-        <EntityType Name="content_orders">
-          <Key>
-            <PropertyRef Name="count_dish" />
-          </Key>
-          <Property Name="id_order" Type="Int32" />
-          <Property Name="id_dish" Type="Int32" />
-          <Property Name="count_dish" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="list_of_dishes" Relationship="Self.content_orders_id_dish_fkey" FromRole="content_orders" ToRole="list_of_dishes" />
-          <NavigationProperty Name="orders" Relationship="Self.content_orders_id_order_fkey" FromRole="content_orders" ToRole="orders" />
-        </EntityType>
+        <Association Name="content_orders_id_dish_fkey">
+          <End Role="list_of_dishes" Type="Self.list_of_dishes" Multiplicity="0..1" />
+          <End Role="content_orders" Type="Self.content_orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="list_of_dishes">
+              <PropertyRef Name="id_dish" />
+            </Principal>
+            <Dependent Role="content_orders">
+              <PropertyRef Name="id_dish" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="content_orders_id_order_fkey">
+          <End Role="orders" Type="Self.orders" Multiplicity="0..1" />
+          <End Role="content_orders" Type="Self.content_orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="orders">
+              <PropertyRef Name="id_order" />
+            </Principal>
+            <Dependent Role="content_orders">
+              <PropertyRef Name="id_order" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="employee_id_position_fkey">
           <End Role="positions" Type="Self.positions" Multiplicity="0..1" />
           <End Role="employee" Type="Self.employee" Multiplicity="*" />
@@ -316,18 +336,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="content_orders_id_dish_fkey">
-          <End Role="list_of_dishes" Type="Self.list_of_dishes" Multiplicity="0..1" />
-          <End Role="content_orders" Type="Self.content_orders" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="list_of_dishes">
-              <PropertyRef Name="id_dish" />
-            </Principal>
-            <Dependent Role="content_orders">
-              <PropertyRef Name="id_dish" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="list_of_dishes_id_selection_fkey">
           <End Role="menu" Type="Self.menu" Multiplicity="0..1" />
           <End Role="list_of_dishes" Type="Self.list_of_dishes" Multiplicity="*" />
@@ -340,7 +348,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="orders_idtable_fkey">
+        <Association Name="orders_id_table_fkey">
           <End Role="list_of_table" Type="Self.list_of_table" Multiplicity="0..1" />
           <End Role="orders" Type="Self.orders" Multiplicity="*" />
           <ReferentialConstraint>
@@ -348,19 +356,7 @@
               <PropertyRef Name="id_table" />
             </Principal>
             <Dependent Role="orders">
-              <PropertyRef Name="idtable" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="content_orders_id_order_fkey">
-          <End Role="orders" Type="Self.orders" Multiplicity="0..1" />
-          <End Role="content_orders" Type="Self.content_orders" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="orders">
-              <PropertyRef Name="id_order" />
-            </Principal>
-            <Dependent Role="content_orders">
-              <PropertyRef Name="id_order" />
+              <PropertyRef Name="id_table" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -376,7 +372,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="SREntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="SmartRestaurantEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="content_orders" EntityType="Self.content_orders" />
           <EntitySet Name="employee" EntityType="Self.employee" />
           <EntitySet Name="list_of_dishes" EntityType="Self.list_of_dishes" />
           <EntitySet Name="list_of_table" EntityType="Self.list_of_table" />
@@ -384,7 +381,14 @@
           <EntitySet Name="orders" EntityType="Self.orders" />
           <EntitySet Name="positions" EntityType="Self.positions" />
           <EntitySet Name="stocks" EntityType="Self.stocks" />
-          <EntitySet Name="content_orders" EntityType="Self.content_orders" />
+          <AssociationSet Name="content_orders_id_dish_fkey" Association="Self.content_orders_id_dish_fkey">
+            <End Role="list_of_dishes" EntitySet="list_of_dishes" />
+            <End Role="content_orders" EntitySet="content_orders" />
+          </AssociationSet>
+          <AssociationSet Name="content_orders_id_order_fkey" Association="Self.content_orders_id_order_fkey">
+            <End Role="orders" EntitySet="orders" />
+            <End Role="content_orders" EntitySet="content_orders" />
+          </AssociationSet>
           <AssociationSet Name="employee_id_position_fkey" Association="Self.employee_id_position_fkey">
             <End Role="positions" EntitySet="positions" />
             <End Role="employee" EntitySet="employee" />
@@ -393,21 +397,13 @@
             <End Role="employee" EntitySet="employee" />
             <End Role="orders" EntitySet="orders" />
           </AssociationSet>
-          <AssociationSet Name="content_orders_id_dish_fkey" Association="Self.content_orders_id_dish_fkey">
-            <End Role="list_of_dishes" EntitySet="list_of_dishes" />
-            <End Role="content_orders" EntitySet="content_orders" />
-          </AssociationSet>
           <AssociationSet Name="list_of_dishes_id_selection_fkey" Association="Self.list_of_dishes_id_selection_fkey">
             <End Role="menu" EntitySet="menu" />
             <End Role="list_of_dishes" EntitySet="list_of_dishes" />
           </AssociationSet>
-          <AssociationSet Name="orders_idtable_fkey" Association="Self.orders_idtable_fkey">
+          <AssociationSet Name="orders_id_table_fkey" Association="Self.orders_id_table_fkey">
             <End Role="list_of_table" EntitySet="list_of_table" />
             <End Role="orders" EntitySet="orders" />
-          </AssociationSet>
-          <AssociationSet Name="content_orders_id_order_fkey" Association="Self.content_orders_id_order_fkey">
-            <End Role="orders" EntitySet="orders" />
-            <End Role="content_orders" EntitySet="content_orders" />
           </AssociationSet>
           <AssociationSet Name="orders_id_stock_fkey" Association="Self.orders_id_stock_fkey">
             <End Role="stocks" EntitySet="stocks" />
@@ -419,9 +415,19 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="SREntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище SmartRestaurantModelContainer" CdmEntityContainer="SmartRestaurantEntities">
+          <EntitySetMapping Name="content_orders">
+            <EntityTypeMapping TypeName="SmartRestaurantModel.content_orders">
+              <MappingFragment StoreEntitySet="content_orders">
+                <ScalarProperty Name="id_content_order" ColumnName="id_content_order" />
+                <ScalarProperty Name="id_order" ColumnName="id_order" />
+                <ScalarProperty Name="id_dish" ColumnName="id_dish" />
+                <ScalarProperty Name="count_dish" ColumnName="count_dish" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="employee">
-            <EntityTypeMapping TypeName="Model.employee">
+            <EntityTypeMapping TypeName="SmartRestaurantModel.employee">
               <MappingFragment StoreEntitySet="employee">
                 <ScalarProperty Name="id_employee" ColumnName="id_employee" />
                 <ScalarProperty Name="surname" ColumnName="surname" />
@@ -434,7 +440,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="list_of_dishes">
-            <EntityTypeMapping TypeName="Model.list_of_dishes">
+            <EntityTypeMapping TypeName="SmartRestaurantModel.list_of_dishes">
               <MappingFragment StoreEntitySet="list_of_dishes">
                 <ScalarProperty Name="id_dish" ColumnName="id_dish" />
                 <ScalarProperty Name="name_dish" ColumnName="name_dish" />
@@ -445,15 +451,14 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="list_of_table">
-            <EntityTypeMapping TypeName="Model.list_of_table">
+            <EntityTypeMapping TypeName="SmartRestaurantModel.list_of_table">
               <MappingFragment StoreEntitySet="list_of_table">
                 <ScalarProperty Name="id_table" ColumnName="id_table" />
-                <ScalarProperty Name="name_table" ColumnName="name_table" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="menu">
-            <EntityTypeMapping TypeName="Model.menu">
+            <EntityTypeMapping TypeName="SmartRestaurantModel.menu">
               <MappingFragment StoreEntitySet="menu">
                 <ScalarProperty Name="id_selection" ColumnName="id_selection" />
                 <ScalarProperty Name="name_selection" ColumnName="name_selection" />
@@ -461,19 +466,19 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="orders">
-            <EntityTypeMapping TypeName="Model.orders">
+            <EntityTypeMapping TypeName="SmartRestaurantModel.orders">
               <MappingFragment StoreEntitySet="orders">
                 <ScalarProperty Name="id_order" ColumnName="id_order" />
                 <ScalarProperty Name="id_employee" ColumnName="id_employee" />
+                <ScalarProperty Name="id_table" ColumnName="id_table" />
                 <ScalarProperty Name="time_order" ColumnName="time_order" />
                 <ScalarProperty Name="id_stock" ColumnName="id_stock" />
                 <ScalarProperty Name="full_price" ColumnName="full_price" />
-                <ScalarProperty Name="idtable" ColumnName="idtable" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="positions">
-            <EntityTypeMapping TypeName="Model.positions">
+            <EntityTypeMapping TypeName="SmartRestaurantModel.positions">
               <MappingFragment StoreEntitySet="positions">
                 <ScalarProperty Name="id_position" ColumnName="id_position" />
                 <ScalarProperty Name="position" ColumnName="position" />
@@ -481,21 +486,12 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="stocks">
-            <EntityTypeMapping TypeName="Model.stocks">
+            <EntityTypeMapping TypeName="SmartRestaurantModel.stocks">
               <MappingFragment StoreEntitySet="stocks">
                 <ScalarProperty Name="id_stock" ColumnName="id_stock" />
                 <ScalarProperty Name="start_time" ColumnName="start_time" />
                 <ScalarProperty Name="end_time" ColumnName="end_time" />
                 <ScalarProperty Name="discount" ColumnName="discount" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="content_orders">
-            <EntityTypeMapping TypeName="Model.content_orders">
-              <MappingFragment StoreEntitySet="content_orders">
-                <ScalarProperty Name="id_order" ColumnName="id_order" />
-                <ScalarProperty Name="id_dish" ColumnName="id_dish" />
-                <ScalarProperty Name="count_dish" ColumnName="count_dish" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -13,12 +13,13 @@ namespace SMART_REST
     public partial class CHEQUE : Form
     {
         employee emp = new employee();
+        orders ord = new orders();
+
         public CHEQUE( employee emp )
         {
             InitializeComponent();
             this.emp = emp;
-            orders ord = new orders();
-            var comboList = ord.SelOrd(emp);
+            var comboList = ord.SelectOrder(emp);
             foreach (int i in comboList)
             {
                 comboBox1.Items.Add(i);
@@ -35,6 +36,18 @@ namespace SMART_REST
             MENU_ADM_WAITER waiter = new MENU_ADM_WAITER(2, emp);
             waiter.Location = this.Location;
             waiter.Size = this.Size; waiter.Show(); this.Hide();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           selectList.DataSource= ord.SelectOrder(int.Parse(comboBox1.SelectedItem.ToString()));
+            selectList.Columns[0].HeaderText ="ЗАКАЗ №";
+            selectList.Columns[1].Visible = false;
+            selectList.Columns[2].HeaderText = "  НАЗВАНИЕ\r\nБЛЮДА";
+            selectList.Columns[3].HeaderText = "  КОЛИЧЕСТВО";
+            selectList.Columns[4].HeaderText = "  СКИДКА";
+            selectList.Columns[5].HeaderText = "  ЦЕНА";
+            selectList.Columns[6].HeaderText = "  ВРЕМЯ";
         }
     }
 }

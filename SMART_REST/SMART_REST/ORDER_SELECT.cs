@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace SMART_REST
 {
-    public partial class ORDER_EDIT : Form
+    public partial class ORDER_SELECT : Form
     {
         //orders ord = new orders();
         //employee emp;
@@ -31,11 +31,14 @@ namespace SMART_REST
         //    selectList.Columns[3].HeaderText = "  КОЛИЧЕСТВО";
 
         //}
-        public ORDER_EDIT()
+        public ORDER_SELECT()
         {
             InitializeComponent();
             content_orders con = new content_orders();
-            selectList.DataSource = con.SelectOrdCont().ToArray();
+            selectList.DataSource = content_orders.list.ToArray();
+            selectList.Columns[0].HeaderText = "  НАЗВАНИЕ\r\nБЛЮДА";
+            selectList.Columns[1].HeaderText = "  КОЛИЧЕСТВО";
+
         }
         private void ORDER_EDIT_FormClosed(object sender, FormClosedEventArgs e)
         {

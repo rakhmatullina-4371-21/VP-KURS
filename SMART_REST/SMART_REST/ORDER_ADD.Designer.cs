@@ -36,7 +36,6 @@
             this.white = new System.Windows.Forms.Panel();
             this.buttonSelOrd = new System.Windows.Forms.Button();
             this.comboSelection = new System.Windows.Forms.ComboBox();
-            this.comboTable = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.labelSelection = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -45,6 +44,7 @@
             this.close = new System.Windows.Forms.Button();
             this.save = new System.Windows.Forms.Button();
             this.selectList = new System.Windows.Forms.DataGridView();
+            this.comboTable = new System.Windows.Forms.ComboBox();
             this.form = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.white.SuspendLayout();
@@ -81,8 +81,8 @@
             this.white.Controls.Add(this.textCearch);
             this.white.Controls.Add(this.close);
             this.white.Controls.Add(this.save);
-            this.white.Controls.Add(this.selectList);
             this.white.Controls.Add(this.comboTable);
+            this.white.Controls.Add(this.selectList);
             this.white.Location = new System.Drawing.Point(84, 19);
             this.white.Name = "white";
             this.white.Size = new System.Drawing.Size(775, 464);
@@ -90,7 +90,7 @@
             // 
             // buttonSelOrd
             // 
-            this.buttonSelOrd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonSelOrd.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.buttonSelOrd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonSelOrd.BackgroundImage")));
             this.buttonSelOrd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonSelOrd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -116,19 +116,9 @@
             this.comboSelection.TabIndex = 68;
             this.comboSelection.Visible = false;
             // 
-            // comboTable
-            // 
-            this.comboTable.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboTable.FormattingEnabled = true;
-            this.comboTable.Location = new System.Drawing.Point(129, 215);
-            this.comboTable.Name = "comboTable";
-            this.comboTable.Size = new System.Drawing.Size(540, 24);
-            this.comboTable.TabIndex = 69;
-            this.comboTable.SelectedIndexChanged += new System.EventHandler(this.comboTable_SelectedIndexChanged);
-            // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
@@ -155,6 +145,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
@@ -173,6 +164,7 @@
             // 
             // labelTable
             // 
+            this.labelTable.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelTable.AutoSize = true;
             this.labelTable.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.labelTable.Font = new System.Drawing.Font("Microsoft JhengHei", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -261,7 +253,7 @@
             this.selectList.DefaultCellStyle = dataGridViewCellStyle2;
             this.selectList.EnableHeadersVisualStyles = false;
             this.selectList.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.selectList.Location = new System.Drawing.Point(3, 63);
+            this.selectList.Location = new System.Drawing.Point(35, 112);
             this.selectList.Name = "selectList";
             this.selectList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -275,10 +267,20 @@
             this.selectList.RowHeadersVisible = false;
             this.selectList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.selectList.RowTemplate.Height = 24;
-            this.selectList.Size = new System.Drawing.Size(769, 345);
+            this.selectList.Size = new System.Drawing.Size(710, 277);
             this.selectList.TabIndex = 64;
             this.selectList.Visible = false;
             this.selectList.MouseClick += new System.Windows.Forms.MouseEventHandler(this.selectList_MouseClick);
+            // 
+            // comboTable
+            // 
+            this.comboTable.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboTable.FormattingEnabled = true;
+            this.comboTable.Location = new System.Drawing.Point(129, 215);
+            this.comboTable.Name = "comboTable";
+            this.comboTable.Size = new System.Drawing.Size(540, 24);
+            this.comboTable.TabIndex = 69;
+            this.comboTable.SelectedIndexChanged += new System.EventHandler(this.comboTable_SelectedIndexChanged);
             // 
             // form
             // 

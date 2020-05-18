@@ -21,16 +21,19 @@ namespace SMART_REST
         {
             this.orders = new HashSet<orders>();
         }
-    
+
         public int id_stock { get; set; }
         public System.TimeSpan start_time { get; set; }
         public System.TimeSpan end_time { get; set; }
         public decimal discount { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<orders> orders { get; set; }
 
-        SREntities db = new SREntities();
+
+
+        SmartRestaurantEntities db = new SmartRestaurantEntities();
+
         public List<stocks> SelectListStocks()   //вывод списка акций
         {
             var listStock = (from i in db.stocks
@@ -95,12 +98,6 @@ namespace SMART_REST
                 return 3;
             }
             else return 4;
-
-
-
-
         }
-
-
     }
 }

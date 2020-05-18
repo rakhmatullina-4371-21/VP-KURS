@@ -100,7 +100,7 @@
             // 
             // exist
             // 
-            this.exist.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.exist.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.exist.BackColor = System.Drawing.SystemColors.Control;
             this.exist.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.exist.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -116,6 +116,7 @@
             // 
             // panel3
             // 
+            this.panel3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.panel3.BackColor = System.Drawing.SystemColors.Control;
             this.panel3.BackgroundImage = global::SMART_REST.Properties.Resources.iconUser;
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -180,6 +181,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.Control;
             this.label1.Enabled = false;

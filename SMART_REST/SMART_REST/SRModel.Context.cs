@@ -13,10 +13,10 @@ namespace SMART_REST
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SREntities : DbContext
+    public partial class SmartRestaurantEntities : DbContext
     {
-        public SREntities()
-            : base("name=SREntities")
+        public SmartRestaurantEntities()
+            : base("name=SmartRestaurantEntities")
         {
         }
     
@@ -25,6 +25,7 @@ namespace SMART_REST
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<content_orders> content_orders { get; set; }
         public virtual DbSet<employee> employee { get; set; }
         public virtual DbSet<list_of_dishes> list_of_dishes { get; set; }
         public virtual DbSet<list_of_table> list_of_table { get; set; }
@@ -32,6 +33,5 @@ namespace SMART_REST
         public virtual DbSet<orders> orders { get; set; }
         public virtual DbSet<positions> positions { get; set; }
         public virtual DbSet<stocks> stocks { get; set; }
-        public virtual DbSet<content_orders> content_orders { get; set; }
     }
 }

@@ -28,7 +28,7 @@ namespace SMART_REST
             var comboList = positions.ComboPos();
             foreach (positions i in comboList) 
             {
-                comboPosition.Items.Add(i);
+                comboPosition.Items.Add(i.position);
             }
             if (empl.position != null)
                 comboPosition.SelectedItem = empl.position;
@@ -42,7 +42,7 @@ namespace SMART_REST
             var comboList = positions.ComboPos();
             foreach (positions i in comboList)
             {
-                comboPosition.Items.Add(i);
+                comboPosition.Items.Add(i.position);
             }
         }
         private void ADD_EDIT_EMPLOYEE_FormClosed(object sender, FormClosedEventArgs e)

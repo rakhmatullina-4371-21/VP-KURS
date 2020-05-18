@@ -21,7 +21,7 @@ namespace SMART_REST
         {
             this.orders = new HashSet<orders>();
         }
-    
+
         public int id_employee { get; set; }
         public string surname { get; set; }
         public string name { get; set; }
@@ -29,11 +29,14 @@ namespace SMART_REST
         public string login { get; set; }
         public string password { get; set; }
         public Nullable<int> id_position { get; set; }
-    
+
         public virtual positions positions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<orders> orders { get; set; }
-        SREntities db = new SREntities();
+
+
+
+        SmartRestaurantEntities db = new SmartRestaurantEntities();
         public employee(string login, string password)   //инициализация сотрудника по паролю и логину
         {
             var emp = db.employee.FirstOrDefault(p => p.login == login && p.password == password);
@@ -122,6 +125,5 @@ namespace SMART_REST
             }
 
         }
-
     }
 }

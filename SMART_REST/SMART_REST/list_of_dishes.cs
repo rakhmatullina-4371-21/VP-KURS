@@ -31,11 +31,17 @@ namespace SMART_REST
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<content_orders> content_orders { get; set; }
         public virtual menu menu { get; set; }
-        SREntities db = new SREntities();
+
+
+
+
+
+        SmartRestaurantEntities db = new SmartRestaurantEntities();
+
         List<dynamic> listDish;   //список блюд и разделов, в которых они находятся
         public dynamic SelectListDish()   //вывод списка блюд
         {
-            listDish =(from d in db.list_of_dishes
+            listDish = (from d in db.list_of_dishes
                         join m in db.menu on d.id_selection equals m.id_selection
                         select new { d.id_dish, d.name_dish, d.id_selection, m.name_selection, d.availability, d.price }).ToList<dynamic>();
             return listDish;
@@ -43,6 +49,12 @@ namespace SMART_REST
         public dynamic EditDish(int id)    //возврат блюда, информацию о котором необходимо изменить
         {
             var dish = listDish.First(w => w.id_dish == id);
+            return dish;
+        }
+        public static string SearchDish(int id)  
+        {
+
+            var dish = dbs.list_of_dishes.FirstOrDefault(w => w.id_dish == id).name_dish;
             return dish;
         }
         public int AddDish()    //возврат блюда, информацию о котором необходимо изменить
@@ -62,9 +74,8 @@ namespace SMART_REST
         }
         public bool SaveDish(int id_dish, string name_dish, int? id_selection, bool availability, string price1, string price2)   //сохранение изменений
         {
-            decimal з = decimal.Parse(price1);
-            price = price * decimal.Parse((0.01).ToString());
-            price = price + decimal.Parse(price2);
+            decimal rub = decimal.Parse(price1);
+            decimal kop =decimal.Parse(price2) * decimal.Parse((0.01).ToString());
             var dish = db.list_of_dishes.FirstOrDefault(w => w.id_dish == id_dish);
             if ((name_dish != "") && (price != 0) && (id_selection != null))
             {
@@ -72,12 +83,11 @@ namespace SMART_REST
                 {
                     dish = new list_of_dishes();
                     dish.id_dish = id_dish;
-
                 }
                 dish.name_dish = name_dish;
                 dish.id_selection = id_selection;
                 dish.availability = availability;
-                dish.price = price;
+                dish.price = rub+kop;
                 db.list_of_dishes.AddOrUpdate(dish);
                 db.SaveChanges();
                 return true;
@@ -98,12 +108,14 @@ namespace SMART_REST
             }
             catch { return false; }
         }
-        public List<dynamic> SelectListDishAva() 
+         static SmartRestaurantEntities dbs = new SmartRestaurantEntities();
+        public  static List<dynamic> SelectListDishAva()
         {
-            var avaList = ( from p in db.list_of_dishes
-                            join m in db.menu on p.id_selection equals m.id_selection
+            
+            var avaList =(from p in dbs.list_of_dishes
+                           join m in dbs.menu on p.id_selection equals m.id_selection
                            where p.availability == true
-                           select new { p.id_dish,p.name_dish,m.id_selection,m.name_selection,p.price}).ToList<dynamic>();
+                           select new { p.id_dish, p.name_dish, m.id_selection, m.name_selection, p.price }).ToList<dynamic>();
             return avaList;
         }
 

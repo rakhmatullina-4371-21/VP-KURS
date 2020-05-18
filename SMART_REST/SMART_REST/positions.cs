@@ -26,7 +26,10 @@ namespace SMART_REST
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<employee> employee { get; set; }
-        static SREntities db = new SREntities();
+
+
+
+        static SmartRestaurantEntities db = new SmartRestaurantEntities();
         public static List<positions> ComboPos()   //вывод всех должностей
         {
             var selectPos = (from pos in db.positions
@@ -38,10 +41,5 @@ namespace SMART_REST
             var pos = db.positions.First(p => p.position == posit.ToString());
             return pos.id_position;
         }
-
-
-
-
-
     }
 }

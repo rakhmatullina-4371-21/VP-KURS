@@ -22,21 +22,20 @@ namespace SMART_REST
         }
     
         public int id_table { get; set; }
-        public int name_table { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<orders> orders { get; set; }
-        static SREntities db = new SREntities();
+
+
+
+        static SmartRestaurantEntities db = new SmartRestaurantEntities();
+
         public static List<list_of_table> ComboTab()   //вывод всеx столов
         {
             var selectTab = (from pos in db.list_of_table
                              select pos).ToList();
             return selectTab;
         }
-        public static dynamic SelectTab(object posit)   //поиск  по названию выбранного стола
-        {
-            var pos = db.list_of_table.First(p => p.name_table == (int)posit);
-            return pos.id_table;
-        }
+
     }
 }

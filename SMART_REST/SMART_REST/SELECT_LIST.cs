@@ -56,7 +56,7 @@ namespace SMART_REST
                         dataGridView1.Columns[0].Visible = false;
                         dataGridView1.Columns[1].HeaderText = "НАЧАЛО\r\nАКЦИИ";
                         dataGridView1.Columns[2].HeaderText = "КОНЕЦ\r\nАКЦИИ";
-                        dataGridView1.Columns[3].HeaderText = "СКИДКА";
+                        dataGridView1.Columns[3].HeaderText = "РАЗМЕР\r\n СКИДКИ В %";
                         dataGridView1.Columns[4].Visible = false;
                     } break;
             }

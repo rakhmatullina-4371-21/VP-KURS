@@ -1,11 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="Хранилище Model" Provider="Npgsql" ProviderManifestToken="12.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "SMART REST.public.content_orders" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+<Schema Namespace="Хранилище SmartRestaurantModel" Provider="Npgsql" ProviderManifestToken="12.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="content_orders">
     <Key>
-      <PropertyRef Name="count_dish" />
+      <PropertyRef Name="id_content_order" />
     </Key>
+    <Property Name="id_content_order" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="id_order" Type="int4" />
     <Property Name="id_dish" Type="int4" />
     <Property Name="count_dish" Type="int4" Nullable="false" />
@@ -36,8 +35,7 @@
     <Key>
       <PropertyRef Name="id_table" />
     </Key>
-    <Property Name="id_table" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="name_table" Type="int4" Nullable="false" />
+    <Property Name="id_table" Type="int4" Nullable="false" />
   </EntityType>
   <EntityType Name="menu">
     <Key>
@@ -52,10 +50,10 @@
     </Key>
     <Property Name="id_order" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="id_employee" Type="int4" />
+    <Property Name="id_table" Type="int4" />
     <Property Name="time_order" Type="time" Precision="6" Nullable="false" />
     <Property Name="id_stock" Type="int4" />
     <Property Name="full_price" Type="numeric" Precision="19" Scale="4" Nullable="false" />
-    <Property Name="idtable" Type="int4" />
   </EntityType>
   <EntityType Name="positions">
     <Key>
@@ -145,7 +143,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="orders_idtable_fkey">
+  <Association Name="orders_id_table_fkey">
     <End Role="list_of_table" Type="Self.list_of_table" Multiplicity="0..1" />
     <End Role="orders" Type="Self.orders" Multiplicity="*" />
     <ReferentialConstraint>
@@ -153,11 +151,12 @@
         <PropertyRef Name="id_table" />
       </Principal>
       <Dependent Role="orders">
-        <PropertyRef Name="idtable" />
+        <PropertyRef Name="id_table" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="Хранилище ModelContainer">
+  <EntityContainer Name="Хранилище SmartRestaurantModelContainer">
+    <EntitySet Name="content_orders" EntityType="Self.content_orders" Schema="public" store:Type="Tables" />
     <EntitySet Name="employee" EntityType="Self.employee" Schema="public" store:Type="Tables" />
     <EntitySet Name="list_of_dishes" EntityType="Self.list_of_dishes" Schema="public" store:Type="Tables" />
     <EntitySet Name="list_of_table" EntityType="Self.list_of_table" Schema="public" store:Type="Tables" />
@@ -165,9 +164,6 @@
     <EntitySet Name="orders" EntityType="Self.orders" Schema="public" store:Type="Tables" />
     <EntitySet Name="positions" EntityType="Self.positions" Schema="public" store:Type="Tables" />
     <EntitySet Name="stocks" EntityType="Self.stocks" Schema="public" store:Type="Tables" />
-    <EntitySet Name="content_orders" EntityType="Self.content_orders" store:Type="Tables" store:Schema="public">
-      <DefiningQuery>SELECT "content_orders"."id_order", "content_orders"."id_dish", "content_orders"."count_dish" FROM "public"."content_orders" AS "content_orders"</DefiningQuery>
-    </EntitySet>
     <AssociationSet Name="content_orders_id_dish_fkey" Association="Self.content_orders_id_dish_fkey">
       <End Role="list_of_dishes" EntitySet="list_of_dishes" />
       <End Role="content_orders" EntitySet="content_orders" />
@@ -192,7 +188,7 @@
       <End Role="stocks" EntitySet="stocks" />
       <End Role="orders" EntitySet="orders" />
     </AssociationSet>
-    <AssociationSet Name="orders_idtable_fkey" Association="Self.orders_idtable_fkey">
+    <AssociationSet Name="orders_id_table_fkey" Association="Self.orders_id_table_fkey">
       <End Role="list_of_table" EntitySet="list_of_table" />
       <End Role="orders" EntitySet="orders" />
     </AssociationSet>

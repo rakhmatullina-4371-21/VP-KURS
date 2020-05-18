@@ -20,15 +20,18 @@ namespace SMART_REST
         {
             this.list_of_dishes = new HashSet<list_of_dishes>();
         }
-
+    
         public int id_selection { get; set; }
         public string name_selection { get; set; }
-
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<list_of_dishes> list_of_dishes { get; set; }
 
 
-        static SREntities db = new SREntities();
+
+
+
+        static SmartRestaurantEntities db = new SmartRestaurantEntities();
         public static List<menu> ComboSel()   //вывод всех разделов
         {
             var selectPos = (from m in db.menu select m).ToList();

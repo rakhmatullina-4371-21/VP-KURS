@@ -11,7 +11,6 @@ namespace SMART_REST
 {
     using System;
     using System.Collections.Generic;
-    using System.Data.Entity.Migrations;
     using System.Linq;
     using System.Windows.Forms;
 
@@ -25,79 +24,95 @@ namespace SMART_REST
 
         public int id_order { get; set; }
         public Nullable<int> id_employee { get; set; }
+        public Nullable<int> id_table { get; set; }
         public System.TimeSpan time_order { get; set; }
         public Nullable<int> id_stock { get; set; }
         public decimal full_price { get; set; }
-        public Nullable<int> idtable { get; set; }
-    
-        public virtual employee employee { get; set; }
-        public virtual list_of_table list_of_table { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<content_orders> content_orders { get; set; }
+        public virtual employee employee { get; set; }
+        public virtual list_of_table list_of_table { get; set; }
         public virtual stocks stocks { get; set; }
-        SREntities db = new SREntities();
-        public int AddOrd()    //возврат присвоение заказу номера
+
+
+
+
+
+
+        SmartRestaurantEntities db = new SmartRestaurantEntities();
+        public int IDnewOrd()    //возврат присвоение заказу номера
         {
-            
+
             int MaxId;
-            if (db.orders == null)
+            try
             {
-                MaxId = 1;
+                MaxId = int.Parse(db.orders.Max(p => p.id_order).ToString()) + 1;
             }
-            else 
-            {
-                MaxId = (int)db.orders.Max(p => p.id_employee) + 1;
-            }
+            catch { MaxId = 1; }
             return MaxId;
         }
-        public bool SaveOrd(int id_ord, int id_emp, int id_tab) 
+        public bool SaveOrd(int id_ord, int id_emp, int id_tab)
         {
-            orders ord = new orders();
-            ord.id_order = id_ord;
-            ord.id_employee = db.employee.First(p=>p.id_employee== id_emp).id_employee;
-            ord.idtable = id_tab;
-            ord.time_order = DateTime.Now.TimeOfDay;
-            var stock = db.stocks.Where(p => p.start_time <= ord.time_order && p.end_time >= ord.time_order).ToList();
-            if (stock.Count !=0)
+            try
             {
-                var discount = stock.Min(p =>p.discount);
-                ord.id_stock = db.stocks.First(p => p.discount == discount).id_stock;
-            }
-            else { ord.id_stock = null; }
-
-            //try
-            //{
+                orders ord = new orders();
+                ord.id_order = id_ord;
+                ord.id_employee = db.employee.First(p => p.id_employee == id_emp).id_employee;
+                ord.id_table = id_tab;
+                ord.time_order = DateTime.Now.TimeOfDay;
+                var stock = db.stocks.Where(p => p.start_time <= ord.time_order && p.end_time >= ord.time_order).ToList();
+                if (stock.Count != 0)
+                {
+                    var discount = stock.Min(p => p.discount);
+                    ord.id_stock = db.stocks.First(p => p.discount == discount).id_stock;
+                }
+                else { ord.id_stock = null; }
                 db.orders.Add(ord);
                 db.SaveChanges();
-            foreach (content_orders i in Listtt) 
-            {
-                if (i.count_dish != 0) 
-                {
-                    var content = new content_orders();
-                    content.id_order = db.orders.First(p => p.id_order == id_order).id_order;
-                    content.id_dish = db.list_of_dishes.First(p => p.id_dish == i.id_dish).id_dish;
-                    content.count_dish = i.count_dish;
-                    db.content_orders.Add(i);
-                    db.SaveChanges();
-                }
-
-            }
+           
                 return true;
-            //}
-            //catch { return false; }
+            }
+            catch { return false; }
         }
-        public  List<content_orders> Listtt = new List<content_orders>();
-        public  void ListContOrderrrrrrrr(int id_order, int id_dish, int count)
+        List<dynamic> listDishOrder = new List<dynamic>();
+        public void FullPrice( int? id_order) 
         {
-            var content = new content_orders();
-            content.id_order = id_order;
-            content.id_dish =id_dish;
-            content.count_dish = count;
-            Listtt.Add(content);
+
+
+            listDishOrder = (from o in db.orders
+                             join c in db.content_orders on o.id_order equals c.id_order
+                             join d in db.list_of_dishes on c.id_dish equals d.id_dish
+                             join s in db.stocks on o.id_stock equals s.id_stock
+                             where o.id_order == id_order
+                             select new { o.id_order, d.id_dish, d.name_dish, c.count_dish, s.discount, d.price, o.time_order }).ToList<dynamic>();
+            var discount = listDishOrder.First(p => p.discount);
+          
+              var sumOneDish = listDishOrder.Select(p => p.count_dish * p.price);
+            decimal sum = 0;
+            foreach (decimal i in sumOneDish) 
+            {
+                sum += i;
+            }
+            if (discount != 0) 
+            {
+                sum *= (discount / 100);
+            }
+            orders ord = db.orders.First(p => p.id_order == id_order);
+            ord.full_price = sum;
         }
-        public List<int> SelOrd(employee emp) 
+
+        public List<content_orders> SelectOrder(int id_order)
         {
-            return db.orders.Where(p => p.id_employee == emp.id_employee).Select(p => p.id_order).ToList();
+            MessageBox.Show($"{id_order}");
+           List<content_orders> ord = (db.content_orders.Where(p => p.id_order == id_order)).ToList();
+            MessageBox.Show($"{ord.ElementAt(0).id_order}");
+            return ord;
+        }
+        public List<int> SelectOrder(employee emp)
+        {
+            var ordList = db.orders.Where(p => p.id_employee == emp.id_employee).Select(p=>p.id_order).ToList();
+            return ordList;
         }
     }
 }

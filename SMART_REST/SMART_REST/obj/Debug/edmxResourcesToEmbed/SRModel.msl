@@ -1,8 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="SREntities">
+  <EntityContainerMapping StorageEntityContainer="Хранилище SmartRestaurantModelContainer" CdmEntityContainer="SmartRestaurantEntities">
+    <EntitySetMapping Name="content_orders">
+      <EntityTypeMapping TypeName="SmartRestaurantModel.content_orders">
+        <MappingFragment StoreEntitySet="content_orders">
+          <ScalarProperty Name="id_content_order" ColumnName="id_content_order" />
+          <ScalarProperty Name="id_order" ColumnName="id_order" />
+          <ScalarProperty Name="id_dish" ColumnName="id_dish" />
+          <ScalarProperty Name="count_dish" ColumnName="count_dish" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="employee">
-      <EntityTypeMapping TypeName="Model.employee">
+      <EntityTypeMapping TypeName="SmartRestaurantModel.employee">
         <MappingFragment StoreEntitySet="employee">
           <ScalarProperty Name="id_employee" ColumnName="id_employee" />
           <ScalarProperty Name="surname" ColumnName="surname" />
@@ -15,7 +25,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="list_of_dishes">
-      <EntityTypeMapping TypeName="Model.list_of_dishes">
+      <EntityTypeMapping TypeName="SmartRestaurantModel.list_of_dishes">
         <MappingFragment StoreEntitySet="list_of_dishes">
           <ScalarProperty Name="id_dish" ColumnName="id_dish" />
           <ScalarProperty Name="name_dish" ColumnName="name_dish" />
@@ -26,15 +36,14 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="list_of_table">
-      <EntityTypeMapping TypeName="Model.list_of_table">
+      <EntityTypeMapping TypeName="SmartRestaurantModel.list_of_table">
         <MappingFragment StoreEntitySet="list_of_table">
           <ScalarProperty Name="id_table" ColumnName="id_table" />
-          <ScalarProperty Name="name_table" ColumnName="name_table" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="menu">
-      <EntityTypeMapping TypeName="Model.menu">
+      <EntityTypeMapping TypeName="SmartRestaurantModel.menu">
         <MappingFragment StoreEntitySet="menu">
           <ScalarProperty Name="id_selection" ColumnName="id_selection" />
           <ScalarProperty Name="name_selection" ColumnName="name_selection" />
@@ -42,19 +51,19 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="orders">
-      <EntityTypeMapping TypeName="Model.orders">
+      <EntityTypeMapping TypeName="SmartRestaurantModel.orders">
         <MappingFragment StoreEntitySet="orders">
           <ScalarProperty Name="id_order" ColumnName="id_order" />
           <ScalarProperty Name="id_employee" ColumnName="id_employee" />
+          <ScalarProperty Name="id_table" ColumnName="id_table" />
           <ScalarProperty Name="time_order" ColumnName="time_order" />
           <ScalarProperty Name="id_stock" ColumnName="id_stock" />
           <ScalarProperty Name="full_price" ColumnName="full_price" />
-          <ScalarProperty Name="idtable" ColumnName="idtable" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="positions">
-      <EntityTypeMapping TypeName="Model.positions">
+      <EntityTypeMapping TypeName="SmartRestaurantModel.positions">
         <MappingFragment StoreEntitySet="positions">
           <ScalarProperty Name="id_position" ColumnName="id_position" />
           <ScalarProperty Name="position" ColumnName="position" />
@@ -62,21 +71,12 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="stocks">
-      <EntityTypeMapping TypeName="Model.stocks">
+      <EntityTypeMapping TypeName="SmartRestaurantModel.stocks">
         <MappingFragment StoreEntitySet="stocks">
           <ScalarProperty Name="id_stock" ColumnName="id_stock" />
           <ScalarProperty Name="start_time" ColumnName="start_time" />
           <ScalarProperty Name="end_time" ColumnName="end_time" />
           <ScalarProperty Name="discount" ColumnName="discount" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="content_orders">
-      <EntityTypeMapping TypeName="Model.content_orders">
-        <MappingFragment StoreEntitySet="content_orders">
-          <ScalarProperty Name="id_order" ColumnName="id_order" />
-          <ScalarProperty Name="id_dish" ColumnName="id_dish" />
-          <ScalarProperty Name="count_dish" ColumnName="count_dish" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
