@@ -206,6 +206,7 @@
             this.back.TabIndex = 64;
             this.back.Text = "О Т М Е Н А";
             this.back.UseVisualStyleBackColor = false;
+            this.back.Click += new System.EventHandler(this.back_Click_1);
             // 
             // save
             // 

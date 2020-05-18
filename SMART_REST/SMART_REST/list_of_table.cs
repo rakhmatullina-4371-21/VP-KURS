@@ -35,7 +35,7 @@ namespace SMART_REST
         }
         public static dynamic SelectTab(object posit)   //поиск  по названию выбранного стола
         {
-            var pos = db.list_of_table.First(p => p.name_table == int.Parse(posit.ToString()));
+            var pos = db.list_of_table.First(p => p.name_table == (int)posit);
             return pos.id_table;
         }
     }

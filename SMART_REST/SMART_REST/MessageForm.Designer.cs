@@ -39,11 +39,11 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 7F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(40, 32);
+            this.label1.Location = new System.Drawing.Point(66, 45);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 17);
+            this.label1.Size = new System.Drawing.Size(255, 34);
             this.label1.TabIndex = 67;
-            this.label1.Text = "текст";
+            this.label1.Text = "Н Е   У Д А Л О С Ь    С В Я З А Т Ь С Я  \r\n С Б А З О Й   Д А Н Н Ы Х";
             // 
             // save
             // 
@@ -54,9 +54,9 @@
             this.save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.save.Font = new System.Drawing.Font("Microsoft JhengHei", 7F);
             this.save.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.save.Location = new System.Drawing.Point(306, 83);
+            this.save.Location = new System.Drawing.Point(306, 91);
             this.save.Name = "save";
-            this.save.Size = new System.Drawing.Size(72, 37);
+            this.save.Size = new System.Drawing.Size(72, 29);
             this.save.TabIndex = 68;
             this.save.Text = "О К";
             this.save.UseVisualStyleBackColor = false;

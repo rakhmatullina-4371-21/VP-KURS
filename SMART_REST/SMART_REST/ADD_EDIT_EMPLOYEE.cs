@@ -72,15 +72,6 @@ namespace SMART_REST
             catch { error.Visible = true; }
         }
 
-        private void back_Click(object sender, EventArgs e)
-        {
-            SELECT_LIST selList = new SELECT_LIST(1, emplUser);
-            selList.Size = this.Size;
-            selList.Location = this.Location;
-            selList.Show();
-            this.Hide();
-        }
-
         private void surname_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
@@ -89,5 +80,13 @@ namespace SMART_REST
             }
         }
 
+        private void back_Click_1(object sender, EventArgs e)
+        {
+            SELECT_LIST selList = new SELECT_LIST(0, emplUser);
+            selList.Size = this.Size;
+            selList.Location = this.Location;
+            selList.Show();
+            this.Hide();
+        }
     }
 }

@@ -21,40 +21,52 @@ namespace SMART_REST
         public Nullable<int> id_dish { get; set; }
         public int count_dish { get; set; }
 
-         SREntities db = new SREntities();
+        SREntities db = new SREntities();
 
-        public  void SaveCont( int? id_ord)   //сохранение 
-        {
-            var list = new List<content_orders>();
-            foreach (int i in ListOrder.Keys) 
-            {
-                var  content = new content_orders();
-                var id= db.orders.First(p => p.id_order == id_ord);
-                content.id_order = id.id_order;
-                var dish= db.list_of_dishes.First(p => p.id_dish == i);
-                content.id_dish = dish.id_dish;
-                var count =ListOrder.FirstOrDefault(p => p.Key == i);
-                content.count_dish = count.Value;
-                list.Add(content);
-            }
-            db.content_orders.AddRange(list);
-            db.SaveChanges();
+        //public List<content_orders> SaveCont( int? id_ord)   //сохранение 
+        //{
+        //    //try
+        //    //{
+        //        var list = new List<content_orders>();
+        //        foreach (int i in ListOrder.Keys)
+        //        {
+        //            var content = new content_orders();
+        //            var id = db.orders.First(p => p.id_order == id_ord);
+        //            content.id_order = id.id_order;
+        //            var dish = db.list_of_dishes.First(p => p.id_dish == i);
+        //            content.id_dish = dish.id_dish;
+        //            var count = ListOrder.FirstOrDefault(p => p.Key == i);
+        //            content.count_dish = count.Value;
+        //            list.Add(content);
+        //        }
+        //        return list;
+        //    //}
+        //    //catch { return false; }
 
-        }
+
+        //}
         public static Dictionary<int?, int> ListOrder = new Dictionary<int?, int>();
-        public static void ListContOrder(int? id,int count)
+        public static void ListContOrder(int? id, int count)
         {
             if (!ListOrder.ContainsKey(id))
             {
                 ListOrder.Add(id, count);
             }
-            else 
+            else
             {
                 ListOrder.Remove(id);
                 ListOrder.Add(id, count);
             }
         }
-
+        public static List<content_orders> Listtt = new List<content_orders>();
+        public static void ListContOrderrrrrrrr(int? id_order, int? id_dish,int count)
+        {
+            content_orders c = new content_orders();
+            c.id_order = id_order;
+            c.id_dish = id_dish;
+            c.count_dish=count;
+            Listtt.Add(c);
+        }
         public  Dictionary<string,int> SelectOrdCont()
         {
             

@@ -45,7 +45,7 @@ namespace SMART_REST
                         break;
                 }
         }
-            catch { MessageForm f = new MessageForm("Н Е   У Д А Л О С Ь\r\nС В Я З А Т Ь С Я   С\r\nБ А З О Й   Д А Н Н Ы Х"); f.ShowDialog(); }
+            catch { MessageForm f = new MessageForm(); f.ShowDialog(); }
 
 
 }

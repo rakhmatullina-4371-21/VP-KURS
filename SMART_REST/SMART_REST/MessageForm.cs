@@ -17,9 +17,14 @@ namespace SMART_REST
             InitializeComponent();
             label1.Text = message;
         }
+        public MessageForm()
+        {
+            InitializeComponent();
+        }
         private void save_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
     }
 }

@@ -58,7 +58,7 @@ namespace SMART_REST
 
         private void selectList_MouseClick(object sender, MouseEventArgs e)
         {
-            cont.id_dish = (int)selectList.SelectedCells[0].OwningRow.Cells[0].Value;
+            cont.id_dish =((int)selectList.SelectedCells[0].OwningRow.Cells[0].Value);
             this.selectList.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             this.selectList.Rows[selectList.CurrentRow.Index].DefaultCellStyle.BackColor =ColorTranslator.FromHtml("#a8a8a8");
             comboBox1.Visible = true;
@@ -69,15 +69,19 @@ namespace SMART_REST
 
         private void save_Click(object sender, EventArgs e)
         {
-            if (content_orders.ListOrder.Count != 0)
+            string notSave = "З А К А З   Н Е   Б Ы Л   С О Х Р А Н Е Н";
+            if (content_orders.Listtt!= null)
             {
                 //try
                 //{
-                    ord.SaveOrd(ord.id_order, emp.id_employee, list_of_table.SelectTab(comboTable.SelectedItem));
-                    cont.SaveCont(ord.id_order);
-                    MessageForm f = new MessageForm($"З А К А З  №  {ord.id_order}\r\n У С П Е Ш Н О  С О Х Р А Н Е Н"); f.ShowDialog();
+                    if (ord.SaveOrd(ord.id_order, emp.id_employee, list_of_table.SelectTab(comboTable.SelectedItem)))
+                    {
+                            MessageForm f = new MessageForm($"З А К А З  №  {ord.id_order}\r\n У С П Е Ш Н О  С О Х Р А Н Е Н"); f.ShowDialog();
+                    }
+                    else { MessageForm f = new MessageForm(notSave); f.ShowDialog(); }
+                   
                 //}
-                //catch { MessageForm f = new MessageForm("З А К А З   Н Е   Б Ы Л   С О Х Р А Н Е Н"); f.ShowDialog(); }
+                //catch { MessageForm f = new MessageForm(); f.ShowDialog(); }
             }
             else { MessageForm f = new MessageForm("В Ы Б Е Р И Т Е   Х О Т Я   Б Ы \r\nО Д Н О   Б Л Ю Д О"); f.ShowDialog(); }
         }
@@ -91,7 +95,7 @@ namespace SMART_REST
             }
             else
             {
-                content_orders.ListContOrder(cont.id_dish, cont.count_dish);
+                ord.ListContOrderrrrrrrr(ord.id_order,(int)cont.id_dish, cont.count_dish);
             }
                 selectList.Visible = true;
                 label1.Visible = false;

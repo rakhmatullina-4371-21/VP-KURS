@@ -18,10 +18,10 @@ namespace SMART_REST
             InitializeComponent();
             this.emp = emp;
             orders ord = new orders();
-            var comboList =ord.SelOrd(emp);
-            foreach (orders i in comboList)
+            var comboList = ord.SelOrd(emp);
+            foreach (int i in comboList)
             {
-                comboBox1.Items.Add(i.id_order);
+                comboBox1.Items.Add(i);
             }
         }
 

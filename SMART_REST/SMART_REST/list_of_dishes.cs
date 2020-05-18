@@ -101,8 +101,9 @@ namespace SMART_REST
         public List<dynamic> SelectListDishAva() 
         {
             var avaList = ( from p in db.list_of_dishes
+                            join m in db.menu on p.id_selection equals m.id_selection
                            where p.availability == true
-                           select new { p.id_dish,p.name_dish,p.availability}).ToList<dynamic>();
+                           select new { p.id_dish,p.name_dish,m.id_selection,m.name_selection,p.price}).ToList<dynamic>();
             return avaList;
         }
 
