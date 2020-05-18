@@ -156,6 +156,7 @@
             this.button1.TabIndex = 64;
             this.button1.Text = "П О И С К";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // edit
             // 
@@ -257,8 +258,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button save;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button update;
@@ -268,5 +267,6 @@
         private System.Windows.Forms.Button delete;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

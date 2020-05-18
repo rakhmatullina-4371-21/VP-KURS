@@ -51,6 +51,7 @@ namespace SMART_REST
             MENU_ADM_WAITER waiter = new MENU_ADM_WAITER(2, emp);
             waiter.Location = this.Location;
             waiter.Size = this.Size; waiter.Show(); this.Hide();
+            content_orders.list.Clear();
         }
 
 
@@ -81,6 +82,7 @@ namespace SMART_REST
                             MENU_ADM_WAITER waiter = new MENU_ADM_WAITER(2, emp);
                             waiter.Location = this.Location;
                             waiter.Size = this.Size; waiter.Show(); this.Hide();
+                           content_orders.list.Clear();
                      }
                     else {  f = new MessageForm(); f.ShowDialog();}
                     }
@@ -101,7 +103,10 @@ namespace SMART_REST
             }
             else
             {
-                content_orders.list.Add(list_of_dishes.SearchDish((int)cont.id_dish), cont.count_dish);
+                if (!content_orders.list.ContainsKey(list_of_dishes.SearchDish((int)cont.id_dish))) 
+                {
+                    content_orders.list.Add(list_of_dishes.SearchDish((int)cont.id_dish), cont.count_dish);
+                }
                 cont.ListDihInOrder((int)cont.id_dish, cont.count_dish);
 
             }
@@ -119,8 +124,6 @@ namespace SMART_REST
             selectList.Visible = true;
             comboSelection.Visible = true;
             labelSelection.Visible = true;
-            textCearch.Visible = true;
-            search.Visible = true;
             save.Visible = true;
             buttonSelOrd.Visible = true;
         }
@@ -129,6 +132,32 @@ namespace SMART_REST
         {
             ORDER_SELECT selectOrd = new ORDER_SELECT();
             selectOrd.ShowDialog();
+        }
+
+        private void comboSelection_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            list_of_dishes dish = new list_of_dishes();
+            selectList.DataSource= dish.SelectListDish(int.Parse(comboBox1.SelectedIndex.ToString()));
+            selectList.Columns[0].Visible = false;
+            selectList.Columns[1].HeaderText = "  НАЗВАНИЕ\r\nБЛЮДА";
+            selectList.Columns[2].Visible = false;
+            selectList.Columns[3].HeaderText = "  РАЗДЕЛ";
+            selectList.Columns[4].HeaderText = "  ЦЕНА";
+        }
+
+        private void comboSelection_MouseClick(object sender, MouseEventArgs e)
+        {
+            selectList.DataSource = list_of_dishes.SelectListDishAva();
+            selectList.Columns[0].Visible = false;
+            selectList.Columns[1].HeaderText = "  НАЗВАНИЕ\r\nБЛЮДА";
+            selectList.Columns[2].Visible = false;
+            selectList.Columns[3].HeaderText = "  РАЗДЕЛ";
+            selectList.Columns[4].HeaderText = "  ЦЕНА";
+        }
+
+        private void comboSelection_MouseUp(object sender, MouseEventArgs e)
+        {
+
         }
     }
 }

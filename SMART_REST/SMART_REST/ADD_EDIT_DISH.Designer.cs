@@ -201,6 +201,7 @@
             // 
             this.name_dish.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.name_dish.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.name_dish.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.name_dish.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.name_dish.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.name_dish.Location = new System.Drawing.Point(353, 42);

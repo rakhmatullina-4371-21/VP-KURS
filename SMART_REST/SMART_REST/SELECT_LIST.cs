@@ -213,5 +213,27 @@ namespace SMART_REST
                 
             } 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            switch (item)
+            {
+                case 0:
+                    {
+                       
+                    }
+                    break;
+                case 1:
+                    {
+                     
+                    }
+                    break;
+                case 2:
+                    {
+                       
+                    }
+                    break;
+            }
+        }
     }
 }

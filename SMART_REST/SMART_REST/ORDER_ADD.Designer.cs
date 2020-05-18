@@ -32,7 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.textCearch = new System.Windows.Forms.TextBox();
             this.white = new System.Windows.Forms.Panel();
             this.buttonSelOrd = new System.Windows.Forms.Button();
             this.comboSelection = new System.Windows.Forms.ComboBox();
@@ -40,30 +39,16 @@
             this.labelSelection = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.labelTable = new System.Windows.Forms.Label();
-            this.search = new System.Windows.Forms.Button();
             this.close = new System.Windows.Forms.Button();
             this.save = new System.Windows.Forms.Button();
-            this.selectList = new System.Windows.Forms.DataGridView();
             this.comboTable = new System.Windows.Forms.ComboBox();
+            this.selectList = new System.Windows.Forms.DataGridView();
             this.form = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.white.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.selectList)).BeginInit();
             this.form.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // textCearch
-            // 
-            this.textCearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textCearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textCearch.Font = new System.Drawing.Font("Microsoft JhengHei", 9F);
-            this.textCearch.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.textCearch.Location = new System.Drawing.Point(35, 60);
-            this.textCearch.Name = "textCearch";
-            this.textCearch.Size = new System.Drawing.Size(508, 27);
-            this.textCearch.TabIndex = 63;
-            this.textCearch.Visible = false;
             // 
             // white
             // 
@@ -77,8 +62,6 @@
             this.white.Controls.Add(this.labelSelection);
             this.white.Controls.Add(this.comboBox1);
             this.white.Controls.Add(this.labelTable);
-            this.white.Controls.Add(this.search);
-            this.white.Controls.Add(this.textCearch);
             this.white.Controls.Add(this.close);
             this.white.Controls.Add(this.save);
             this.white.Controls.Add(this.comboTable);
@@ -109,12 +92,17 @@
             // 
             this.comboSelection.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboSelection.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboSelection.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.comboSelection.FormattingEnabled = true;
             this.comboSelection.Location = new System.Drawing.Point(259, 20);
             this.comboSelection.Name = "comboSelection";
-            this.comboSelection.Size = new System.Drawing.Size(486, 24);
+            this.comboSelection.Size = new System.Drawing.Size(486, 27);
             this.comboSelection.TabIndex = 68;
             this.comboSelection.Visible = false;
+            this.comboSelection.SelectedIndexChanged += new System.EventHandler(this.comboSelection_SelectedIndexChanged);
+            this.comboSelection.MouseClick += new System.Windows.Forms.MouseEventHandler(this.comboSelection_MouseClick);
+            this.comboSelection.MouseUp += new System.Windows.Forms.MouseEventHandler(this.comboSelection_MouseUp);
             // 
             // label1
             // 
@@ -146,6 +134,7 @@
             // comboBox1
             // 
             this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBox1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
@@ -157,7 +146,7 @@
             "5"});
             this.comboBox1.Location = new System.Drawing.Point(340, 215);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
+            this.comboBox1.Size = new System.Drawing.Size(121, 27);
             this.comboBox1.TabIndex = 65;
             this.comboBox1.Visible = false;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
@@ -175,22 +164,6 @@
             this.labelTable.Size = new System.Drawing.Size(415, 42);
             this.labelTable.TabIndex = 1;
             this.labelTable.Text = "В Ы Б Е Р И Т Е  С Т О Л";
-            // 
-            // search
-            // 
-            this.search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.search.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("search.BackgroundImage")));
-            this.search.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.search.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.search.Font = new System.Drawing.Font("Microsoft JhengHei", 7F);
-            this.search.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.search.Location = new System.Drawing.Point(572, 55);
-            this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(173, 37);
-            this.search.TabIndex = 64;
-            this.search.Text = "П О И С К";
-            this.search.UseVisualStyleBackColor = true;
-            this.search.Visible = false;
             // 
             // close
             // 
@@ -225,6 +198,18 @@
             this.save.Visible = false;
             this.save.Click += new System.EventHandler(this.save_Click);
             // 
+            // comboTable
+            // 
+            this.comboTable.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboTable.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboTable.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.comboTable.FormattingEnabled = true;
+            this.comboTable.Location = new System.Drawing.Point(129, 215);
+            this.comboTable.Name = "comboTable";
+            this.comboTable.Size = new System.Drawing.Size(540, 27);
+            this.comboTable.TabIndex = 69;
+            this.comboTable.SelectedIndexChanged += new System.EventHandler(this.comboTable_SelectedIndexChanged);
+            // 
             // selectList
             // 
             this.selectList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -253,7 +238,7 @@
             this.selectList.DefaultCellStyle = dataGridViewCellStyle2;
             this.selectList.EnableHeadersVisualStyles = false;
             this.selectList.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.selectList.Location = new System.Drawing.Point(35, 112);
+            this.selectList.Location = new System.Drawing.Point(35, 69);
             this.selectList.Name = "selectList";
             this.selectList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -267,20 +252,10 @@
             this.selectList.RowHeadersVisible = false;
             this.selectList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.selectList.RowTemplate.Height = 24;
-            this.selectList.Size = new System.Drawing.Size(710, 277);
+            this.selectList.Size = new System.Drawing.Size(710, 320);
             this.selectList.TabIndex = 64;
             this.selectList.Visible = false;
             this.selectList.MouseClick += new System.Windows.Forms.MouseEventHandler(this.selectList_MouseClick);
-            // 
-            // comboTable
-            // 
-            this.comboTable.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboTable.FormattingEnabled = true;
-            this.comboTable.Location = new System.Drawing.Point(129, 215);
-            this.comboTable.Name = "comboTable";
-            this.comboTable.Size = new System.Drawing.Size(540, 24);
-            this.comboTable.TabIndex = 69;
-            this.comboTable.SelectedIndexChanged += new System.EventHandler(this.comboTable_SelectedIndexChanged);
             // 
             // form
             // 
@@ -333,8 +308,6 @@
         #endregion
         private System.Windows.Forms.Button close;
         private System.Windows.Forms.Button save;
-        private System.Windows.Forms.TextBox textCearch;
-        private System.Windows.Forms.Button search;
         private System.Windows.Forms.Panel white;
         private System.Windows.Forms.DataGridView selectList;
         private System.Windows.Forms.Label labelTable;

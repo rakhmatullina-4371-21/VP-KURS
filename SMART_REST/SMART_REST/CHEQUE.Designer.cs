@@ -97,7 +97,7 @@
             this.selectList.RowHeadersVisible = false;
             this.selectList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.selectList.RowTemplate.Height = 24;
-            this.selectList.Size = new System.Drawing.Size(841, 265);
+            this.selectList.Size = new System.Drawing.Size(841, 237);
             this.selectList.TabIndex = 67;
             // 
             // labelOrder
@@ -162,10 +162,12 @@
             // 
             this.textBox1.BackColor = System.Drawing.SystemColors.Control;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Location = new System.Drawing.Point(46, 384);
+            this.textBox1.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.textBox1.Location = new System.Drawing.Point(493, 356);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(428, 55);
+            this.textBox1.Size = new System.Drawing.Size(428, 75);
             this.textBox1.TabIndex = 70;
             // 
             // CHEQUE

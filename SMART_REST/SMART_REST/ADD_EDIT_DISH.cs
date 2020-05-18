@@ -17,20 +17,19 @@ namespace SMART_REST
         public ADD_EDIT_DISH(employee emp,dynamic dish)
         {
             InitializeComponent();
-            this.emp = emp;
-            this.dish = list_of_dishes.DynamicDish(dish);
-            maskedTextBoxPrice.Text = (Math.Truncate(dish.price)).ToString();
-            maskedTextBoxPrice2.Text =((dish.price-Math.Truncate(dish.price))*100).ToString();
-            name_dish.Text = dish.name_dish;
-            var comboList = menu.ComboSel();
-            foreach (menu i in comboList)
-            {
-                comboSelection.Items.Add(i.name_selection);
-            }
-            if (dish.name_selection!= null)
-                comboSelection.SelectedItem = dish.name_selection;
-            checkBoxAv.Checked = dish.availability;
-            
+                this.emp = emp;
+                this.dish = list_of_dishes.DynamicDish(dish);
+                maskedTextBoxPrice.Text = (Math.Truncate(dish.price)).ToString();
+                maskedTextBoxPrice2.Text = ((dish.price - Math.Truncate(dish.price)) * 100).ToString();
+                name_dish.Text = dish.name_dish;
+                var comboList = menu.ComboSel();
+                foreach (menu i in comboList)
+                {
+                    comboSelection.Items.Add(i.name_selection);
+                }
+                if (dish.name_selection != null)
+                    comboSelection.SelectedItem = dish.name_selection;
+                checkBoxAv.Checked = dish.availability;
         }
         public ADD_EDIT_DISH(employee emp, int id)
         {
