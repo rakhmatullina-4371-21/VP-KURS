@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище Model" Provider="Npgsql" ProviderManifestToken="12.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "SMART REST.public.content_orders" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="content_orders">
+    <Key>
+      <PropertyRef Name="count_dish" />
+    </Key>
+    <Property Name="id_order" Type="int4" />
+    <Property Name="id_dish" Type="int4" />
+    <Property Name="count_dish" Type="int4" Nullable="false" />
+  </EntityType>
+  <EntityType Name="employee">
+    <Key>
+      <PropertyRef Name="id_employee" />
+    </Key>
+    <Property Name="id_employee" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="surname" Type="text" Nullable="false" />
+    <Property Name="name" Type="text" Nullable="false" />
+    <Property Name="lastname" Type="text" />
+    <Property Name="login" Type="text" Nullable="false" />
+    <Property Name="password" Type="text" Nullable="false" />
+    <Property Name="id_position" Type="int4" />
+  </EntityType>
+  <EntityType Name="list_of_dishes">
+    <Key>
+      <PropertyRef Name="id_dish" />
+    </Key>
+    <Property Name="id_dish" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name_dish" Type="text" Nullable="false" />
+    <Property Name="id_selection" Type="int4" />
+    <Property Name="availability" Type="bool" Nullable="false" />
+    <Property Name="price" Type="numeric" Precision="19" Scale="4" Nullable="false" />
+  </EntityType>
+  <EntityType Name="list_of_table">
+    <Key>
+      <PropertyRef Name="id_table" />
+    </Key>
+    <Property Name="id_table" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name_table" Type="int4" Nullable="false" />
+  </EntityType>
+  <EntityType Name="menu">
+    <Key>
+      <PropertyRef Name="id_selection" />
+    </Key>
+    <Property Name="id_selection" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name_selection" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityType Name="orders">
+    <Key>
+      <PropertyRef Name="id_order" />
+    </Key>
+    <Property Name="id_order" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_employee" Type="int4" />
+    <Property Name="time_order" Type="time" Precision="6" Nullable="false" />
+    <Property Name="id_stock" Type="int4" />
+    <Property Name="full_price" Type="numeric" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="idtable" Type="int4" />
+  </EntityType>
+  <EntityType Name="positions">
+    <Key>
+      <PropertyRef Name="id_position" />
+    </Key>
+    <Property Name="id_position" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="position" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityType Name="stocks">
+    <Key>
+      <PropertyRef Name="id_stock" />
+    </Key>
+    <Property Name="id_stock" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="start_time" Type="time" Precision="6" Nullable="false" />
+    <Property Name="end_time" Type="time" Precision="6" Nullable="false" />
+    <Property Name="discount" Type="numeric" Precision="19" Scale="4" Nullable="false" />
+  </EntityType>
+  <Association Name="content_orders_id_dish_fkey">
+    <End Role="list_of_dishes" Type="Self.list_of_dishes" Multiplicity="0..1" />
+    <End Role="content_orders" Type="Self.content_orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="list_of_dishes">
+        <PropertyRef Name="id_dish" />
+      </Principal>
+      <Dependent Role="content_orders">
+        <PropertyRef Name="id_dish" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="content_orders_id_order_fkey">
+    <End Role="orders" Type="Self.orders" Multiplicity="0..1" />
+    <End Role="content_orders" Type="Self.content_orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="orders">
+        <PropertyRef Name="id_order" />
+      </Principal>
+      <Dependent Role="content_orders">
+        <PropertyRef Name="id_order" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="employee_id_position_fkey">
+    <End Role="positions" Type="Self.positions" Multiplicity="0..1" />
+    <End Role="employee" Type="Self.employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="positions">
+        <PropertyRef Name="id_position" />
+      </Principal>
+      <Dependent Role="employee">
+        <PropertyRef Name="id_position" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="list_of_dishes_id_selection_fkey">
+    <End Role="menu" Type="Self.menu" Multiplicity="0..1" />
+    <End Role="list_of_dishes" Type="Self.list_of_dishes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="menu">
+        <PropertyRef Name="id_selection" />
+      </Principal>
+      <Dependent Role="list_of_dishes">
+        <PropertyRef Name="id_selection" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="orders_id_employee_fkey">
+    <End Role="employee" Type="Self.employee" Multiplicity="0..1" />
+    <End Role="orders" Type="Self.orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="employee">
+        <PropertyRef Name="id_employee" />
+      </Principal>
+      <Dependent Role="orders">
+        <PropertyRef Name="id_employee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="orders_id_stock_fkey">
+    <End Role="stocks" Type="Self.stocks" Multiplicity="0..1" />
+    <End Role="orders" Type="Self.orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="stocks">
+        <PropertyRef Name="id_stock" />
+      </Principal>
+      <Dependent Role="orders">
+        <PropertyRef Name="id_stock" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="orders_idtable_fkey">
+    <End Role="list_of_table" Type="Self.list_of_table" Multiplicity="0..1" />
+    <End Role="orders" Type="Self.orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="list_of_table">
+        <PropertyRef Name="id_table" />
+      </Principal>
+      <Dependent Role="orders">
+        <PropertyRef Name="idtable" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище ModelContainer">
+    <EntitySet Name="employee" EntityType="Self.employee" Schema="public" store:Type="Tables" />
+    <EntitySet Name="list_of_dishes" EntityType="Self.list_of_dishes" Schema="public" store:Type="Tables" />
+    <EntitySet Name="list_of_table" EntityType="Self.list_of_table" Schema="public" store:Type="Tables" />
+    <EntitySet Name="menu" EntityType="Self.menu" Schema="public" store:Type="Tables" />
+    <EntitySet Name="orders" EntityType="Self.orders" Schema="public" store:Type="Tables" />
+    <EntitySet Name="positions" EntityType="Self.positions" Schema="public" store:Type="Tables" />
+    <EntitySet Name="stocks" EntityType="Self.stocks" Schema="public" store:Type="Tables" />
+    <EntitySet Name="content_orders" EntityType="Self.content_orders" store:Type="Tables" store:Schema="public">
+      <DefiningQuery>SELECT "content_orders"."id_order", "content_orders"."id_dish", "content_orders"."count_dish" FROM "public"."content_orders" AS "content_orders"</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="content_orders_id_dish_fkey" Association="Self.content_orders_id_dish_fkey">
+      <End Role="list_of_dishes" EntitySet="list_of_dishes" />
+      <End Role="content_orders" EntitySet="content_orders" />
+    </AssociationSet>
+    <AssociationSet Name="content_orders_id_order_fkey" Association="Self.content_orders_id_order_fkey">
+      <End Role="orders" EntitySet="orders" />
+      <End Role="content_orders" EntitySet="content_orders" />
+    </AssociationSet>
+    <AssociationSet Name="employee_id_position_fkey" Association="Self.employee_id_position_fkey">
+      <End Role="positions" EntitySet="positions" />
+      <End Role="employee" EntitySet="employee" />
+    </AssociationSet>
+    <AssociationSet Name="list_of_dishes_id_selection_fkey" Association="Self.list_of_dishes_id_selection_fkey">
+      <End Role="menu" EntitySet="menu" />
+      <End Role="list_of_dishes" EntitySet="list_of_dishes" />
+    </AssociationSet>
+    <AssociationSet Name="orders_id_employee_fkey" Association="Self.orders_id_employee_fkey">
+      <End Role="employee" EntitySet="employee" />
+      <End Role="orders" EntitySet="orders" />
+    </AssociationSet>
+    <AssociationSet Name="orders_id_stock_fkey" Association="Self.orders_id_stock_fkey">
+      <End Role="stocks" EntitySet="stocks" />
+      <End Role="orders" EntitySet="orders" />
+    </AssociationSet>
+    <AssociationSet Name="orders_idtable_fkey" Association="Self.orders_idtable_fkey">
+      <End Role="list_of_table" EntitySet="list_of_table" />
+      <End Role="orders" EntitySet="orders" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

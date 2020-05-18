@@ -1,0 +1,230 @@
+     CREATE TABLE  MENU
+(
+	id_selection SERIAL PRIMARY KEY,
+	name_selection TEXT NOT NULL
+);
+
+INSERT INTO MENU(name_selection)
+VALUES('Горячие закуски'), ('Супы'),
+('Гарниры'), ('Основные блюда'),
+ ('Пицца'), ('Паста'),
+('Десерты'), ('Салаты'),
+ ('Мясо'),('Рыба'),('Напитки');
+
+
+
+
+CREATE TABLE  LIST_OF_DISHES
+(
+	id_dish SERIAL PRIMARY KEY,
+	name_dish TEXT NOT NULL,
+    id_selection INT REFERENCES MENU(id_selection),
+	availability BOOLEAN NOT NULL,
+    price  MONEY NOT NULL 
+);
+
+INSERT INTO LIST_OF_DISHES(name_dish,id_selection,availability,price)
+VALUES ('Жульен грибной',1, true, 180);
+
+INSERT INTO LIST_OF_DISHES(name_dish,id_selection,availability,price)
+VALUES ('Жульен с курицей и грибами',1, true, 200);
+
+INSERT INTO LIST_OF_DISHES(name_dish,id_selection,availability,price)
+VALUES ('Тигровые креветки',1, true, 380);
+
+INSERT INTO LIST_OF_DISHES(name_dish,id_selection,availability,price)
+VALUES ('Домашняя лапша с деревенской курицей',2, true, 220);
+
+INSERT INTO LIST_OF_DISHES(name_dish,id_selection,availability,price)
+VALUES ('Тыквенный крем-суп с курицей',2, true, 250);
+
+INSERT INTO LIST_OF_DISHES(name_dish,id_selection,availability,price)
+VALUES ('Грибной крем-суп',2, true, 250);
+
+INSERT INTO LIST_OF_DISHES(name_dish,id_selection,availability,price)
+VALUES ('Томатный суп с морепродуктами',2, false, 450);
+
+INSERT INTO LIST_OF_DISHES(name_dish,id_selection,availability,price)
+VALUES ('Картофель фри',3, true, 100);
+
+INSERT INTO LIST_OF_DISHES(name_dish,id_selection,availability,price)
+VALUES ('Рисовое ризотто',3, true, 220);
+
+INSERT INTO LIST_OF_DISHES(name_dish,id_selection,availability,price)
+VALUES ('Пицца Маргарита',5, true, 360);
+
+INSERT INTO LIST_OF_DISHES(name_dish,id_selection,availability,price)
+VALUES ('Пицца деревенская',5, true, 580);
+
+INSERT INTO LIST_OF_DISHES(name_dish,id_selection,availability,price)
+VALUES ('Спагетти карбонара',6, true, 380);
+
+INSERT INTO LIST_OF_DISHES(name_dish,id_selection,availability,price)
+VALUES ('Феттучини с курицей',6, true, 400);
+
+INSERT INTO LIST_OF_DISHES(name_dish,id_selection,availability,price)
+VALUES ('Яблочный штрудель',7, true, 270);
+
+INSERT INTO LIST_OF_DISHES(name_dish,id_selection,availability,price)
+VALUES ('Карамельный чизкейк',7, true, 260);
+
+INSERT INTO LIST_OF_DISHES(name_dish,id_selection,availability,price)
+VALUES ('Суфле с манго',7, true, 280);
+
+INSERT INTO LIST_OF_DISHES(name_dish,id_selection,availability,price)
+VALUES ('Салат греческий',8, false, 280);
+
+INSERT INTO LIST_OF_DISHES(name_dish,id_selection,availability,price)
+VALUES ('Цезарь с курицей',8, true, 300);
+
+INSERT INTO LIST_OF_DISHES(name_dish,id_selection,availability,price)
+VALUES ('Цезарь с креветками',8, true, 370);
+
+INSERT INTO LIST_OF_DISHES(name_dish,id_selection,availability,price)
+VALUES ('Куриная грудка',9, true, 320);
+
+INSERT INTO LIST_OF_DISHES(name_dish,id_selection,availability,price)
+VALUES ('Шашлык из свинины',9, false, 590);
+
+INSERT INTO LIST_OF_DISHES(name_dish,id_selection,availability,price)
+VALUES ('Стейк миньон',9, true, 630);
+
+INSERT INTO LIST_OF_DISHES(name_dish,id_selection,availability,price)
+VALUES ('Стейк из семги',10, true, 590);
+
+INSERT INTO LIST_OF_DISHES(name_dish,id_selection,availability,price)
+VALUES ('Сибас с овощами',10, true, 570);
+
+INSERT INTO LIST_OF_DISHES(name_dish,id_selection,availability,price)
+VALUES ('Зеленый чай ',11, true, 100);
+
+INSERT INTO LIST_OF_DISHES(name_dish,id_selection,availability,price)
+VALUES ('Черный час со смородиной',11, true, 120);
+
+INSERT INTO LIST_OF_DISHES(name_dish,id_selection,availability,price)
+VALUES ('Капучино',11, true, 70);
+
+INSERT INTO LIST_OF_DISHES(name_dish,id_selection,availability,price)
+VALUES ('Латте',11, true, 90);
+
+
+
+CREATE TABLE  STOCKS
+(
+	id_stock SERIAL PRIMARY KEY,
+	start_time TIME NOT NULL,
+	end_time TIME NOT NULL,
+	discount NUMERIC NOT NULL
+);
+
+INSERT INTO STOCKS(start_time,end_time,discount)
+VALUES ( time '10:00:00', time '12:00:00',20);
+
+INSERT INTO STOCKS(start_time,end_time,discount)
+VALUES ( time '16:00:00', time '18:00:00',30);
+
+
+CREATE TABLE POSITIONS
+(
+	id_position SERIAL PRIMARY KEY,
+	position TEXT NOT NULL
+);
+
+INSERT INTO POSITIONS(position)
+VALUES ('Администратор');
+
+INSERT INTO POSITIONS(position)
+VALUES ('Официант');
+
+
+CREATE TABLE EMPLOYEE
+(
+	id_employee SERIAL PRIMARY KEY,
+	surname TEXT NOT NULL,
+	name TEXT NOT NULL,
+	lastname TEXT,
+        login  text  UNIQUE NOT NULL,
+        password TEXT NOT NULL,
+	id_position INT REFERENCES POSITIONS(id_position)
+);
+INSERT INTO EMPLOYEE(surname,name,lastname, login,password, id_position)
+VALUES ('Ласточкина','Василиса','Алексеевна','ASDF','1FGBF2',1);
+
+INSERT INTO EMPLOYEE(surname,name,lastname,login,password, id_position)
+VALUES ('Орешкин','Владимир','Вячеславович','user','12345',2);
+
+INSERT INTO EMPLOYEE(surname,name,login,password, id_position)
+VALUES ('Ахматов','Сергей','DBVSFVBS','FHRFTGHD1',2);
+
+INSERT INTO EMPLOYEE(surname,name,lastname,login,password, id_position)
+VALUES ('Гиниатуллин','Марат','Айратович','DGFGNFH','DGHDCG24',2);
+
+INSERT INTO EMPLOYEE(surname,name,lastname,login,password, id_position)
+VALUES ('Сметанина','София','Викторовна','GHJKFS','DFHDGH36',2);
+
+INSERT INTO EMPLOYEE(surname,name,lastname,login,password, id_position)
+VALUES ('Шукшин','Леонид','Федорович','RDGNGS','DHGJHKM24',2);
+
+INSERT INTO EMPLOYEE(surname,name,login,password, id_position)
+VALUES ('Рябинин','Сергей','DGVBGV','DGJFH47',2);
+
+INSERT INTO EMPLOYEE(surname,name,login,password, id_position)
+VALUES ('Кукушкин','Федор','JNFCGFC','DFHBGN25',2);
+
+INSERT INTO EMPLOYEE(surname,name,lastname,login,password, id_position)
+VALUES ('Панова','Мария','Алексеевна','DGNJDH','DGNKMCDH',2);
+
+INSERT INTO EMPLOYEE(surname,name,lastname,login,password, id_position)
+VALUES ('Дружинина','Дарья','Даниловна','MGVSHH','FCGNG',2);
+
+INSERT INTO EMPLOYEE(surname,name,login,password, id_position)
+VALUES ('Волков','Арсений','admin','12345',2);
+
+
+CREATE TABLE  LIST_OF_TABLE
+(
+	idtable SERIAL PRIMARY KEY,
+	name_table TEXT NOT NULL,
+);
+
+INSERT INTO LIST_OF_TABLE(idtable )
+VALUES (1);
+INSERT INTO LIST_OF_TABLE(idtable )
+VALUES (2);
+INSERT INTO LIST_OF_TABLE(idtable )
+VALUES (3);
+INSERT INTO LIST_OF_TABLE(idtable )
+VALUES (4);
+INSERT INTO LIST_OF_TABLE(idtable )
+VALUES (5);
+INSERT INTO LIST_OF_TABLE(idtable )
+VALUES (6);
+INSERT INTO LIST_OF_TABLE(idtable )
+VALUES (7);
+
+CREATE TABLE ORDERS
+(
+	id_order SERIAL PRIMARY KEY,
+	id_employee INT REFERENCES EMPLOYEE(id_employee),
+	idtable INT REFERENCES LIST_OF_TABLE(idtable),
+	time_order TIME NOT NULL,
+	id_stock INT REFERENCES STOCKS(id_stock),
+	full_price MONEY NOT NULL
+);
+
+
+CREATE TABLE CONTENT_ORDERS
+(
+	id_order INT REFERENCES ORDERS(id_order),
+	id_dish INT REFERENCES LIST_OF_DISHES(id_dish),
+	count_dish INT NOT NULL DEFAULT 1
+);
+
+CREATE VIEW LOG_PASS AS SELECT id_employee,login,password,position FROM EMPLOYEE AS E
+                            JOIN POSITIONS AS P ON E.id_position=P.id_position;
+
+CREATE VIEW CHEQUE AS SELECT O.id_order,name_dish,count_dish,price,time_order,discount,E.id_employee,surname,name,lastname FROM ORDERS AS O
+                            JOIN CONTENT_ORDERS AS CP ON O.id_order=CP.id_order
+							JOIN LIST_OF_DISHES AS LD ON CP.id_dish=LD.id_dish
+							JOIN STOCKS AS ST ON O.id_stock=ST.id_stock
+							JOIN EMPLOYEE AS E ON O.id_employee=E.id_employee;

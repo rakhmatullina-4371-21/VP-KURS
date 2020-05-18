@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="23cc98b5773f438b88a563dfddeac5f2" Name="Diagram1" ZoomLevel="71">
+        <EntityTypeShape EntityType="Model.employee" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.list_of_dishes" Width="1.5" PointX="9.625" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.list_of_table" Width="1.5" PointX="6.875" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.menu" Width="1.5" PointX="8.875" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.orders" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.positions" Width="1.5" PointX="2.875" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.stocks" Width="1.5" PointX="4.625" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.content_orders" Width="1.5" PointX="7.5" PointY="1.5" IsExpanded="true" />
+        <AssociationConnector Association="Model.employee_id_position_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.orders_id_employee_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.content_orders_id_dish_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.list_of_dishes_id_selection_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.orders_idtable_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.content_orders_id_order_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.orders_id_stock_fkey" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
