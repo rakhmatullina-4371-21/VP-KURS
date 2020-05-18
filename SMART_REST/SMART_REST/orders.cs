@@ -75,22 +75,12 @@ namespace SMART_REST
             }
             catch { return false; }
         }
-        List<dynamic> listDishOrder = new List<dynamic>();
-        public void FullPrice( int? id_order) 
+         decimal FullPrice( decimal discount) 
         {
 
-
-            listDishOrder = (from o in db.orders
-                             join c in db.content_orders on o.id_order equals c.id_order
-                             join d in db.list_of_dishes on c.id_dish equals d.id_dish
-                             join s in db.stocks on o.id_stock equals s.id_stock
-                             where o.id_order == id_order
-                             select new { o.id_order, d.id_dish, d.name_dish, c.count_dish, s.discount, d.price, o.time_order }).ToList<dynamic>();
-            var discount = listDishOrder.First(p => p.discount);
-          
-              var sumOneDish = listDishOrder.Select(p => p.count_dish * p.price);
+            var listDishOrder = infOrd.Select(p => p.count_dish * p.price).ToList();
             decimal sum = 0;
-            foreach (decimal i in sumOneDish) 
+            foreach (decimal i in listDishOrder) 
             {
                 sum += i;
             }
@@ -98,21 +88,50 @@ namespace SMART_REST
             {
                 sum *= (discount / 100);
             }
-            orders ord = db.orders.First(p => p.id_order == id_order);
-            ord.full_price = sum;
+            return sum;
         }
-
-        public List<content_orders> SelectOrder(int id_order)
+        List<dynamic> infOrd = new List<dynamic>();
+        public List<dynamic> SelectOrder(int id_order)
         {
-            MessageBox.Show($"{id_order}");
            List<content_orders> ord = (db.content_orders.Where(p => p.id_order == id_order)).ToList();
-            MessageBox.Show($"{ord.ElementAt(0).id_order}");
-            return ord;
+            infOrd = (from i in ord
+                     join d in db.list_of_dishes on i.id_dish equals d.id_dish
+                     select new { i.id_order, d.id_dish, d.name_dish, i.count_dish,d.price }).ToList<dynamic>();
+
+            return infOrd;
         }
         public List<int> SelectOrder(employee emp)
         {
             var ordList = db.orders.Where(p => p.id_employee == emp.id_employee).Select(p=>p.id_order).ToList();
             return ordList;
+        }
+        public string SelectInformOrd( int? id)
+        {
+            decimal disc = 0;
+            string time = db.orders.First(p => p.id_order ==id).time_order.ToString("hh':'mm");
+            var st = db.orders.First(p => p.id_order == id).id_stock;
+            if (db.stocks.FirstOrDefault(p => p.id_stock == st) != null)
+            {
+                 disc = db.stocks.FirstOrDefault(p => p.id_stock == st).discount;
+            }
+             var sum=FullPrice(disc);
+            return $"В Р Е М Я   З А К А З А : {time}\r\nС К И Д К А {disc} % \r\nЦ Е Н А   С О   С К И Д К О Й {sum} р.";
+        }
+        public bool DeleteOrd(int id)    //возврат заказа, информацию о котором необходимо удалить
+        {
+            try
+            {
+                var ord = db.orders.First(w => w.id_order == id);
+                var c = db.content_orders.Where(p => p.id_order == id).ToList();
+                foreach (content_orders i in c) 
+                {
+                    db.content_orders.Remove(i);
+                }
+                db.orders.Remove(ord);
+                db.SaveChanges();
+                return true;
+            }
+            catch { return false; }
         }
     }
 }

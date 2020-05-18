@@ -40,14 +40,40 @@ namespace SMART_REST
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-           selectList.DataSource= ord.SelectOrder(int.Parse(comboBox1.SelectedItem.ToString()));
-            selectList.Columns[0].HeaderText ="ЗАКАЗ №";
-            selectList.Columns[1].Visible = false;
-            selectList.Columns[2].HeaderText = "  НАЗВАНИЕ\r\nБЛЮДА";
-            selectList.Columns[3].HeaderText = "  КОЛИЧЕСТВО";
-            selectList.Columns[4].HeaderText = "  СКИДКА";
-            selectList.Columns[5].HeaderText = "  ЦЕНА";
-            selectList.Columns[6].HeaderText = "  ВРЕМЯ";
+            try
+            {
+                selectList.DataSource = ord.SelectOrder(int.Parse(comboBox1.SelectedItem.ToString()));
+                selectList.Columns[0].HeaderText = "ЗАКАЗ №";
+                selectList.Columns[1].Visible = false;
+                selectList.Columns[2].HeaderText = "  НАЗВАНИЕ\r\nБЛЮДА";
+                selectList.Columns[3].HeaderText = "  КОЛИЧЕСТВО";
+                selectList.Columns[4].HeaderText = "  ЦЕНА";
+
+                button2.Visible = true;
+                textBox1.Text = ord.SelectInformOrd(int.Parse(comboBox1.SelectedItem.ToString()));
+            }
+            catch
+            {
+                MessageForm f = new MessageForm(" З А К А З  Н Е  Н А Й Д Е Н");
+                f.ShowDialog();
+            }
+           
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ord.DeleteOrd(int.Parse(comboBox1.SelectedItem.ToString()));
+                MessageForm f = new MessageForm("У С П Е Ш Н О !");
+                f.ShowDialog();
+                MENU_ADM_WAITER waiter = new MENU_ADM_WAITER(2, emp);
+                waiter.Location = this.Location;
+                waiter.Size = this.Size; waiter.Show(); this.Hide();
+
+            }
+            catch { MessageForm f = new MessageForm("З А К А З  Н Е  У Д А Л Е Н"); f.ShowDialog(); }
+
         }
     }
 }

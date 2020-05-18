@@ -81,7 +81,7 @@ namespace SMART_REST
                             MENU_ADM_WAITER waiter = new MENU_ADM_WAITER(2, emp);
                             waiter.Location = this.Location;
                             waiter.Size = this.Size; waiter.Show(); this.Hide();
-                        }
+                     }
                     else {  f = new MessageForm(); f.ShowDialog();}
                     }
                     else { f = new MessageForm(notSave); f.ShowDialog(); }

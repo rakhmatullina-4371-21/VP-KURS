@@ -34,8 +34,14 @@ namespace SMART_REST
                 foreach (content_orders i in ListDishesinOrd)
                 {
 
+                    int MaxId;
+                    try
+                    {
+                        MaxId = int.Parse(db.content_orders.Max(p => p.id_content_order).ToString()) + 1;
+                    }
+                    catch { MaxId = 1; }
                     var content = new content_orders();
-                    content.id_content_order = i.id_content_order;
+                    content.id_content_order = MaxId;
                     content.id_order = db.orders.First(p => p.id_order == id_ord).id_order;
                     content.id_dish = db.list_of_dishes.First(p => p.id_dish == i.id_dish).id_dish;
                     content.count_dish = i.count_dish;
