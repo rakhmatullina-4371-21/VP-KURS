@@ -70,26 +70,26 @@ namespace SMART_REST
         {
             MessageForm f;
             string notSave = "З А К А З   Н Е   Б Ы Л   С О Х Р А Н Е Н";
-            if (cont.ListDishesinOrd!= null)
+            if (content_orders.list.Count!= 0)
             {
-                //try
-                //{
+                try
+                {
                     if (ord.SaveOrd(ord.id_order, emp.id_employee, (int)comboTable.SelectedItem))
                     {
-                    if (cont.SaveCont(ord.id_order))
-                    {
+                        if (cont.SaveCont(ord.id_order))
+                        {
                             f = new MessageForm($"З А К А З  №  {ord.id_order}\r\n У С П Е Ш Н О  С О Х Р А Н Е Н"); f.ShowDialog();
                             MENU_ADM_WAITER waiter = new MENU_ADM_WAITER(2, emp);
                             waiter.Location = this.Location;
                             waiter.Size = this.Size; waiter.Show(); this.Hide();
-                           content_orders.list.Clear();
-                     }
-                    else {  f = new MessageForm(); f.ShowDialog();}
+                            content_orders.list.Clear();
+                        }
+                        else { f = new MessageForm(); f.ShowDialog(); }
                     }
                     else { f = new MessageForm(notSave); f.ShowDialog(); }
 
-                //}
-                //catch {  f = new MessageForm(); f.ShowDialog(); }
+                }
+                catch { f = new MessageForm(); f.ShowDialog(); }
             }
             else {f = new MessageForm("В Ы Б Е Р И Т Е   Х О Т Я   Б Ы \r\nО Д Н О   Б Л Ю Д О"); f.ShowDialog(); }
         }

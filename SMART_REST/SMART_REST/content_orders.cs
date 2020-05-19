@@ -66,7 +66,6 @@ namespace SMART_REST
                     MaxId = int.Parse(db.content_orders.Max(p => p.id_content_order).ToString()) + 1;
                 }
                 catch { MaxId = 1; }
-                MessageBox.Show($"{MaxId}");
                 content.id_content_order = MaxId;
                 content.id_dish = id_dish;
                 content.count_dish = count;

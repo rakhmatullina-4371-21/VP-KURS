@@ -34,8 +34,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ORDER_SELECT));
             this.white = new System.Windows.Forms.Panel();
-            this.selectList = new System.Windows.Forms.DataGridView();
             this.save = new System.Windows.Forms.Button();
+            this.selectList = new System.Windows.Forms.DataGridView();
             this.form = new System.Windows.Forms.Panel();
             this.labelOrder = new System.Windows.Forms.Label();
             this.t = new System.Windows.Forms.ToolTip(this.components);
@@ -56,6 +56,23 @@
             this.white.Name = "white";
             this.white.Size = new System.Drawing.Size(798, 407);
             this.white.TabIndex = 65;
+            // 
+            // save
+            // 
+            this.save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.save.BackColor = System.Drawing.Color.White;
+            this.save.BackgroundImage = global::SMART_REST.Properties.Resources.Image_1;
+            this.save.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.save.Font = new System.Drawing.Font("Microsoft JhengHei", 8F);
+            this.save.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.save.Location = new System.Drawing.Point(20, 358);
+            this.save.Name = "save";
+            this.save.Size = new System.Drawing.Size(760, 30);
+            this.save.TabIndex = 64;
+            this.save.Text = "К   М Е Н Ю";
+            this.save.UseVisualStyleBackColor = false;
+            this.save.Click += new System.EventHandler(this.save_Click);
             // 
             // selectList
             // 
@@ -104,23 +121,6 @@
             this.selectList.TabIndex = 3;
             this.t.SetToolTip(this.selectList, "Дважды кликните для изменения количества блюда");
             // 
-            // save
-            // 
-            this.save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.save.BackColor = System.Drawing.Color.White;
-            this.save.BackgroundImage = global::SMART_REST.Properties.Resources.Image_1;
-            this.save.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.save.Font = new System.Drawing.Font("Microsoft JhengHei", 8F);
-            this.save.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.save.Location = new System.Drawing.Point(632, 358);
-            this.save.Name = "save";
-            this.save.Size = new System.Drawing.Size(148, 30);
-            this.save.TabIndex = 64;
-            this.save.Text = "К   М Е Н Ю";
-            this.save.UseVisualStyleBackColor = false;
-            this.save.Click += new System.EventHandler(this.save_Click);
-            // 
             // form
             // 
             this.form.Controls.Add(this.labelOrder);
@@ -148,7 +148,7 @@
             this.t.BackColor = System.Drawing.SystemColors.ControlDark;
             this.t.ForeColor = System.Drawing.SystemColors.Window;
             // 
-            // ORDER_EDIT
+            // ORDER_SELECT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -160,7 +160,7 @@
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(960, 550);
-            this.Name = "ORDER_EDIT";
+            this.Name = "ORDER_SELECT";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SMART REST";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ORDER_EDIT_FormClosed);

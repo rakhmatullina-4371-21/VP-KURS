@@ -115,7 +115,7 @@ namespace SMART_REST
                  disc = db.stocks.FirstOrDefault(p => p.id_stock == st).discount;
             }
              var sum=FullPrice(disc);
-            return $"В Р Е М Я   З А К А З А :                       {time}\r\nС К И Д К А                                          {disc} % \r\nЦ Е Н А   С О   С К И Д К О Й                {sum} р.";
+            return $"В Р Е М Я   З А К А З А :                     {time}\r\nС К И Д К А :                                     {disc} % \r\nЦ Е Н А   С О   С К И Д К О Й :          {sum} р.";
         }
         public bool DeleteOrd(int id)    //возврат заказа, информацию о котором необходимо удалить
         {
