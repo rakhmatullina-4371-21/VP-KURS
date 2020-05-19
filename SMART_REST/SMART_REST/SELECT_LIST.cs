@@ -37,6 +37,10 @@ namespace SMART_REST
                         dataGridView1.Columns[5].HeaderText = "ПАРОЛЬ";
                         dataGridView1.Columns[6].Visible = false;
                         dataGridView1.Columns[7].HeaderText = "ДОЛЖНОСТЬ";
+                        foreach (string i in employee.ComboBoxItem())
+                        {
+                            comboBox1.Items.Add(i) ;
+                        }
                     }
                     break;
                 case 1:
@@ -48,7 +52,12 @@ namespace SMART_REST
                         dataGridView1.Columns[3].HeaderText = "  РАЗДЕЛ";
                         dataGridView1.Columns[4].HeaderText = "  ДОСТУПНОСТЬ";
                         dataGridView1.Columns[5].HeaderText = "  ЦЕНА";
-                    } break;
+                        foreach (string i in list_of_dishes.ComboBoxItem())
+                        {
+                            comboBox1.Items.Add(i);
+                        }
+                    }
+                    break;
                 case 2: 
                     {
                         stocks stock=new stocks();
@@ -58,6 +67,16 @@ namespace SMART_REST
                         dataGridView1.Columns[2].HeaderText = "КОНЕЦ\r\nАКЦИИ";
                         dataGridView1.Columns[3].HeaderText = "РАЗМЕР\r\n СКИДКИ В %";
                         dataGridView1.Columns[4].Visible = false;
+                        label2.Visible = false;
+                        comboBox1.Visible = false;
+                        textBox1.Visible = false;
+                        label3.Visible = true;
+                        comboBox2.Visible = true;
+                        button1.Visible = false;
+                        foreach (string i in stocks.ComboBoxItem())
+                        {
+                            comboBox2.Items.Add(i);
+                        }
                     } break;
             }
         }
@@ -105,8 +124,9 @@ namespace SMART_REST
            
             if (dataGridView1.SelectedCells.Count == 1) 
             {
-                
-                var edit=(int)dataGridView1.SelectedCells[0].OwningRow.Cells[0].Value;
+                int edit = 0;
+                try {  edit = (int)dataGridView1.SelectedCells[0].OwningRow.Cells[0].Value; } catch { };
+               
                 switch (item) 
                 {
                     case 0: 
@@ -142,6 +162,7 @@ namespace SMART_REST
 
         private void update_Click(object sender, EventArgs e)
         {
+            label1.Visible = false;
             switch (item)
             {
                 case 0:
@@ -216,23 +237,59 @@ namespace SMART_REST
 
         private void button1_Click(object sender, EventArgs e)
         {
+            label1.Visible = false;
             switch (item)
             {
                 case 0:
                     {
-                       
+                        try
+                        {
+                            dataGridView1.DataSource = emp.searchEmp(comboBox1.SelectedIndex, textBox1.Text);
+                            dataGridView1.Columns[0].Visible = false;
+                            dataGridView1.Columns[1].HeaderText = "ФАМИЛИЯ";
+                            dataGridView1.Columns[2].HeaderText = "ИМЯ";
+                            dataGridView1.Columns[3].HeaderText = "ОТЧЕСТВО";
+                            dataGridView1.Columns[4].HeaderText = "ЛОГИН";
+                            dataGridView1.Columns[5].HeaderText = "ПАРОЛЬ";
+                            dataGridView1.Columns[6].HeaderText = "ДОЛЖНОСТЬ";
+                        }
+                        catch { label1.Visible = true; }
+                    
                     }
                     break;
                 case 1:
                     {
-                     
-                    }
+                        try
+                        {
+                            dataGridView1.DataSource = dish.searchDish(comboBox1.SelectedIndex, textBox1.Text);
+                            dataGridView1.Columns[0].Visible = false;
+                            dataGridView1.Columns[1].HeaderText = "  НАЗВАНИЕ\r\nБЛЮДА";
+                            dataGridView1.Columns[2].Visible = false;
+                            dataGridView1.Columns[3].HeaderText = "  РАЗДЕЛ";
+                            dataGridView1.Columns[4].HeaderText = "  ДОСТУПНОСТЬ";
+                            dataGridView1.Columns[5].HeaderText = "  ЦЕНА";
+                        }
+                        catch { label1.Visible = true; }
+            }
                     break;
-                case 2:
-                    {
-                       
-                    }
-                    break;
+            }
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = stock.OrderByStock(comboBox2.SelectedIndex);
+            dataGridView1.Columns[0].Visible = false;
+            dataGridView1.Columns[1].HeaderText = "  НАЧАЛО\r\n  АКЦИИ";
+            dataGridView1.Columns[2].HeaderText = "  КОНЕЦ\r\n  АКЦИИ";
+            dataGridView1.Columns[3].HeaderText = "  РАЗМЕР\r\n СКИДКИ В %";
+            dataGridView1.Columns[4].Visible = false;
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

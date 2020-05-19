@@ -13,6 +13,7 @@ namespace SMART_REST
     using System.Collections.Generic;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using System.Security.Cryptography.X509Certificates;
 
     public partial class employee
     {
@@ -123,7 +124,47 @@ namespace SMART_REST
             {
                 return false;
             }
+            
 
+        }
+        public static List<string> ComboBoxItem() 
+        {
+            List<string> items = new List<string>();
+            items.Add("ПО ФАМИЛИИ");
+            items.Add("ПО ИМЕНИ");
+            items.Add("ПО ДОЛЖНОСТИ");
+            return items;
+
+        }
+        public List<dynamic> searchEmp(int item, string searchString) 
+        {
+            var empList=new List<dynamic>();
+            switch (item) 
+            {
+                case 0: 
+                    {
+                        empList = db.employee.Where(p => p.surname == searchString)
+                                  .Join(db.positions, p => p.id_position, e => e.id_position, (p, e) => new {p.id_employee, p.surname, p.name, p.lastname, p.login, p.password, e.position })
+                                  .ToList<dynamic>();
+                        
+                    }break;
+                case 1: 
+                    {
+                        empList = db.employee.Where(p => p.name == searchString)
+                             .Join(db.positions, p => p.id_position, e => e.id_position, (p, e) => new {p.id_employee, p.surname, p.name, p.lastname, p.login, p.password, e.position })
+                             .ToList<dynamic>();
+                    }
+                    break;
+                case 2:
+                    {
+                        empList = db.positions.Where(p => p.position == searchString)
+                            .Join(db.employee, p => p.id_position, e => e.id_position, (p, e) => new {e.id_employee, e.surname, e.name, e.lastname, e.login, e.password, p.position })
+                            .ToList<dynamic>();
+                    }
+                    break;
+
+            }
+            return empList;
         }
     }
 }

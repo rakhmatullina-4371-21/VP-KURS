@@ -126,6 +126,38 @@ namespace SMART_REST
                            select new { p.id_dish, p.name_dish, m.id_selection, m.name_selection, p.price }).ToList<dynamic>();
             return avaList;
         }
+        public static List<string> ComboBoxItem()
+        {
+            List<string> items = new List<string>();
+            items.Add("ПО НАЗВАНИЮ");
+            items.Add("ПО РАЗДЕЛУ");
+            return items;
+
+        }
+        public List<dynamic> searchDish(int item, string searchString)
+        {
+            var dishList = new List<dynamic>();
+            switch (item)
+            {
+                case 0:
+                    {
+                        dishList = db.list_of_dishes.Where(p => p.name_dish == searchString)
+                             .Join(db.menu, p => p.id_selection, e => e.id_selection, (p, e) => new { p.id_dish, p.name_dish,e.name_selection,p.availability,p.price})
+                             .ToList<dynamic>();
+
+                    }
+                    break;
+                case 1:
+                    {
+                        dishList = db.menu.Where(p => p.name_selection == searchString)
+                            .Join(db.list_of_dishes, e => e.id_selection, p => p.id_selection, (p, e) => new {e.id_dish, e.name_dish,p.name_selection, e.availability, e.price })
+                            .ToList<dynamic>();
+                    }
+                    break;
+
+            }
+            return dishList;
+        }
 
     }
 }

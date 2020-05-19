@@ -99,5 +99,48 @@ namespace SMART_REST
             }
             else return 4;
         }
+        public static List<string> ComboBoxItem()
+        {
+            List<string> items = new List<string>();
+            items.Add("ПО ВОЗРАСТАНИЮ СКИДКИ");
+            items.Add("ПО УБЫВАНИЮ СКИДКИ");
+            items.Add("ПО ВОЗРАСТАНИЮ ВРЕМЕНИ НАЧАЛА АКЦИИ");
+            items.Add("ПО УБЫВАНИЮ ВРЕМЕНИ НАЧАЛА АКЦИИ");
+            return items;
+
+        }
+        public List<stocks> OrderByStock(int item)
+        {
+            var stockList = new List<stocks>();
+            switch (item)
+            {
+                case 0:
+                    {
+                        stockList = db.stocks.OrderBy(p => p.discount).ToList();
+
+                    }
+                    break;
+                case 1:
+                    {
+                        stockList = db.stocks.OrderByDescending(p => p.discount).ToList();
+
+                    }
+                    break;
+                case 2:
+                    {
+                        stockList = db.stocks.OrderBy(p => p.start_time).ToList();
+
+                    }
+                    break;
+                case 3:
+                    {
+                        stockList = db.stocks.OrderByDescending(p => p.start_time).ToList();
+
+                    }
+                    break;
+
+            }
+            return stockList;
+        }
     }
 }
