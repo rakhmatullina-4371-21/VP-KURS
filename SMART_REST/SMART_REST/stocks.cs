@@ -65,7 +65,7 @@ namespace SMART_REST
         {
             TimeSpan newStart = TimeSpan.Parse(start);
             TimeSpan newEnd = TimeSpan.Parse(end);
-            if (newStart.Hours <= 24 && newStart.Minutes <= 59 && newStart.Hours <= 24 && newStart.Minutes <= 59 && newEnd.Hours - newStart.Hours > 0 && discount != 0)
+            if (newStart.Hours <= 24 && newStart.Minutes <= 59 && newStart.Hours <= 24 && newStart.Minutes <= 59 /*&& newEnd.Hours - newStart.Hours > 0*/ && discount != 0)
             {
                 var stock = db.stocks.FirstOrDefault(w => w.id_stock == id);
                 if (stock == null)
@@ -89,10 +89,10 @@ namespace SMART_REST
             {
                 return 1;
             }
-            if (newEnd.Hours - newStart.Hours <= 0)
-            {
-                return 2;
-            }
+            //if (newEnd.Hours - newStart.Hours <= 0)
+            //{
+            //    return 2;
+            //}
             if (discount < 1)
             {
                 return 3;

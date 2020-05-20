@@ -37,7 +37,6 @@ namespace SMART_REST
             selectList.Columns[2].Visible = false;
             selectList.Columns[3].HeaderText = "  РАЗДЕЛ";
             selectList.Columns[4].HeaderText = "  ЦЕНА";
-             ord.id_order=ord.IDnewOrd();
         }
 
         private void ORDER_ADD_FormClosed(object sender, FormClosedEventArgs e)
@@ -72,24 +71,17 @@ namespace SMART_REST
             string notSave = "З А К А З   Н Е   Б Ы Л   С О Х Р А Н Е Н";
             if (content_orders.list.Count!= 0)
             {
-                try
-                {
-                    if (ord.SaveOrd(ord.id_order, emp.id_employee, (int)comboTable.SelectedItem))
-                    {
-                        if (cont.SaveCont(ord.id_order))
-                        {
-                            f = new MessageForm($"З А К А З  №  {ord.id_order}\r\n У С П Е Ш Н О  С О Х Р А Н Е Н"); f.ShowDialog();
-                            MENU_ADM_WAITER waiter = new MENU_ADM_WAITER(2, emp);
-                            waiter.Location = this.Location;
-                            waiter.Size = this.Size; waiter.Show(); this.Hide();
-                            content_orders.list.Clear();
-                        }
-                        else { f = new MessageForm(); f.ShowDialog(); }
-                    }
-                    else { f = new MessageForm(notSave); f.ShowDialog(); }
 
-                }
-                catch { f = new MessageForm(); f.ShowDialog(); }
+                   try
+                   {
+                          ord.id_order=ord.SaveOrd(emp.id_employee, (int)comboTable.SelectedItem);
+                          f = new MessageForm($"З А К А З  №  {ord.id_order}\r\n У С П Е Ш Н О  С О Х Р А Н Е Н"); f.ShowDialog(); orders.ListDishesinOrd.Clear();
+                          MENU_ADM_WAITER waiter = new MENU_ADM_WAITER(2, emp);
+                          waiter.Location = this.Location;
+                          waiter.Size = this.Size; waiter.Show(); this.Hide();
+                          content_orders.list.Clear();
+                   }
+                    catch { f = new MessageForm(notSave); f.ShowDialog(); }
             }
             else {f = new MessageForm("В Ы Б Е Р И Т Е   Х О Т Я   Б Ы \r\nО Д Н О   Б Л Ю Д О"); f.ShowDialog(); }
         }
@@ -137,7 +129,7 @@ namespace SMART_REST
         private void comboSelection_SelectedIndexChanged(object sender, EventArgs e)
         {
             list_of_dishes dish = new list_of_dishes();
-            selectList.DataSource= dish.SelectListDish(int.Parse(comboBox1.SelectedIndex.ToString()));
+            selectList.DataSource= dish.SelectListDish(comboSelection.SelectedItem.ToString());
             selectList.Columns[0].Visible = false;
             selectList.Columns[1].HeaderText = "  НАЗВАНИЕ\r\nБЛЮДА";
             selectList.Columns[2].Visible = false;

@@ -46,11 +46,11 @@ namespace SMART_REST
                         select new { d.id_dish, d.name_dish, d.id_selection, m.name_selection, d.availability, d.price }).ToList<dynamic>();
             return listDish;
         }
-        public dynamic SelectListDish(int id_selection)   //вывод списка блюд из раздела
+        public dynamic SelectListDish(string name_selection)   //вывод списка блюд из раздела
         {
             var avaList = (from p in db.list_of_dishes
                            join m in db.menu on p.id_selection equals m.id_selection
-                           where p.availability == true && m.id_selection==id_selection
+                           where p.availability == true && m.name_selection==name_selection
                            select new { p.id_dish, p.name_dish, m.id_selection, m.name_selection, p.price }).ToList<dynamic>();
             return avaList;
         }

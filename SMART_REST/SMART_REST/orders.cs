@@ -41,27 +41,30 @@ namespace SMART_REST
 
 
         SmartRestaurantEntities db = new SmartRestaurantEntities();
-        public int IDnewOrd()    //возврат присвоение заказу номера
+        //public int IDnewOrd()    //возврат присвоение заказу номера
+        //{
+        //    int MaxId;
+        //    try
+        //    {
+        //        MaxId = int.Parse(db.orders.Max(p => p.id_order).ToString()) + 1;
+        //    }
+        //    catch { MaxId = db.orders.LastOrDefault<orders>(+ 1; }
+        //    return MaxId;
+        //}
+        public int SaveOrd(int id_emp, int id_tab)
         {
-
-            int MaxId;
-            try
-            {
-                MaxId = int.Parse(db.orders.Max(p => p.id_order).ToString()) + 1;
-            }
-            catch { MaxId = 1; }
-            return MaxId;
-        }
-        public bool SaveOrd(int id_ord, int id_emp, int id_tab)
-        {
-            try
-            {
                 orders ord = new orders();
-                ord.id_order = id_ord;
                 ord.id_employee = db.employee.First(p => p.id_employee == id_emp).id_employee;
                 ord.id_table = id_tab;
                 ord.time_order = DateTime.Now.TimeOfDay;
-                var stock = db.stocks.Where(p => p.start_time <= ord.time_order && p.end_time >= ord.time_order).ToList();
+                TimeSpan nulll = new TimeSpan(00,00,00); 
+                var stock = new List<stocks>();
+                if (db.stocks.Where(p => p.start_time > p.end_time) != null)
+                {
+                    stock = db.stocks.Where(p => (p.start_time <= ord.time_order && ord.time_order > nulll) || (p.end_time >= ord.time_order && ord.time_order >= nulll)).ToList();
+                }
+                else
+                { stock = db.stocks.Where(p => p.start_time <= ord.time_order && p.end_time >= ord.time_order).ToList(); }
                 if (stock.Count != 0)
                 {
                     var discount = stock.Min(p => p.discount);
@@ -70,12 +73,21 @@ namespace SMART_REST
                 else { ord.id_stock = null; }
                 db.orders.Add(ord);
                 db.SaveChanges();
-           
-                return true;
-            }
-            catch { return false; }
+                foreach (content_orders i in ListDishesinOrd)
+                {
+                    var content = new content_orders();
+                    content.id_content_order = i.id_content_order;
+                    content.id_order = ord.id_order;
+                    content.id_dish = db.list_of_dishes.First(p => p.id_dish == i.id_dish).id_dish;
+                    content.count_dish = i.count_dish;
+                    db.content_orders.Add(content);
+                    db.SaveChanges();
+                   
+                }
+                return ord.id_order;
         }
-         decimal FullPrice( decimal discount) 
+        public static List<content_orders> ListDishesinOrd = new List<content_orders>();
+        decimal FullPrice( decimal discount) 
         {
 
             var listDishOrder = infOrd.Select(p => p.count_dish * p.price).ToList();

@@ -26,34 +26,24 @@ namespace SMART_REST
 
         SmartRestaurantEntities db = new SmartRestaurantEntities();
 
-        public bool SaveCont(int? id_ord)   //сохранение 
-        {
-            try
-            {
-                var list = new List<content_orders>();
-                foreach (content_orders i in ListDishesinOrd)
-                {
-
-                    int MaxId;
-                    try
-                    {
-                        MaxId = int.Parse(db.content_orders.Max(p => p.id_content_order).ToString()) + 1;
-                    }
-                    catch { MaxId = 1; }
-                    var content = new content_orders();
-                    content.id_content_order = MaxId;
-                    content.id_order = db.orders.First(p => p.id_order == id_ord).id_order;
-                    content.id_dish = db.list_of_dishes.First(p => p.id_dish == i.id_dish).id_dish;
-                    content.count_dish = i.count_dish;
-                    list.Add(content);
-                    db.content_orders.Add(content);
-                    db.SaveChanges();
-                }
-                return true;
-            }
-            catch { return false; }
-        }
-        public List<content_orders> ListDishesinOrd = new List<content_orders>();
+        //public bool SaveCont(int? id_ord)   //сохранение 
+        //{
+        //    //try
+        //    //{
+        //        foreach (content_orders i in ListDishesinOrd)
+        //        {
+        //            var content = new content_orders();
+        //            content.id_content_order = i.id_content_order;
+        //            content.id_order = db.orders.First(p => p.id_order == id_ord).id_order;
+        //            content.id_dish = db.list_of_dishes.First(p => p.id_dish == i.id_dish).id_dish;
+        //            content.count_dish = i.count_dish;
+        //            db.content_orders.Add(content);
+        //            db.SaveChanges();
+        //        }
+        //        return true;
+        //    //}
+        //    //catch { return false; }
+        //}
         public void ListDihInOrder(int id_dish, int count)
         {
             if (count != 0) 
@@ -61,15 +51,16 @@ namespace SMART_REST
                 var content = new content_orders();
 
                 int MaxId;
-                try
+
+                if (db.content_orders.Count() != 0)
                 {
                     MaxId = int.Parse(db.content_orders.Max(p => p.id_content_order).ToString()) + 1;
                 }
-                catch { MaxId = 1; }
+                else { if (orders.ListDishesinOrd.Count() != 0) { MaxId = orders.ListDishesinOrd.Max(p => p.id_content_order) + 1; } else MaxId = 1; }
                 content.id_content_order = MaxId;
                 content.id_dish = id_dish;
                 content.count_dish = count;
-                ListDishesinOrd.Add(content);
+                orders.ListDishesinOrd.Add(content);
             }
 
           
