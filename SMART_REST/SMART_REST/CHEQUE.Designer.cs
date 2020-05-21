@@ -39,6 +39,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.selectList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +50,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft JhengHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label2.Location = new System.Drawing.Point(264, 70);
+            this.label2.Location = new System.Drawing.Point(265, 66);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(106, 22);
             this.label2.TabIndex = 14;
@@ -62,7 +63,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.selectList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.selectList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.selectList.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.selectList.BackgroundColor = System.Drawing.SystemColors.Window;
             this.selectList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
@@ -160,15 +161,23 @@
             // 
             // textBox1
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox1.BackColor = System.Drawing.SystemColors.Window;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.textBox1.Location = new System.Drawing.Point(493, 356);
+            this.textBox1.Location = new System.Drawing.Point(459, 356);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(428, 75);
             this.textBox1.TabIndex = 70;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Window;
+            this.panel1.Location = new System.Drawing.Point(46, 97);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(841, 351);
+            this.panel1.TabIndex = 71;
             // 
             // CHEQUE
             // 
@@ -184,6 +193,7 @@
             this.Controls.Add(this.close);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button2);
+            this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(960, 550);
@@ -205,5 +215,6 @@
         private System.Windows.Forms.DataGridView selectList;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Panel panel1;
     }
 }

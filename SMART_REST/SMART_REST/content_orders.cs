@@ -12,7 +12,6 @@ namespace SMART_REST
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Windows.Forms;
 
     public partial class content_orders
     {
@@ -36,7 +35,7 @@ namespace SMART_REST
         public static Dictionary<string, int> list = new Dictionary<string, int>();
         public void ListDihInOrder(int id_dish, int count)
         {
-            if (count != 0) 
+            if (count != 0)
             {
                 var content = new content_orders();
 
@@ -53,5 +52,6 @@ namespace SMART_REST
                 orders.ListDishesinOrd.Add(content);
             }
         }
+
     }
 }

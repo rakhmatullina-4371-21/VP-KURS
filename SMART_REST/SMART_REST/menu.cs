@@ -27,6 +27,7 @@ namespace SMART_REST
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<list_of_dishes> list_of_dishes { get; set; }
 
+        //-----------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
@@ -34,7 +35,7 @@ namespace SMART_REST
         static SmartRestaurantEntities db = new SmartRestaurantEntities();
         public static List<menu> ComboSel()   //вывод всех разделов
         {
-            var selectPos = (from m in db.menu select m).ToList();
+            var selectPos =(from m in db.menu select m).ToList();
             return selectPos;
         }
         public static dynamic SelectSel(object posit)   //поиск  по названию выбранной раздела
@@ -42,5 +43,6 @@ namespace SMART_REST
             var pos = db.menu.First(p => p.name_selection == posit.ToString());
             return pos.id_selection;
         }
+
     }
 }

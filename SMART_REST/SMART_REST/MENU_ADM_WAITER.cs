@@ -19,7 +19,7 @@ namespace SMART_REST
             InitializeComponent();
             this.emp = emp;
             if (emp.lastname == null) { emp.lastname = ""; }
-            label1.Text = $"  {emp.surname} {emp.name} {emp.lastname}" ;
+            label1.Text = $"  {emp.surname.ToUpper()} {emp.name.ToUpper()} {emp.lastname.ToUpper()}" ;
             switch (a) 
             {
                 case 1: { dish.Visible = true; stock.Visible = true; employee.Visible = true;} break;
@@ -89,6 +89,11 @@ namespace SMART_REST
             check.Size = this.Size;
             check.Show();
             this.Hide();
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

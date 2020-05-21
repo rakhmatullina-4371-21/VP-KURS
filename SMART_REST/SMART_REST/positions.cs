@@ -20,19 +20,22 @@ namespace SMART_REST
         {
             this.employee = new HashSet<employee>();
         }
-
+    
         public int id_position { get; set; }
         public string position { get; set; }
-
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<employee> employee { get; set; }
+
+
+        //-------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
         static SmartRestaurantEntities db = new SmartRestaurantEntities();
         public static List<positions> ComboPos()   //вывод всех должностей
         {
-            var selectPos = (from pos in db.positions
+            var selectPos =(from pos in db.positions
                              select pos).ToList();
             return selectPos;
         }
@@ -41,5 +44,6 @@ namespace SMART_REST
             var pos = db.positions.First(p => p.position == posit.ToString());
             return pos.id_position;
         }
+
     }
 }

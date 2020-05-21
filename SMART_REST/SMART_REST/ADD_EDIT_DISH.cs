@@ -57,9 +57,10 @@ namespace SMART_REST
 
         private void save_Click(object sender, EventArgs e)
         {
+            try
+            {
                 if (comboSelection.SelectedItem != null) { dish.id_selection = menu.SelectSel(comboSelection.SelectedItem.ToString()); }
-              
-            if (!dish.SaveDish(dish.id_dish, name_dish.Text, dish.id_selection, checkBoxAv.Checked, maskedTextBoxPrice.Text,maskedTextBoxPrice2.Text))
+                if (!dish.SaveDish(dish.id_dish, name_dish.Text, dish.id_selection, checkBoxAv.Checked, maskedTextBoxPrice.Text, maskedTextBoxPrice2.Text))
                 {
                     MessageForm mes = new MessageForm("Н Е   В С Е   О Б Я З А Т Е Л Ь Н Ы Е    П О Л Я\r\nБ Ы Л И    З А П О Л Н Е Н Ы ");
                     mes.ShowDialog();
@@ -72,6 +73,9 @@ namespace SMART_REST
                     selList.Show();
                     this.Hide();
                 }
+            }
+            catch { MessageForm f = new MessageForm(); f.ShowDialog(); }
+               
         }
 
         private void name_dish_KeyPress(object sender, KeyPressEventArgs e)

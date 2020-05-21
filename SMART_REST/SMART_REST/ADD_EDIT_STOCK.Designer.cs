@@ -35,13 +35,13 @@
             this.save = new System.Windows.Forms.Button();
             this.LOG = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.maskedDiscount = new System.Windows.Forms.MaskedTextBox();
             this.maskedEnd = new System.Windows.Forms.MaskedTextBox();
             this.maskedStart = new System.Windows.Forms.MaskedTextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.maskedDiscount = new System.Windows.Forms.MaskedTextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -137,6 +137,61 @@
             this.panel4.Size = new System.Drawing.Size(618, 305);
             this.panel4.TabIndex = 71;
             // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft YaHei", 6F, System.Drawing.FontStyle.Bold);
+            this.label6.ForeColor = System.Drawing.Color.DimGray;
+            this.label6.Location = new System.Drawing.Point(356, 181);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(163, 15);
+            this.label6.TabIndex = 71;
+            this.label6.Text = "Н Е В Е Р Н Ы Й   Ф О Р М А Т ";
+            this.label6.Visible = false;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 6F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.DimGray;
+            this.label4.Location = new System.Drawing.Point(356, 131);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(163, 15);
+            this.label4.TabIndex = 70;
+            this.label4.Text = "Н Е В Е Р Н Ы Й   Ф О Р М А Т ";
+            this.label4.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 6F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.DimGray;
+            this.label3.Location = new System.Drawing.Point(356, 85);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(163, 15);
+            this.label3.TabIndex = 69;
+            this.label3.Text = "Н Е В Е Р Н Ы Й   Ф О Р М А Т ";
+            this.label3.Visible = false;
+            // 
+            // maskedDiscount
+            // 
+            this.maskedDiscount.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.maskedDiscount.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.maskedDiscount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.maskedDiscount.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.maskedDiscount.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.maskedDiscount.Location = new System.Drawing.Point(406, 153);
+            this.maskedDiscount.Mask = "99";
+            this.maskedDiscount.Name = "maskedDiscount";
+            this.maskedDiscount.PromptChar = ' ';
+            this.maskedDiscount.Size = new System.Drawing.Size(66, 25);
+            this.maskedDiscount.TabIndex = 57;
+            this.maskedDiscount.Text = "00";
+            this.maskedDiscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // maskedEnd
             // 
             this.maskedEnd.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -181,61 +236,6 @@
             this.label5.Size = new System.Drawing.Size(610, 42);
             this.label5.TabIndex = 72;
             this.label5.Text = "И Н Ф О Р М А Ц И Я  О  С К И Д К Е";
-            // 
-            // maskedDiscount
-            // 
-            this.maskedDiscount.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.maskedDiscount.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.maskedDiscount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.maskedDiscount.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.maskedDiscount.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.maskedDiscount.Location = new System.Drawing.Point(406, 153);
-            this.maskedDiscount.Mask = "99";
-            this.maskedDiscount.Name = "maskedDiscount";
-            this.maskedDiscount.PromptChar = ' ';
-            this.maskedDiscount.Size = new System.Drawing.Size(66, 25);
-            this.maskedDiscount.TabIndex = 57;
-            this.maskedDiscount.Text = "00";
-            this.maskedDiscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 6F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.DimGray;
-            this.label3.Location = new System.Drawing.Point(356, 85);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(163, 15);
-            this.label3.TabIndex = 69;
-            this.label3.Text = "Н Е В Е Р Н Ы Й   Ф О Р М А Т ";
-            this.label3.Visible = false;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 6F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.DimGray;
-            this.label4.Location = new System.Drawing.Point(356, 131);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(163, 15);
-            this.label4.TabIndex = 70;
-            this.label4.Text = "Н Е В Е Р Н Ы Й   Ф О Р М А Т ";
-            this.label4.Visible = false;
-            // 
-            // label6
-            // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft YaHei", 6F, System.Drawing.FontStyle.Bold);
-            this.label6.ForeColor = System.Drawing.Color.DimGray;
-            this.label6.Location = new System.Drawing.Point(356, 181);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(163, 15);
-            this.label6.TabIndex = 71;
-            this.label6.Text = "Н Е В Е Р Н Ы Й   Ф О Р М А Т ";
-            this.label6.Visible = false;
             // 
             // ADD_EDIT_STOCK
             // 

@@ -53,6 +53,7 @@
     <EntitySetMapping Name="orders">
       <EntityTypeMapping TypeName="SmartRestaurantModel.orders">
         <MappingFragment StoreEntitySet="orders">
+          <ScalarProperty Name="given_out" ColumnName="given_out" />
           <ScalarProperty Name="id_order" ColumnName="id_order" />
           <ScalarProperty Name="id_employee" ColumnName="id_employee" />
           <ScalarProperty Name="id_table" ColumnName="id_table" />

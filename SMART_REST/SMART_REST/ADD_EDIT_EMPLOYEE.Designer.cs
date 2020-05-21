@@ -271,7 +271,7 @@
             this.labelMain.Font = new System.Drawing.Font("Microsoft JhengHei", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMain.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.labelMain.Image = global::SMART_REST.Properties.Resources.Image_1;
-            this.labelMain.Location = new System.Drawing.Point(67, 26);
+            this.labelMain.Location = new System.Drawing.Point(70, 26);
             this.labelMain.Name = "labelMain";
             this.labelMain.Size = new System.Drawing.Size(741, 42);
             this.labelMain.TabIndex = 71;

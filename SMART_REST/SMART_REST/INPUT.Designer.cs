@@ -33,12 +33,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.password = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.inputt = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.NoInput = new System.Windows.Forms.Label();
             this.NoInput2 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.inputt = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,23 +90,6 @@
             this.label3.TabIndex = 53;
             this.label3.Text = "Л О Г И Н";
             // 
-            // inputt
-            // 
-            this.inputt.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.inputt.BackColor = System.Drawing.SystemColors.Control;
-            this.inputt.BackgroundImage = global::SMART_REST.Properties.Resources.Image_1;
-            this.inputt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.inputt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.inputt.Font = new System.Drawing.Font("Microsoft JhengHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inputt.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.inputt.Location = new System.Drawing.Point(20, 204);
-            this.inputt.Name = "inputt";
-            this.inputt.Size = new System.Drawing.Size(390, 37);
-            this.inputt.TabIndex = 55;
-            this.inputt.Text = "В О Й Т И";
-            this.inputt.UseVisualStyleBackColor = false;
-            this.inputt.Click += new System.EventHandler(this.inputt_Click);
-            // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -145,19 +128,6 @@
             this.NoInput2.Text = "Н Е В Е Р Н Ы Й   Л О Г И Н   И Л И   П А Р О Л Ь";
             this.NoInput2.Visible = false;
             // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.BackgroundImage = global::SMART_REST.Properties.Resources.PIC_1;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel1.Location = new System.Drawing.Point(2, -1);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(940, 509);
-            this.panel1.TabIndex = 70;
-            // 
             // panel2
             // 
             this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -174,6 +144,36 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(423, 253);
             this.panel2.TabIndex = 69;
+            // 
+            // inputt
+            // 
+            this.inputt.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.inputt.BackColor = System.Drawing.SystemColors.Control;
+            this.inputt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.inputt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.inputt.Font = new System.Drawing.Font("Microsoft JhengHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inputt.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.inputt.Image = global::SMART_REST.Properties.Resources.Image_1;
+            this.inputt.Location = new System.Drawing.Point(20, 204);
+            this.inputt.Name = "inputt";
+            this.inputt.Size = new System.Drawing.Size(390, 37);
+            this.inputt.TabIndex = 55;
+            this.inputt.Text = "В О Й Т И";
+            this.inputt.UseVisualStyleBackColor = false;
+            this.inputt.Click += new System.EventHandler(this.inputt_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.BackgroundImage = global::SMART_REST.Properties.Resources.PIC3;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel1.Location = new System.Drawing.Point(2, -1);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(940, 509);
+            this.panel1.TabIndex = 70;
             // 
             // INPUT
             // 

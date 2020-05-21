@@ -54,6 +54,7 @@
     <Property Name="time_order" Type="time" Precision="6" Nullable="false" />
     <Property Name="id_stock" Type="int4" />
     <Property Name="full_price" Type="numeric" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="given_out" Type="bool" />
   </EntityType>
   <EntityType Name="positions">
     <Key>

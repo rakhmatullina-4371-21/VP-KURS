@@ -26,13 +26,17 @@ namespace SMART_REST
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<orders> orders { get; set; }
 
+        //---------------------------------------------------------------------------------------------------------------------------------------
+
+
+
 
 
         static SmartRestaurantEntities db = new SmartRestaurantEntities();
 
         public static List<list_of_table> ComboTab()   //вывод всеx столов
         {
-            var selectTab = (from pos in db.list_of_table
+            var selectTab =(from pos in db.list_of_table
                              select pos).ToList();
             return selectTab;
         }

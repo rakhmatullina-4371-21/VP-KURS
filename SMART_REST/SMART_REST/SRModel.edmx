@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище SmartRestaurantModel" Provider="Npgsql" ProviderManifestToken="12.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище SmartRestaurantModel" Provider="Npgsql" ProviderManifestToken="12.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="content_orders">
           <Key>
             <PropertyRef Name="id_content_order" />
@@ -59,6 +59,7 @@
           <Property Name="time_order" Type="time" Precision="6" Nullable="false" />
           <Property Name="id_stock" Type="int4" />
           <Property Name="full_price" Type="numeric" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="given_out" Type="bool" />
         </EntityType>
         <EntityType Name="positions">
           <Key>
@@ -198,8 +199,7 @@
             <End Role="orders" EntitySet="orders" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SmartRestaurantModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -269,6 +269,7 @@
           <NavigationProperty Name="employee" Relationship="Self.orders_id_employee_fkey" FromRole="orders" ToRole="employee" />
           <NavigationProperty Name="list_of_table" Relationship="Self.orders_id_table_fkey" FromRole="orders" ToRole="list_of_table" />
           <NavigationProperty Name="stocks" Relationship="Self.orders_id_stock_fkey" FromRole="orders" ToRole="stocks" />
+          <Property Name="given_out" Type="Boolean" />
         </EntityType>
         <EntityType Name="positions">
           <Key>
@@ -468,6 +469,7 @@
           <EntitySetMapping Name="orders">
             <EntityTypeMapping TypeName="SmartRestaurantModel.orders">
               <MappingFragment StoreEntitySet="orders">
+                <ScalarProperty Name="given_out" ColumnName="given_out" />
                 <ScalarProperty Name="id_order" ColumnName="id_order" />
                 <ScalarProperty Name="id_employee" ColumnName="id_employee" />
                 <ScalarProperty Name="id_table" ColumnName="id_table" />

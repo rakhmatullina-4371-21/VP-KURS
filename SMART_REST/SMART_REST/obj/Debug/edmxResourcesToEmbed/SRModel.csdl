@@ -66,6 +66,7 @@
     <NavigationProperty Name="employee" Relationship="Self.orders_id_employee_fkey" FromRole="orders" ToRole="employee" />
     <NavigationProperty Name="list_of_table" Relationship="Self.orders_id_table_fkey" FromRole="orders" ToRole="list_of_table" />
     <NavigationProperty Name="stocks" Relationship="Self.orders_id_stock_fkey" FromRole="orders" ToRole="stocks" />
+    <Property Name="given_out" Type="Boolean" />
   </EntityType>
   <EntityType Name="positions">
     <Key>

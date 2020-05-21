@@ -262,13 +262,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Image 1.png" />
-    <None Include="Resources\iconUser.png" />
     <None Include="Resources\Image 3.png" />
     <None Include="Resources\PIC 1.png" />
     <None Include="Resources\PIC 2.png" />
-    <None Include="Resources\iconUser1.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\PIC3.png" />
+    <None Include="Resources\S_R.png" />
+    <None Include="Resources\iconUser1.png" />
     <Content Include="SrModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>SrModel.edmx</DependentUpon>

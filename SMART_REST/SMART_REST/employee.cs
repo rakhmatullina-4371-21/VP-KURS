@@ -13,7 +13,6 @@ namespace SMART_REST
     using System.Collections.Generic;
     using System.Data.Entity.Migrations;
     using System.Linq;
-    using System.Security.Cryptography.X509Certificates;
 
     public partial class employee
     {
@@ -22,7 +21,7 @@ namespace SMART_REST
         {
             this.orders = new HashSet<orders>();
         }
-
+    
         public int id_employee { get; set; }
         public string surname { get; set; }
         public string name { get; set; }
@@ -30,10 +29,17 @@ namespace SMART_REST
         public string login { get; set; }
         public string password { get; set; }
         public Nullable<int> id_position { get; set; }
-
+    
         public virtual positions positions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<orders> orders { get; set; }
+
+
+
+
+        //----------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 
 
 
@@ -124,10 +130,10 @@ namespace SMART_REST
             {
                 return false;
             }
-            
+
 
         }
-        public static List<string> ComboBoxItem() 
+        public static List<string> ComboBoxItem()
         {
             List<string> items = new List<string>();
             items.Add("ПО ФАМИЛИИ");
@@ -136,29 +142,30 @@ namespace SMART_REST
             return items;
 
         }
-        public List<dynamic> searchEmp(int item, string searchString) 
+        public List<dynamic> searchEmp(int item, string searchString)
         {
-            var empList=new List<dynamic>();
-            switch (item) 
+            var empList = new List<dynamic>();
+            switch (item)
             {
-                case 0: 
+                case 0:
                     {
                         empList = db.employee.Where(p => p.surname == searchString)
-                                  .Join(db.positions, p => p.id_position, e => e.id_position, (p, e) => new {p.id_employee, p.surname, p.name, p.lastname, p.login, p.password, e.position })
+                                  .Join(db.positions, p => p.id_position, e => e.id_position, (p, e) => new { p.id_employee, p.surname, p.name, p.lastname, p.login, p.password, e.position })
                                   .ToList<dynamic>();
-                        
-                    }break;
-                case 1: 
+
+                    }
+                    break;
+                case 1:
                     {
                         empList = db.employee.Where(p => p.name == searchString)
-                             .Join(db.positions, p => p.id_position, e => e.id_position, (p, e) => new {p.id_employee, p.surname, p.name, p.lastname, p.login, p.password, e.position })
+                             .Join(db.positions, p => p.id_position, e => e.id_position, (p, e) => new { p.id_employee, p.surname, p.name, p.lastname, p.login, p.password, e.position })
                              .ToList<dynamic>();
                     }
                     break;
                 case 2:
                     {
                         empList = db.positions.Where(p => p.position == searchString)
-                            .Join(db.employee, p => p.id_position, e => e.id_position, (p, e) => new {e.id_employee, e.surname, e.name, e.lastname, e.login, e.password, p.position })
+                            .Join(db.employee, p => p.id_position, e => e.id_position, (p, e) => new { e.id_employee, e.surname, e.name, e.lastname, e.login, e.password, p.position })
                             .ToList<dynamic>();
                     }
                     break;
@@ -166,5 +173,6 @@ namespace SMART_REST
             }
             return empList;
         }
+
     }
 }
