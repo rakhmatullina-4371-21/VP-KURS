@@ -11,6 +11,7 @@ namespace SMART_REST
 {
     using System;
     using System.Collections.Generic;
+    using System.Data.Entity.Migrations;
     using System.Linq;
     using System.Windows.Forms;
 
@@ -28,6 +29,8 @@ namespace SMART_REST
         public System.TimeSpan time_order { get; set; }
         public Nullable<int> id_stock { get; set; }
         public decimal full_price { get; set; }
+        public bool given_out { get; set; }
+
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<content_orders> content_orders { get; set; }
@@ -38,33 +41,26 @@ namespace SMART_REST
 
 
 
+        //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 
 
         SmartRestaurantEntities db = new SmartRestaurantEntities();
-        //public int IDnewOrd()    //возврат присвоение заказу номера
-        //{
-        //    int MaxId;
-        //    try
-        //    {
-        //        MaxId = int.Parse(db.orders.Max(p => p.id_order).ToString()) + 1;
-        //    }
-        //    catch { MaxId = db.orders.LastOrDefault<orders>(+ 1; }
-        //    return MaxId;
-        //}
         public int SaveOrd(int id_emp, int id_tab)
         {
                 orders ord = new orders();
                 ord.id_employee = db.employee.First(p => p.id_employee == id_emp).id_employee;
                 ord.id_table = id_tab;
                 ord.time_order = DateTime.Now.TimeOfDay;
-                TimeSpan nulll = new TimeSpan(00,00,00); 
                 var stock = new List<stocks>();
+                if (db.stocks.Where(p => p.start_time < p.end_time) != null) { stock = db.stocks.Where(p => p.start_time <= ord.time_order && p.end_time >= ord.time_order).ToList(); }
                 if (db.stocks.Where(p => p.start_time > p.end_time) != null)
                 {
-                    stock = db.stocks.Where(p => (p.start_time <= ord.time_order && ord.time_order > nulll) || (p.end_time >= ord.time_order && ord.time_order >= nulll)).ToList();
+                    stock.AddRange(db.stocks.Where(p =>(p.start_time>p.end_time)&&((p.start_time >= ord.time_order) || (p.end_time >= ord.time_order))).ToList());
                 }
-                else
-                { stock = db.stocks.Where(p => p.start_time <= ord.time_order && p.end_time >= ord.time_order).ToList(); }
+               
+           
                 if (stock.Count != 0)
                 {
                     var discount = stock.Min(p => p.discount);
@@ -98,7 +94,7 @@ namespace SMART_REST
             }
             if (discount != 0) 
             {
-                sum *= (discount / 100);
+                sum *= (1-(discount / 100));
             }
             return sum;
         }
@@ -114,7 +110,7 @@ namespace SMART_REST
         }
         public List<int> SelectOrder(employee emp)
         {
-            var ordList = db.orders.Where(p => p.id_employee == emp.id_employee).Select(p=>p.id_order).ToList();
+            var ordList = db.orders.Where(p => p.id_employee == emp.id_employee /*&& p.given_out!=true*/).Select(p=>p.id_order).ToList();
             return ordList;
         }
         public string SelectInformOrd( int? id)
@@ -129,17 +125,14 @@ namespace SMART_REST
              var sum=FullPrice(disc);
             return $"В Р Е М Я   З А К А З А :                     {time}\r\nС К И Д К А :                                     {disc} % \r\nЦ Е Н А   С О   С К И Д К О Й :          {sum} р.";
         }
-        public bool DeleteOrd(int id)    //возврат заказа, информацию о котором необходимо удалить
+        public bool DeleteOrd(int id)    //возврат заказа, информацию о котором необходимо убрать из списка заказов
         {
             try
             {
-                var ord = db.orders.First(w => w.id_order == id);
-                var c = db.content_orders.Where(p => p.id_order == id).ToList();
-                foreach (content_orders i in c) 
-                {
-                    db.content_orders.Remove(i);
-                }
-                db.orders.Remove(ord);
+                orders ord = db.orders.First(p => p.id_order == id);
+                ord.full_price = FullPrice(ord.id_order);
+                ord.given_out = true;
+                db.orders.AddOrUpdate(ord);
                 db.SaveChanges();
                 return true;
             }

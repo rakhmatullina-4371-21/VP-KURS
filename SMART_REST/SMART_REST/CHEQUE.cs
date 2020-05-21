@@ -48,7 +48,6 @@ namespace SMART_REST
                 selectList.Columns[2].HeaderText = "  НАЗВАНИЕ\r\nБЛЮДА";
                 selectList.Columns[3].HeaderText = "  КОЛИЧЕСТВО";
                 selectList.Columns[4].HeaderText = "  ЦЕНА";
-
                 button2.Visible = true;
                 textBox1.Text = ord.SelectInformOrd(int.Parse(comboBox1.SelectedItem.ToString()));
             }
