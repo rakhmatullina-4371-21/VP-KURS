@@ -28,6 +28,7 @@ namespace SMART_REST
             {
                 case 0: 
                     {
+                        comboBox1.Visible = true;
                         dataGridView1.DataSource = emp.SelectListEmp();
                         dataGridView1.Columns[0].Visible = false;
                         dataGridView1.Columns[1].HeaderText = "ФАМИЛИЯ";
@@ -45,6 +46,7 @@ namespace SMART_REST
                     break;
                 case 1:
                     {
+                        comboBox1.Visible = true;
                         dataGridView1.DataSource = dish.SelectListDish();
                         dataGridView1.Columns[0].Visible = false;
                         dataGridView1.Columns[1].HeaderText = "  НАЗВАНИЕ\r\nБЛЮДА";
