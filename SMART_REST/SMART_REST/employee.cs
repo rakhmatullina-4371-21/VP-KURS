@@ -90,13 +90,17 @@ namespace SMART_REST
             int MaxId = listEmp.Max(p => p.id_employee) + 1;
             return MaxId;
         }
-        public bool DeleteEmp(int id)    //возврат сотрудника, информацию о котором необходимо удалить
+        public bool DeleteEmp(int id,employee empl)    //возврат сотрудника, информацию о котором необходимо удалить
         {
             try
             {
-                var emp = db.employee.First(w => w.id_employee == id);
-                db.employee.Remove(emp);
-                db.SaveChanges();
+                if (id != empl.id_employee) 
+                {
+                    var emp = db.employee.First(w => w.id_employee == id);
+                    db.employee.Remove(emp);
+                    db.SaveChanges();
+
+                }
                 return true;
             }
             catch { return false; }

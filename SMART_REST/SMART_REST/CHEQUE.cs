@@ -24,6 +24,7 @@ namespace SMART_REST
             {
                 comboBox1.Items.Add(i);
             }
+            button1.Visible = false;
         }
 
         private void CHEQUE_FormClosed(object sender, FormClosedEventArgs e)
@@ -43,13 +44,15 @@ namespace SMART_REST
             try
             {
                 selectList.DataSource = ord.SelectOrder(int.Parse(comboBox1.SelectedItem.ToString()));
-                selectList.Columns[0].HeaderText = "ЗАКАЗ №";
-                selectList.Columns[1].Visible = false;
-                selectList.Columns[2].HeaderText = "  НАЗВАНИЕ\r\nБЛЮДА";
-                selectList.Columns[3].HeaderText = "  КОЛИЧЕСТВО";
-                selectList.Columns[4].HeaderText = "  ЦЕНА";
+                selectList.Columns[0].Visible = false;
+                selectList.Columns[1].HeaderText = "ЗАКАЗ №";
+                selectList.Columns[2].Visible = false;
+                selectList.Columns[3].HeaderText = "  НАЗВАНИЕ\r\nБЛЮДА";
+                selectList.Columns[4].HeaderText = "  КОЛИЧЕСТВО";
+                selectList.Columns[5].HeaderText = "  ЦЕНА";
                 button2.Visible = true;
                 textBox1.Text = ord.SelectInformOrd(int.Parse(comboBox1.SelectedItem.ToString()));
+                button1.Visible = true;
             }
             catch
             {
@@ -73,6 +76,13 @@ namespace SMART_REST
             }
             catch { MessageForm f = new MessageForm("З А К А З  Н Е  У Д А Л Е Н"); f.ShowDialog(); }
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ORDER_SELECT ordEdit = new ORDER_SELECT(ord.SelectOrder(int.Parse(comboBox1.SelectedItem.ToString())),emp);
+            ordEdit.Show();
+            this.Hide();
         }
     }
 }

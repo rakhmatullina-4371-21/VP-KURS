@@ -219,7 +219,7 @@ namespace SMART_REST
                 MessageForm mess;
                   try 
                   {
-                      if (emp.DeleteEmp(delete) || (stock.DeleteStock(delete) || dish.DeleteDish(delete)))
+                      if (emp.DeleteEmp(delete,emp) || (stock.DeleteStock(delete) || dish.DeleteDish(delete)))
                       {
                         mess = new MessageForm(a);
                         mess.Show();

@@ -11,6 +11,7 @@ namespace SMART_REST
 {
     using System;
     using System.Collections.Generic;
+    using System.Data.Entity.Migrations;
     using System.Linq;
 
     public partial class content_orders
@@ -51,6 +52,18 @@ namespace SMART_REST
                 content.count_dish = count;
                 orders.ListDishesinOrd.Add(content);
             }
+        }
+        public  void EditContOrd(int id_cont, int count) 
+        {
+            var edit = db.content_orders.First(p => p.id_content_order == id_cont);
+
+            if (count != 0)
+            {
+                edit.count_dish = count;
+                db.content_orders.AddOrUpdate(edit);
+            }
+            else { db.content_orders.Remove(edit); }
+            db.SaveChanges();
         }
 
     }

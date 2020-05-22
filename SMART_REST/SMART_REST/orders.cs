@@ -102,7 +102,7 @@ namespace SMART_REST
             List<content_orders> ord = (db.content_orders.Where(p => p.id_order == id_order)).ToList();
             infOrd = (from i in ord
                       join d in db.list_of_dishes on i.id_dish equals d.id_dish
-                      select new { i.id_order, d.id_dish, d.name_dish, i.count_dish, d.price }).ToList<dynamic>();
+                      select new {i.id_content_order, i.id_order, d.id_dish, d.name_dish, i.count_dish, d.price }).ToList<dynamic>();
 
             return infOrd;
         }
@@ -121,7 +121,8 @@ namespace SMART_REST
                 disc = db.stocks.FirstOrDefault(p => p.id_stock == st).discount;
             }
             var sum = FullPrice(disc);
-            return $"В Р Е М Я   З А К А З А :                     {time}\r\nС К И Д К А :                                     {disc} % \r\nЦ Е Н А   С О   С К И Д К О Й :          {sum} р.";
+            
+            return $"В Р Е М Я   З А К А З А :                     {time}\r\nС К И Д К А :                                     {disc} % \r\nЦ Е Н А   С О   С К И Д К О Й :          {Math.Round(sum, 2, MidpointRounding.AwayFromZero)} р.";
         }
         public bool DeleteOrd(int id)    //возврат заказа, информацию о котором необходимо убрать из списка заказов
         {

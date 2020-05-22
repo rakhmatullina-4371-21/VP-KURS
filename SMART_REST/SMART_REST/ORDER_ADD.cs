@@ -22,10 +22,10 @@ namespace SMART_REST
             InitializeComponent();
             this.emp = emp;
             selectList.DataSource = list_of_dishes.SelectListDishAva();
-            var comboList = list_of_table.ComboTab();
-            foreach (list_of_table i in comboList)
+            var comboList = list_of_table.ComboTab(emp);
+            foreach (int i in comboList)
             {
-                comboTable.Items.Add(i.id_table);
+                comboTable.Items.Add(i);
             }
             var comboselection = menu.ComboSel();
             foreach (menu i in comboselection)

@@ -219,6 +219,7 @@
     <EmbeddedResource Include="INPUT.resx">
       <DependentUpon>INPUT.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report.rdlc" />
     <EmbeddedResource Include="SELECT_LIST.resx">
       <DependentUpon>SELECT_LIST.cs</DependentUpon>
     </EmbeddedResource>

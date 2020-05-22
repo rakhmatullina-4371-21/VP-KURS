@@ -211,7 +211,8 @@ CREATE TABLE ORDERS
 	id_table INT REFERENCES LIST_OF_TABLE(id_table),
 	time_order TIME NOT NULL,
 	id_stock INT REFERENCES STOCKS(id_stock),
-	full_price NUMERIC
+	full_price NUMERIC,
+        given_out BOOL DAFAULT FALSE
 );
 
 

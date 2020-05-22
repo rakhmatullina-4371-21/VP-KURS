@@ -39,6 +39,9 @@
             this.form = new System.Windows.Forms.Panel();
             this.labelOrder = new System.Windows.Forms.Label();
             this.t = new System.Windows.Forms.ToolTip(this.components);
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.white.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.selectList)).BeginInit();
             this.form.SuspendLayout();
@@ -50,8 +53,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.white.BackColor = System.Drawing.SystemColors.Window;
-            this.white.Controls.Add(this.save);
+            this.white.Controls.Add(this.label1);
+            this.white.Controls.Add(this.comboBox1);
             this.white.Controls.Add(this.selectList);
+            this.white.Controls.Add(this.button1);
+            this.white.Controls.Add(this.save);
             this.white.Location = new System.Drawing.Point(72, 74);
             this.white.Name = "white";
             this.white.Size = new System.Drawing.Size(798, 407);
@@ -120,6 +126,7 @@
             this.selectList.Size = new System.Drawing.Size(674, 332);
             this.selectList.TabIndex = 3;
             this.t.SetToolTip(this.selectList, "Дважды кликните для изменения количества блюда");
+            this.selectList.MouseClick += new System.Windows.Forms.MouseEventHandler(this.selectList_MouseClick);
             // 
             // form
             // 
@@ -148,6 +155,58 @@
             this.t.BackColor = System.Drawing.SystemColors.ControlDark;
             this.t.ForeColor = System.Drawing.SystemColors.Window;
             // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.BackgroundImage = global::SMART_REST.Properties.Resources.Image_1;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft JhengHei", 8F);
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.button1.Location = new System.Drawing.Point(20, 358);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(760, 30);
+            this.button1.TabIndex = 65;
+            this.button1.Text = "Г О Т О В О";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Visible = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label1.Image = global::SMART_REST.Properties.Resources.Image_1;
+            this.label1.Location = new System.Drawing.Point(284, 171);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(255, 20);
+            this.label1.TabIndex = 68;
+            this.label1.Text = "В Ы Б Е Р И Т Е   К О Л И Ч Е С Т В О";
+            this.label1.Visible = false;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBox1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"});
+            this.comboBox1.Location = new System.Drawing.Point(353, 208);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 27);
+            this.comboBox1.TabIndex = 67;
+            this.comboBox1.Visible = false;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
             // ORDER_SELECT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -165,6 +224,7 @@
             this.Text = "SMART REST";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ORDER_EDIT_FormClosed);
             this.white.ResumeLayout(false);
+            this.white.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.selectList)).EndInit();
             this.form.ResumeLayout(false);
             this.form.PerformLayout();
@@ -180,5 +240,8 @@
         private System.Windows.Forms.DataGridView selectList;
         private System.Windows.Forms.Panel form;
         private System.Windows.Forms.ToolTip t;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
