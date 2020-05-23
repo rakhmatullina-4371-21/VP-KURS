@@ -29,79 +29,45 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ADD_EDIT_STOCK));
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.close = new System.Windows.Forms.Button();
-            this.save = new System.Windows.Forms.Button();
+            this.labelDisc = new System.Windows.Forms.Label();
+            this.labelOkonch = new System.Windows.Forms.Label();
             this.LOG = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.panelWhite = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labelEr1 = new System.Windows.Forms.Label();
+            this.labelEr = new System.Windows.Forms.Label();
             this.maskedDiscount = new System.Windows.Forms.MaskedTextBox();
             this.maskedEnd = new System.Windows.Forms.MaskedTextBox();
             this.maskedStart = new System.Windows.Forms.MaskedTextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.panel4.SuspendLayout();
+            this.close = new System.Windows.Forms.Button();
+            this.save = new System.Windows.Forms.Button();
+            this.panelWhite.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label2
+            // labelDisc
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft JhengHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label2.Location = new System.Drawing.Point(141, 153);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 22);
-            this.label2.TabIndex = 53;
-            this.label2.Text = "С К И Д К А";
+            this.labelDisc.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelDisc.AutoSize = true;
+            this.labelDisc.Font = new System.Drawing.Font("Microsoft JhengHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDisc.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.labelDisc.Location = new System.Drawing.Point(141, 153);
+            this.labelDisc.Name = "labelDisc";
+            this.labelDisc.Size = new System.Drawing.Size(100, 22);
+            this.labelDisc.TabIndex = 53;
+            this.labelDisc.Text = "С К И Д К А";
             // 
-            // label1
+            // labelOkonch
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft JhengHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label1.Location = new System.Drawing.Point(141, 103);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(161, 22);
-            this.label1.TabIndex = 52;
-            this.label1.Text = "О К О Н Ч А Н И Е  ";
-            // 
-            // close
-            // 
-            this.close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.close.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.close.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("close.BackgroundImage")));
-            this.close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.close.Font = new System.Drawing.Font("Microsoft JhengHei", 7F);
-            this.close.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.close.Location = new System.Drawing.Point(36, 237);
-            this.close.Name = "close";
-            this.close.Size = new System.Drawing.Size(139, 37);
-            this.close.TabIndex = 41;
-            this.close.Text = "О Т М Е Н А";
-            this.close.UseVisualStyleBackColor = false;
-            this.close.Click += new System.EventHandler(this.close_Click);
-            // 
-            // save
-            // 
-            this.save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.save.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.save.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("save.BackgroundImage")));
-            this.save.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.save.Font = new System.Drawing.Font("Microsoft JhengHei", 7F);
-            this.save.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.save.Location = new System.Drawing.Point(447, 237);
-            this.save.Name = "save";
-            this.save.Size = new System.Drawing.Size(139, 37);
-            this.save.TabIndex = 40;
-            this.save.Text = "С О Х Р А Н И Т Ь";
-            this.save.UseVisualStyleBackColor = false;
-            this.save.Click += new System.EventHandler(this.save_Click);
+            this.labelOkonch.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelOkonch.AutoSize = true;
+            this.labelOkonch.Font = new System.Drawing.Font("Microsoft JhengHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelOkonch.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.labelOkonch.Location = new System.Drawing.Point(141, 103);
+            this.labelOkonch.Name = "labelOkonch";
+            this.labelOkonch.Size = new System.Drawing.Size(161, 22);
+            this.labelOkonch.TabIndex = 52;
+            this.labelOkonch.Text = "О К О Н Ч А Н И Е  ";
             // 
             // LOG
             // 
@@ -115,27 +81,27 @@
             this.LOG.TabIndex = 38;
             this.LOG.Text = " Н А Ч А Л О  ";
             // 
-            // panel4
+            // panelWhite
             // 
-            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.panelWhite.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel4.BackColor = System.Drawing.SystemColors.Window;
-            this.panel4.Controls.Add(this.label6);
-            this.panel4.Controls.Add(this.label4);
-            this.panel4.Controls.Add(this.label3);
-            this.panel4.Controls.Add(this.maskedDiscount);
-            this.panel4.Controls.Add(this.close);
-            this.panel4.Controls.Add(this.maskedEnd);
-            this.panel4.Controls.Add(this.save);
-            this.panel4.Controls.Add(this.maskedStart);
-            this.panel4.Controls.Add(this.label1);
-            this.panel4.Controls.Add(this.label2);
-            this.panel4.Controls.Add(this.LOG);
-            this.panel4.Location = new System.Drawing.Point(154, 131);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(618, 305);
-            this.panel4.TabIndex = 71;
+            this.panelWhite.BackColor = System.Drawing.SystemColors.Window;
+            this.panelWhite.Controls.Add(this.label6);
+            this.panelWhite.Controls.Add(this.labelEr1);
+            this.panelWhite.Controls.Add(this.labelEr);
+            this.panelWhite.Controls.Add(this.maskedDiscount);
+            this.panelWhite.Controls.Add(this.close);
+            this.panelWhite.Controls.Add(this.maskedEnd);
+            this.panelWhite.Controls.Add(this.save);
+            this.panelWhite.Controls.Add(this.maskedStart);
+            this.panelWhite.Controls.Add(this.labelOkonch);
+            this.panelWhite.Controls.Add(this.labelDisc);
+            this.panelWhite.Controls.Add(this.LOG);
+            this.panelWhite.Location = new System.Drawing.Point(154, 131);
+            this.panelWhite.Name = "panelWhite";
+            this.panelWhite.Size = new System.Drawing.Size(618, 305);
+            this.panelWhite.TabIndex = 71;
             // 
             // label6
             // 
@@ -150,31 +116,31 @@
             this.label6.Text = "Н Е В Е Р Н Ы Й   Ф О Р М А Т ";
             this.label6.Visible = false;
             // 
-            // label4
+            // labelEr1
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 6F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.DimGray;
-            this.label4.Location = new System.Drawing.Point(356, 131);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(163, 15);
-            this.label4.TabIndex = 70;
-            this.label4.Text = "Н Е В Е Р Н Ы Й   Ф О Р М А Т ";
-            this.label4.Visible = false;
+            this.labelEr1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelEr1.AutoSize = true;
+            this.labelEr1.Font = new System.Drawing.Font("Microsoft YaHei", 6F, System.Drawing.FontStyle.Bold);
+            this.labelEr1.ForeColor = System.Drawing.Color.DimGray;
+            this.labelEr1.Location = new System.Drawing.Point(356, 131);
+            this.labelEr1.Name = "labelEr1";
+            this.labelEr1.Size = new System.Drawing.Size(163, 15);
+            this.labelEr1.TabIndex = 70;
+            this.labelEr1.Text = "Н Е В Е Р Н Ы Й   Ф О Р М А Т ";
+            this.labelEr1.Visible = false;
             // 
-            // label3
+            // labelEr
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 6F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.DimGray;
-            this.label3.Location = new System.Drawing.Point(356, 85);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(163, 15);
-            this.label3.TabIndex = 69;
-            this.label3.Text = "Н Е В Е Р Н Ы Й   Ф О Р М А Т ";
-            this.label3.Visible = false;
+            this.labelEr.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelEr.AutoSize = true;
+            this.labelEr.Font = new System.Drawing.Font("Microsoft YaHei", 6F, System.Drawing.FontStyle.Bold);
+            this.labelEr.ForeColor = System.Drawing.Color.DimGray;
+            this.labelEr.Location = new System.Drawing.Point(356, 85);
+            this.labelEr.Name = "labelEr";
+            this.labelEr.Size = new System.Drawing.Size(163, 15);
+            this.labelEr.TabIndex = 69;
+            this.labelEr.Text = "Н Е В Е Р Н Ы Й   Ф О Р М А Т ";
+            this.labelEr.Visible = false;
             // 
             // maskedDiscount
             // 
@@ -237,6 +203,40 @@
             this.label5.TabIndex = 72;
             this.label5.Text = "И Н Ф О Р М А Ц И Я  О  С К И Д К Е";
             // 
+            // close
+            // 
+            this.close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.close.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.close.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("close.BackgroundImage")));
+            this.close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.close.Font = new System.Drawing.Font("Microsoft JhengHei", 7F);
+            this.close.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.close.Location = new System.Drawing.Point(36, 237);
+            this.close.Name = "close";
+            this.close.Size = new System.Drawing.Size(139, 37);
+            this.close.TabIndex = 41;
+            this.close.Text = "О Т М Е Н А";
+            this.close.UseVisualStyleBackColor = false;
+            this.close.Click += new System.EventHandler(this.close_Click);
+            // 
+            // save
+            // 
+            this.save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.save.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.save.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("save.BackgroundImage")));
+            this.save.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.save.Font = new System.Drawing.Font("Microsoft JhengHei", 7F);
+            this.save.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.save.Location = new System.Drawing.Point(447, 237);
+            this.save.Name = "save";
+            this.save.Size = new System.Drawing.Size(139, 37);
+            this.save.TabIndex = 40;
+            this.save.Text = "С О Х Р А Н И Т Ь";
+            this.save.UseVisualStyleBackColor = false;
+            this.save.Click += new System.EventHandler(this.save_Click);
+            // 
             // ADD_EDIT_STOCK
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -245,7 +245,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(942, 503);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panelWhite);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(960, 550);
@@ -253,8 +253,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SMART REST";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ADD_EDIT_STOCK_FormClosed);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
+            this.panelWhite.ResumeLayout(false);
+            this.panelWhite.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -264,15 +264,15 @@
         private System.Windows.Forms.Button close;
         private System.Windows.Forms.Button save;
         private System.Windows.Forms.Label LOG;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label labelOkonch;
+        private System.Windows.Forms.Label labelDisc;
+        private System.Windows.Forms.Panel panelWhite;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.MaskedTextBox maskedEnd;
         private System.Windows.Forms.MaskedTextBox maskedStart;
         private System.Windows.Forms.MaskedTextBox maskedDiscount;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelEr1;
+        private System.Windows.Forms.Label labelEr;
     }
 }

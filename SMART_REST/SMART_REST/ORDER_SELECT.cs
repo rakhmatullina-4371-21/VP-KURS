@@ -18,7 +18,7 @@ namespace SMART_REST
         {
             InitializeComponent();
             this.emp = emp;
-            this.button1.Visible = true;
+            this.buttonInpMenu.Visible = true;
             selectList.DataSource = listOrder;
             selectList.Columns[0].Visible = false;
             selectList.Columns[1].HeaderText = "ЗАКАЗ №";
@@ -34,7 +34,7 @@ namespace SMART_REST
             selectList.DataSource = content_orders.list.ToArray();
             selectList.Columns[0].HeaderText = "  НАЗВАНИЕ\r\nБЛЮДА";
             selectList.Columns[1].HeaderText = "  КОЛИЧЕСТВО";
-            button1.Visible=false;
+            buttonInpMenu.Visible=false;
         }
         private void ORDER_EDIT_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -57,12 +57,12 @@ namespace SMART_REST
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cont.count_dish = int.Parse(comboBox1.SelectedItem.ToString());
+            cont.count_dish = int.Parse(comboBoxCount.SelectedItem.ToString());
             if (selectList.RowCount != 1 && cont.count_dish!=0 ) 
             {
                 selectList.Visible = true;
-                label1.Visible = false;
-                comboBox1.Visible = false;
+                labelCount.Visible = false;
+                comboBoxCount.Visible = false;
                 cont.EditContOrd(cont.id_content_order, cont.count_dish);
             }
             else { MessageForm f = new MessageForm("В   З А К А З Е   Д О Л Ж Н О  Б Ы Т Ь \r\nХ О Т Я   Б Ы   О Д Н О   Б Л Ю Д О"); f.ShowDialog(); }
@@ -73,8 +73,8 @@ namespace SMART_REST
            
            cont.id_content_order = (int)selectList.SelectedCells[0].OwningRow.Cells[0].Value;
             selectList.Visible = false;
-            label1.Visible = true;
-            comboBox1.Visible = true;
+            labelCount.Visible = true;
+            comboBoxCount.Visible = true;
         }
     }
 }

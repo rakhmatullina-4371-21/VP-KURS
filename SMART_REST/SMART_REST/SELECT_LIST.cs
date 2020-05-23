@@ -28,56 +28,56 @@ namespace SMART_REST
             {
                 case 0: 
                     {
-                        comboBox1.Visible = true;
-                        dataGridView1.DataSource = emp.SelectListEmp();
-                        dataGridView1.Columns[0].Visible = false;
-                        dataGridView1.Columns[1].HeaderText = "ФАМИЛИЯ";
-                        dataGridView1.Columns[2].HeaderText = "ИМЯ";
-                        dataGridView1.Columns[3].HeaderText = "ОТЧЕСТВО";
-                        dataGridView1.Columns[4].HeaderText = "ЛОГИН";
-                        dataGridView1.Columns[5].HeaderText = "ПАРОЛЬ";
-                        dataGridView1.Columns[6].Visible = false;
-                        dataGridView1.Columns[7].HeaderText = "ДОЛЖНОСТЬ";
+                        comboBoxItem.Visible = true;
+                        selectList.DataSource = emp.SelectListEmp();
+                        selectList.Columns[0].Visible = false;
+                        selectList.Columns[1].HeaderText = "ФАМИЛИЯ";
+                        selectList.Columns[2].HeaderText = "ИМЯ";
+                        selectList.Columns[3].HeaderText = "ОТЧЕСТВО";
+                        selectList.Columns[4].HeaderText = "ЛОГИН";
+                        selectList.Columns[5].HeaderText = "ПАРОЛЬ";
+                        selectList.Columns[6].Visible = false;
+                        selectList.Columns[7].HeaderText = "ДОЛЖНОСТЬ";
                         foreach (string i in employee.ComboBoxItem())
                         {
-                            comboBox1.Items.Add(i) ;
+                            comboBoxItem.Items.Add(i) ;
                         }
                     }
                     break;
                 case 1:
                     {
-                        comboBox1.Visible = true;
-                        dataGridView1.DataSource = dish.SelectListDish();
-                        dataGridView1.Columns[0].Visible = false;
-                        dataGridView1.Columns[1].HeaderText = "  НАЗВАНИЕ\r\nБЛЮДА";
-                        dataGridView1.Columns[2].Visible = false;
-                        dataGridView1.Columns[3].HeaderText = "  РАЗДЕЛ";
-                        dataGridView1.Columns[4].HeaderText = "  ДОСТУПНОСТЬ";
-                        dataGridView1.Columns[5].HeaderText = "  ЦЕНА";
+                        comboBoxItem.Visible = true;
+                        selectList.DataSource = dish.SelectListDish();
+                        selectList.Columns[0].Visible = false;
+                        selectList.Columns[1].HeaderText = "  НАЗВАНИЕ\r\nБЛЮДА";
+                        selectList.Columns[2].Visible = false;
+                        selectList.Columns[3].HeaderText = "  РАЗДЕЛ";
+                        selectList.Columns[4].HeaderText = "  ДОСТУПНОСТЬ";
+                        selectList.Columns[5].HeaderText = "  ЦЕНА (руб)";
                         foreach (string i in list_of_dishes.ComboBoxItem())
                         {
-                            comboBox1.Items.Add(i);
+                            comboBoxItem.Items.Add(i);
                         }
                     }
                     break;
                 case 2: 
                     {
                         stocks stock=new stocks();
-                        dataGridView1.DataSource = stock.SelectListStocks();
-                        dataGridView1.Columns[0].Visible = false;
-                        dataGridView1.Columns[1].HeaderText = "НАЧАЛО\r\nАКЦИИ";
-                        dataGridView1.Columns[2].HeaderText = "КОНЕЦ\r\nАКЦИИ";
-                        dataGridView1.Columns[3].HeaderText = "РАЗМЕР\r\n СКИДКИ В %";
-                        dataGridView1.Columns[4].Visible = false;
-                        label2.Visible = false;
-                        comboBox1.Visible = false;
-                        textBox1.Visible = false;
-                        label3.Visible = true;
-                        comboBox2.Visible = true;
-                        button1.Visible = false;
+                        selectList.DataSource = stock.SelectListStocks();
+                        selectList.Columns[0].Visible = false;
+                        selectList.Columns[1].HeaderText = "НАЧАЛО\r\nАКЦИИ";
+                        selectList.Columns[2].HeaderText = "КОНЕЦ\r\nАКЦИИ";
+                        selectList.Columns[3].HeaderText = "РАЗМЕР\r\n СКИДКИ В %";
+                        selectList.Columns[4].Visible = false;
+                        labelSearch.Visible = false;
+                        comboBoxItem.Visible = false;
+                        textBoxsearch.Visible = false;
+                        searchh.Visible = true;
+                        comboBoxSearch.Visible = true;
+                        buttonSearch.Visible = false;
                         foreach (string i in stocks.ComboBoxItem())
                         {
-                            comboBox2.Items.Add(i);
+                            comboBoxSearch.Items.Add(i);
                         }
                     } break;
             }
@@ -124,10 +124,10 @@ namespace SMART_REST
         private void edit_Click(object sender, EventArgs e)
         {
            
-            if (dataGridView1.SelectedCells.Count == 1) 
+            if (selectList.SelectedCells.Count == 1) 
             {
                 int edit = 0;
-                try {  edit = (int)dataGridView1.SelectedCells[0].OwningRow.Cells[0].Value; } catch { };
+                try {  edit = (int)selectList.SelectedCells[0].OwningRow.Cells[0].Value; } catch { };
                
                 switch (item) 
                 {
@@ -164,40 +164,21 @@ namespace SMART_REST
 
         private void update_Click(object sender, EventArgs e)
         {
-            label1.Visible = false;
+            labelNo.Visible = false;
             switch (item)
             {
                 case 0:
                     {
-                        dataGridView1.DataSource = emp.SelectListEmp();
-                        dataGridView1.Columns[0].Visible = false;
-                        dataGridView1.Columns[1].HeaderText = "ФАМИЛИЯ";
-                        dataGridView1.Columns[2].HeaderText = "ИМЯ";
-                        dataGridView1.Columns[3].HeaderText = "ОТЧЕСТВО";
-                        dataGridView1.Columns[4].HeaderText = "ЛОГИН";
-                        dataGridView1.Columns[5].HeaderText = "ПАРОЛЬ";
-                        dataGridView1.Columns[6].Visible = false;
-                        dataGridView1.Columns[7].HeaderText = "ДОЛЖНОСТЬ";
+                        selectList.DataSource = emp.SelectListEmp();
                     }
                     break;
                 case 1: 
                     {
-                        dataGridView1.DataSource = dish.SelectListDish();
-                        dataGridView1.Columns[0].Visible = false;
-                        dataGridView1.Columns[1].HeaderText = "  НАЗВАНИЕ\r\nБЛЮДА"; 
-                        dataGridView1.Columns[2].Visible = false;
-                        dataGridView1.Columns[3].HeaderText = "  РАЗДЕЛ";
-                        dataGridView1.Columns[4].HeaderText = "  ДОСТУПНОСТЬ";
-                        dataGridView1.Columns[5].HeaderText = "  ЦЕНА";
+                        selectList.DataSource = dish.SelectListDish();
                     } break;
                 case 2:
                     {
-                        dataGridView1.DataSource = stock.SelectListStocks();
-                        dataGridView1.Columns[0].Visible = false;
-                        dataGridView1.Columns[1].HeaderText = "  НАЧАЛО\r\n  АКЦИИ";
-                        dataGridView1.Columns[2].HeaderText = "  КОНЕЦ\r\n  АКЦИИ";
-                        dataGridView1.Columns[3].HeaderText = "  РАЗМЕР\r\n СКИДКИ В %";
-                        dataGridView1.Columns[4].Visible = false;
+                        selectList.DataSource = stock.SelectListStocks();
                     }
                     break;
             }
@@ -213,9 +194,9 @@ namespace SMART_REST
 
         private void delete_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedCells.Count == 1)
+            if (selectList.SelectedCells.Count == 1)
             {
-                var delete = (int)dataGridView1.SelectedCells[0].OwningRow.Cells[0].Value;
+                var delete = (int)selectList.SelectedCells[0].OwningRow.Cells[0].Value;
                 string a = "У Д А Л Е Н О!\r\nО Б Н О В И Т Е  С П И С О К!";
                 string b = "У Д А Л Е Н И Е   Н Е В О З М О Ж Н О!";
                 MessageForm mess;
@@ -239,23 +220,16 @@ namespace SMART_REST
 
         private void button1_Click(object sender, EventArgs e)
         {
-            label1.Visible = false;
+            labelNo.Visible = false;
             switch (item)
             {
                 case 0:
                     {
                         try
                         {
-                            dataGridView1.DataSource = emp.searchEmp(comboBox1.SelectedIndex, textBox1.Text);
-                            dataGridView1.Columns[0].Visible = false;
-                            dataGridView1.Columns[1].HeaderText = "ФАМИЛИЯ";
-                            dataGridView1.Columns[2].HeaderText = "ИМЯ";
-                            dataGridView1.Columns[3].HeaderText = "ОТЧЕСТВО";
-                            dataGridView1.Columns[4].HeaderText = "ЛОГИН";
-                            dataGridView1.Columns[5].HeaderText = "ПАРОЛЬ";
-                            dataGridView1.Columns[6].HeaderText = "ДОЛЖНОСТЬ";
+                            selectList.DataSource = emp.searchEmp(comboBoxItem.SelectedIndex, textBoxsearch.Text);
                         }
-                        catch { label1.Visible = true; }
+                        catch { labelNo.Visible = true; }
                     
                     }
                     break;
@@ -263,15 +237,9 @@ namespace SMART_REST
                     {
                         try
                         {
-                            dataGridView1.DataSource = dish.searchDish(comboBox1.SelectedIndex, textBox1.Text);
-                            dataGridView1.Columns[0].Visible = false;
-                            dataGridView1.Columns[1].HeaderText = "  НАЗВАНИЕ\r\nБЛЮДА";
-                            dataGridView1.Columns[2].Visible = false;
-                            dataGridView1.Columns[3].HeaderText = "  РАЗДЕЛ";
-                            dataGridView1.Columns[4].HeaderText = "  ДОСТУПНОСТЬ";
-                            dataGridView1.Columns[5].HeaderText = "  ЦЕНА";
+                            selectList.DataSource = dish.searchDish(comboBoxItem.SelectedIndex, textBoxsearch.Text);
                         }
-                        catch { label1.Visible = true; }
+                        catch { labelNo.Visible = true; }
             }
                     break;
             }
@@ -279,17 +247,17 @@ namespace SMART_REST
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = stock.OrderByStock(comboBox2.SelectedIndex);
-            dataGridView1.Columns[0].Visible = false;
-            dataGridView1.Columns[1].HeaderText = "  НАЧАЛО\r\n  АКЦИИ";
-            dataGridView1.Columns[2].HeaderText = "  КОНЕЦ\r\n  АКЦИИ";
-            dataGridView1.Columns[3].HeaderText = "  РАЗМЕР\r\n СКИДКИ В %";
-            dataGridView1.Columns[4].Visible = false;
+            selectList.DataSource = stock.OrderByStock(comboBoxSearch.SelectedIndex);
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+
+            if ((e.KeyChar >= 'А' && e.KeyChar <= 'Я') || (e.KeyChar >= 'а' && e.KeyChar <= 'я') ||  e.KeyChar == '-' || e.KeyChar == (char)Keys.Back || char.IsControl(e.KeyChar) || char.IsWhiteSpace(e.KeyChar))
+            {
+
+            }
+            else
             {
                 e.Handled = true;
             }

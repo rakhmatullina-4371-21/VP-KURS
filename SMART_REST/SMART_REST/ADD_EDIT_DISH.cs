@@ -19,8 +19,8 @@ namespace SMART_REST
             InitializeComponent();
                 this.emp = emp;
                 this.dish = list_of_dishes.DynamicDish(dish);
-                maskedTextBoxPrice.Text = (Math.Truncate(dish.price)).ToString();
-                maskedTextBoxPrice2.Text = ((dish.price - Math.Truncate(dish.price)) * 100).ToString();
+                maskedTextBoxPriceP.Text = (Math.Truncate(dish.price)).ToString();
+                maskedTextBoxPriceK.Text = ((dish.price - Math.Truncate(dish.price)) * 100).ToString();
                 name_dish.Text = dish.name_dish;
                 var comboList = menu.ComboSel();
                 foreach (menu i in comboList)
@@ -60,7 +60,7 @@ namespace SMART_REST
             try
             {
                 if (comboSelection.SelectedItem != null) { dish.id_selection = menu.SelectSel(comboSelection.SelectedItem.ToString()); }
-                if (!dish.SaveDish(dish.id_dish, name_dish.Text, dish.id_selection, checkBoxAv.Checked, maskedTextBoxPrice.Text, maskedTextBoxPrice2.Text))
+                if (!dish.SaveDish(dish.id_dish, name_dish.Text, dish.id_selection, checkBoxAv.Checked, maskedTextBoxPriceP.Text, maskedTextBoxPriceK.Text))
                 {
                     MessageForm mes = new MessageForm("Н Е   В С Е   О Б Я З А Т Е Л Ь Н Ы Е    П О Л Я\r\nБ Ы Л И    З А П О Л Н Е Н Ы ");
                     mes.ShowDialog();

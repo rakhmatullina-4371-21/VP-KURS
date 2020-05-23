@@ -22,9 +22,9 @@ namespace SMART_REST
             var comboList = ord.SelectOrder(emp);
             foreach (int i in comboList)
             {
-                comboBox1.Items.Add(i);
+                comboBoxOrd.Items.Add(i);
             }
-            button1.Visible = false;
+            update.Visible = false;
         }
 
         private void CHEQUE_FormClosed(object sender, FormClosedEventArgs e)
@@ -43,16 +43,16 @@ namespace SMART_REST
         {
             try
             {
-                selectList.DataSource = ord.SelectOrder(int.Parse(comboBox1.SelectedItem.ToString()));
+                selectList.DataSource = ord.SelectOrder(int.Parse(comboBoxOrd.SelectedItem.ToString()));
                 selectList.Columns[0].Visible = false;
                 selectList.Columns[1].HeaderText = "ЗАКАЗ №";
                 selectList.Columns[2].Visible = false;
                 selectList.Columns[3].HeaderText = "  НАЗВАНИЕ\r\nБЛЮДА";
                 selectList.Columns[4].HeaderText = "  КОЛИЧЕСТВО";
                 selectList.Columns[5].HeaderText = "  ЦЕНА";
-                button2.Visible = true;
-                textBox1.Text = ord.SelectInformOrd(int.Parse(comboBox1.SelectedItem.ToString()));
-                button1.Visible = true;
+                buttonOut.Visible = true;
+                textBoxInf.Text = ord.SelectInformOrd(int.Parse(comboBoxOrd.SelectedItem.ToString()));
+                update.Visible = true;
             }
             catch
             {
@@ -66,7 +66,7 @@ namespace SMART_REST
         {
             try
             {
-                ord.DeleteOrd(int.Parse(comboBox1.SelectedItem.ToString()));
+                ord.DeleteOrd(int.Parse(comboBoxOrd.SelectedItem.ToString()));
                 MessageForm f = new MessageForm("У С П Е Ш Н О !");
                 f.ShowDialog();
                 MENU_ADM_WAITER waiter = new MENU_ADM_WAITER(2, emp);
@@ -80,7 +80,7 @@ namespace SMART_REST
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ORDER_SELECT ordEdit = new ORDER_SELECT(ord.SelectOrder(int.Parse(comboBox1.SelectedItem.ToString())),emp);
+            ORDER_SELECT ordEdit = new ORDER_SELECT(ord.SelectOrder(int.Parse(comboBoxOrd.SelectedItem.ToString())),emp);
             ordEdit.Show();
             this.Hide();
         }

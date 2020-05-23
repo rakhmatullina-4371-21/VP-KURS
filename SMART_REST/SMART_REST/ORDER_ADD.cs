@@ -59,8 +59,8 @@ namespace SMART_REST
             cont.id_dish =((int)selectList.SelectedCells[0].OwningRow.Cells[0].Value);
             this.selectList.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             this.selectList.Rows[selectList.CurrentRow.Index].DefaultCellStyle.BackColor =ColorTranslator.FromHtml("#a8a8a8");
-            comboBox1.Visible = true;
-            label1.Visible = true;
+            comboBoxCount.Visible = true;
+            labelCount.Visible = true;
             selectList.Visible = false;
             this.selectList.MultiSelect = false;
         }
@@ -88,7 +88,7 @@ namespace SMART_REST
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            cont.count_dish =int.Parse(comboBox1.SelectedItem.ToString());
+            cont.count_dish =int.Parse(comboBoxCount.SelectedItem.ToString());
             if (cont.count_dish == 0)
             {
                 this.selectList.Rows[selectList.CurrentRow.Index].DefaultCellStyle.BackColor = Color.White;
@@ -103,10 +103,8 @@ namespace SMART_REST
 
             }
                 selectList.Visible = true;
-                label1.Visible = false;
-                comboBox1.Visible = false;
-            
-           
+                labelCount.Visible = false;
+                comboBoxCount.Visible = false;
         }
 
         private void comboTable_SelectedIndexChanged(object sender, EventArgs e)
@@ -130,26 +128,11 @@ namespace SMART_REST
         {
             list_of_dishes dish = new list_of_dishes();
             selectList.DataSource= dish.SelectListDish(comboSelection.SelectedItem.ToString());
-            selectList.Columns[0].Visible = false;
-            selectList.Columns[1].HeaderText = "  НАЗВАНИЕ\r\nБЛЮДА";
-            selectList.Columns[2].Visible = false;
-            selectList.Columns[3].HeaderText = "  РАЗДЕЛ";
-            selectList.Columns[4].HeaderText = "  ЦЕНА";
         }
 
         private void comboSelection_MouseClick(object sender, MouseEventArgs e)
         {
             selectList.DataSource = list_of_dishes.SelectListDishAva();
-            selectList.Columns[0].Visible = false;
-            selectList.Columns[1].HeaderText = "  НАЗВАНИЕ\r\nБЛЮДА";
-            selectList.Columns[2].Visible = false;
-            selectList.Columns[3].HeaderText = "  РАЗДЕЛ";
-            selectList.Columns[4].HeaderText = "  ЦЕНА";
-        }
-
-        private void comboSelection_MouseUp(object sender, MouseEventArgs e)
-        {
-
         }
     }
 }

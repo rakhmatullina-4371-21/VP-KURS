@@ -28,20 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ORDER_SELECT));
             this.white = new System.Windows.Forms.Panel();
-            this.save = new System.Windows.Forms.Button();
+            this.comboBoxCount = new System.Windows.Forms.ComboBox();
             this.selectList = new System.Windows.Forms.DataGridView();
             this.form = new System.Windows.Forms.Panel();
+            this.labelCount = new System.Windows.Forms.Label();
+            this.buttonInpMenu = new System.Windows.Forms.Button();
+            this.save = new System.Windows.Forms.Button();
             this.labelOrder = new System.Windows.Forms.Label();
-            this.t = new System.Windows.Forms.ToolTip(this.components);
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.white.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.selectList)).BeginInit();
             this.form.SuspendLayout();
@@ -53,32 +51,35 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.white.BackColor = System.Drawing.SystemColors.Window;
-            this.white.Controls.Add(this.label1);
-            this.white.Controls.Add(this.comboBox1);
+            this.white.Controls.Add(this.labelCount);
+            this.white.Controls.Add(this.comboBoxCount);
             this.white.Controls.Add(this.selectList);
-            this.white.Controls.Add(this.button1);
             this.white.Controls.Add(this.save);
+            this.white.Controls.Add(this.buttonInpMenu);
             this.white.Location = new System.Drawing.Point(72, 74);
             this.white.Name = "white";
             this.white.Size = new System.Drawing.Size(798, 407);
             this.white.TabIndex = 65;
             // 
-            // save
+            // comboBoxCount
             // 
-            this.save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.save.BackColor = System.Drawing.Color.White;
-            this.save.BackgroundImage = global::SMART_REST.Properties.Resources.Image_1;
-            this.save.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.save.Font = new System.Drawing.Font("Microsoft JhengHei", 8F);
-            this.save.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.save.Location = new System.Drawing.Point(20, 358);
-            this.save.Name = "save";
-            this.save.Size = new System.Drawing.Size(760, 30);
-            this.save.TabIndex = 64;
-            this.save.Text = "К   М Е Н Ю";
-            this.save.UseVisualStyleBackColor = false;
-            this.save.Click += new System.EventHandler(this.save_Click);
+            this.comboBoxCount.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBoxCount.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBoxCount.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.comboBoxCount.FormattingEnabled = true;
+            this.comboBoxCount.Items.AddRange(new object[] {
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"});
+            this.comboBoxCount.Location = new System.Drawing.Point(353, 208);
+            this.comboBoxCount.Name = "comboBoxCount";
+            this.comboBoxCount.Size = new System.Drawing.Size(121, 27);
+            this.comboBoxCount.TabIndex = 67;
+            this.comboBoxCount.Visible = false;
+            this.comboBoxCount.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // selectList
             // 
@@ -125,7 +126,6 @@
             this.selectList.RowTemplate.Height = 24;
             this.selectList.Size = new System.Drawing.Size(674, 332);
             this.selectList.TabIndex = 3;
-            this.t.SetToolTip(this.selectList, "Дважды кликните для изменения количества блюда");
             this.selectList.MouseClick += new System.Windows.Forms.MouseEventHandler(this.selectList_MouseClick);
             // 
             // form
@@ -136,6 +136,57 @@
             this.form.Name = "form";
             this.form.Size = new System.Drawing.Size(942, 503);
             this.form.TabIndex = 66;
+            // 
+            // labelCount
+            // 
+            this.labelCount.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelCount.AutoSize = true;
+            this.labelCount.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelCount.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.labelCount.Image = global::SMART_REST.Properties.Resources.Image_1;
+            this.labelCount.Location = new System.Drawing.Point(284, 171);
+            this.labelCount.Name = "labelCount";
+            this.labelCount.Size = new System.Drawing.Size(255, 20);
+            this.labelCount.TabIndex = 68;
+            this.labelCount.Text = "В Ы Б Е Р И Т Е   К О Л И Ч Е С Т В О";
+            this.labelCount.Visible = false;
+            // 
+            // buttonInpMenu
+            // 
+            this.buttonInpMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonInpMenu.BackColor = System.Drawing.Color.White;
+            this.buttonInpMenu.BackgroundImage = global::SMART_REST.Properties.Resources.Image_1;
+            this.buttonInpMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonInpMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonInpMenu.Font = new System.Drawing.Font("Microsoft JhengHei", 8F);
+            this.buttonInpMenu.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.buttonInpMenu.Location = new System.Drawing.Point(20, 358);
+            this.buttonInpMenu.Name = "buttonInpMenu";
+            this.buttonInpMenu.Size = new System.Drawing.Size(760, 30);
+            this.buttonInpMenu.TabIndex = 65;
+            this.buttonInpMenu.Text = "Г О Т О В О";
+            this.buttonInpMenu.UseVisualStyleBackColor = false;
+            this.buttonInpMenu.Visible = false;
+            this.buttonInpMenu.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // save
+            // 
+            this.save.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.save.BackColor = System.Drawing.Color.White;
+            this.save.BackgroundImage = global::SMART_REST.Properties.Resources.Image_1;
+            this.save.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.save.Font = new System.Drawing.Font("Microsoft JhengHei", 8F);
+            this.save.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.save.Location = new System.Drawing.Point(20, 358);
+            this.save.Name = "save";
+            this.save.Size = new System.Drawing.Size(760, 30);
+            this.save.TabIndex = 64;
+            this.save.Text = "К   М Е Н Ю";
+            this.save.UseVisualStyleBackColor = false;
+            this.save.Click += new System.EventHandler(this.save_Click);
             // 
             // labelOrder
             // 
@@ -149,63 +200,6 @@
             this.labelOrder.Size = new System.Drawing.Size(581, 43);
             this.labelOrder.TabIndex = 1;
             this.labelOrder.Text = "С О Д Е Р Ж А Н И Е  З А К А З А";
-            // 
-            // t
-            // 
-            this.t.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.t.ForeColor = System.Drawing.SystemColors.Window;
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.BackgroundImage = global::SMART_REST.Properties.Resources.Image_1;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft JhengHei", 8F);
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button1.Location = new System.Drawing.Point(20, 358);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(760, 30);
-            this.button1.TabIndex = 65;
-            this.button1.Text = "Г О Т О В О";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Visible = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label1.Image = global::SMART_REST.Properties.Resources.Image_1;
-            this.label1.Location = new System.Drawing.Point(284, 171);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(255, 20);
-            this.label1.TabIndex = 68;
-            this.label1.Text = "В Ы Б Е Р И Т Е   К О Л И Ч Е С Т В О";
-            this.label1.Visible = false;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBox1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5"});
-            this.comboBox1.Location = new System.Drawing.Point(353, 208);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 27);
-            this.comboBox1.TabIndex = 67;
-            this.comboBox1.Visible = false;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // ORDER_SELECT
             // 
@@ -239,9 +233,8 @@
         private System.Windows.Forms.Panel white;
         private System.Windows.Forms.DataGridView selectList;
         private System.Windows.Forms.Panel form;
-        private System.Windows.Forms.ToolTip t;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button buttonInpMenu;
+        private System.Windows.Forms.Label labelCount;
+        private System.Windows.Forms.ComboBox comboBoxCount;
     }
 }

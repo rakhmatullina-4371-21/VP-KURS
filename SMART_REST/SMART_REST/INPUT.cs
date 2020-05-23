@@ -16,6 +16,7 @@ namespace SMART_REST
         public INPUT()
         {
             InitializeComponent();
+            
         }
 
         private void INPUT_FormClosed(object sender, FormClosedEventArgs e)
@@ -30,12 +31,12 @@ namespace SMART_REST
                 switch (emp.id_position.ToString())
                 {
                     case "1":
-                        MENU_ADM_WAITER admin = new MENU_ADM_WAITER(1,emp);
+                        MENU_ADM_WAITER admin = new MENU_ADM_WAITER(1, emp);
                         admin.Location = this.Location;
                         admin.Size = this.Size; admin.Show(); this.Hide();
                         break;
                     case "2":
-                        
+
                         MENU_ADM_WAITER waiter = new MENU_ADM_WAITER(2, emp);
                         waiter.Location = this.Location;
                         waiter.Size = this.Size; waiter.Show(); this.Hide();
@@ -44,11 +45,11 @@ namespace SMART_REST
                         NoInput.Visible = true; NoInput2.Visible = true;
                         break;
                 }
-        }
+            }
             catch { MessageForm f = new MessageForm(); f.ShowDialog(); }
 
 
-}
+        }
 
     }
 }

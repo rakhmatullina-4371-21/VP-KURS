@@ -13,7 +13,8 @@ namespace SMART_REST
     using System.Collections.Generic;
     using System.Data.Entity.Migrations;
     using System.Linq;
-
+    using System.Security.Cryptography;
+    using System.Text;
     public partial class employee
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -44,9 +45,17 @@ namespace SMART_REST
 
 
         SmartRestaurantEntities db = new SmartRestaurantEntities();
+         string GetHash(string password)    //шифрование пароля
+         {
+            var md5 = MD5.Create();
+            var hash = md5.ComputeHash(Encoding.UTF8.GetBytes(password));
+            return Convert.ToBase64String(hash);
+         }
+     
         public employee(string login, string password)   //инициализация сотрудника по паролю и логину
         {
-            var emp = db.employee.FirstOrDefault(p => p.login == login && p.password == password);
+            string pass = GetHash(password);
+            var emp = db.employee.FirstOrDefault(p => p.login == login && p.password == pass);
             if (emp != null)
             {
                 this.id_employee = emp.id_employee;
@@ -110,21 +119,22 @@ namespace SMART_REST
         {
             var emp = db.employee.FirstOrDefault(w => w.id_employee == id);
 
-            if ((surname != "") && (name != "") && (login != "") && (password != "") && (id_pos != null))
+            if ((surname != "") && (name != "") && (login != "")&& (id_pos != null) &&((emp.password!=null && password!="") || (emp.password != null && password == "")))
             {
                 if (emp == null)
                 {
                     emp = new employee();
                     emp.id_employee = id;
                 }
-                emp.surname = surname;
-                emp.name = name;
-                emp.lastname = lastname;
+                emp.surname =Savestring(surname);
+                emp.name = Savestring(name);
+                emp.lastname = Savestring(lastname);
                 if (emp.login != login)   //при создании БД  на логин было наложено ограничение того, чтобы он не повторялся если он изменился, то изменяем
                 {
                     emp.login = login;
                 }
-                emp.password = password;
+                if (password != "") { emp.password =GetHash(password); }
+                else emp.password = emp.password;
                 emp.id_position = id_pos;
                 db.employee.AddOrUpdate(emp);
                 db.SaveChanges();
@@ -137,7 +147,7 @@ namespace SMART_REST
 
 
         }
-        public static List<string> ComboBoxItem()
+        public static List<string> ComboBoxItem()    //заполнение combobox для поиска сотрудника
         {
             List<string> items = new List<string>();
             items.Add("ПО ФАМИЛИИ");
@@ -146,8 +156,9 @@ namespace SMART_REST
             return items;
 
         }
-        public List<dynamic> searchEmp(int item, string searchString)
+        public List<dynamic> searchEmp(int item, string search)  //поиск сотрудника
         {
+            string searchString = Savestring(search);
             var empList = new List<dynamic>();
             switch (item)
             {
@@ -176,6 +187,15 @@ namespace SMART_REST
 
             }
             return empList;
+        }
+        public static string Savestring(string str)    //приведение строки к нормальному виду
+        {
+            string newSTR = "";
+            for (int i = 0; i < str.Length; i++) 
+            {
+                if (i == 0) { newSTR += str[i].ToString().ToUpper(); }
+                else if (i > 0) { newSTR += str[i].ToString().ToLower(); }
+            }return newSTR;
         }
 
     }

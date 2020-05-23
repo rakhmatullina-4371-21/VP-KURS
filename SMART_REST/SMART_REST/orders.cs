@@ -45,7 +45,7 @@ namespace SMART_REST
 
 
         SmartRestaurantEntities db = new SmartRestaurantEntities();
-        public int SaveOrd(int id_emp, int id_tab)
+        public int SaveOrd(int id_emp, int id_tab)    //сохранение информации о заказе
         {
             orders ord = new orders();
             ord.id_employee = db.employee.First(p => p.id_employee == id_emp).id_employee;
@@ -57,8 +57,6 @@ namespace SMART_REST
             {
                 stock.AddRange(db.stocks.Where(p => (p.start_time > p.end_time) && ((p.start_time >= ord.time_order) || (p.end_time >= ord.time_order))).ToList());
             }
-
-
             if (stock.Count != 0)
             {
                 var discount = stock.Min(p => p.discount);
@@ -81,7 +79,7 @@ namespace SMART_REST
             return ord.id_order;
         }
         public static List<content_orders> ListDishesinOrd = new List<content_orders>();
-        decimal FullPrice(decimal discount)
+        decimal FullPrice(decimal discount)  //расчет итоговой суммы
         {
 
             var listDishOrder = infOrd.Select(p => p.count_dish * p.price).ToList();
@@ -97,7 +95,7 @@ namespace SMART_REST
             return sum;
         }
         List<dynamic> infOrd = new List<dynamic>();
-        public List<dynamic> SelectOrder(int id_order)
+        public List<dynamic> SelectOrder(int id_order)   //вывод определенного заказа
         {
             List<content_orders> ord = (db.content_orders.Where(p => p.id_order == id_order)).ToList();
             infOrd = (from i in ord
@@ -106,23 +104,24 @@ namespace SMART_REST
 
             return infOrd;
         }
-        public List<int> SelectOrder(employee emp)
+        public List<int> SelectOrder(employee emp)   //вывод списка заказов конкретного официанта
         {
             var ordList = db.orders.Where(p => p.id_employee == emp.id_employee && p.given_out != true).Select(p => p.id_order).ToList();
             return ordList;
         }
-        public string SelectInformOrd(int? id)
+        public string SelectInformOrd(int? id)    //вывод информации о заказе
         {
             decimal disc = 0;
             string time = db.orders.First(p => p.id_order == id).time_order.ToString("hh':'mm");
             var st = db.orders.First(p => p.id_order == id).id_stock;
+            var tab = db.orders.FirstOrDefault(p => p.id_order == id).id_table;
             if (db.stocks.FirstOrDefault(p => p.id_stock == st) != null)
             {
                 disc = db.stocks.FirstOrDefault(p => p.id_stock == st).discount;
             }
             var sum = FullPrice(disc);
             
-            return $"В Р Е М Я   З А К А З А :                     {time}\r\nС К И Д К А :                                     {disc} % \r\nЦ Е Н А   С О   С К И Д К О Й :          {Math.Round(sum, 2, MidpointRounding.AwayFromZero)} р.";
+            return $"С Т О Л  №  {tab}\r\nВ Р Е М Я   З А К А З А :                     {time}\r\nС К И Д К А :                                     {disc} % \r\nЦ Е Н А   С О   С К И Д К О Й :          {Math.Round(sum, 2, MidpointRounding.AwayFromZero)} р.";
         }
         public bool DeleteOrd(int id)    //возврат заказа, информацию о котором необходимо убрать из списка заказов
         {

@@ -40,12 +40,12 @@
             this.labelSurname = new System.Windows.Forms.Label();
             this.labelRole = new System.Windows.Forms.Label();
             this.labelPass = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.back = new System.Windows.Forms.Button();
-            this.save = new System.Windows.Forms.Button();
+            this.labelLog = new System.Windows.Forms.Label();
             this.white = new System.Windows.Forms.Panel();
             this.error = new System.Windows.Forms.Label();
             this.labelMain = new System.Windows.Forms.Label();
+            this.back = new System.Windows.Forms.Button();
+            this.save = new System.Windows.Forms.Button();
             this.white.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -179,51 +179,17 @@
             this.labelPass.TabIndex = 61;
             this.labelPass.Text = "П А Р О Л Ь *";
             // 
-            // label9
+            // labelLog
             // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft JhengHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label9.Location = new System.Drawing.Point(55, 184);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(83, 18);
-            this.label9.TabIndex = 60;
-            this.label9.Text = "Л О Г И Н *";
-            // 
-            // back
-            // 
-            this.back.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.back.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.back.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("back.BackgroundImage")));
-            this.back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.back.Font = new System.Drawing.Font("Microsoft JhengHei", 7F);
-            this.back.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.back.Location = new System.Drawing.Point(58, 340);
-            this.back.Name = "back";
-            this.back.Size = new System.Drawing.Size(139, 37);
-            this.back.TabIndex = 64;
-            this.back.Text = "О Т М Е Н А";
-            this.back.UseVisualStyleBackColor = false;
-            this.back.Click += new System.EventHandler(this.back_Click_1);
-            // 
-            // save
-            // 
-            this.save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.save.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.save.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("save.BackgroundImage")));
-            this.save.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.save.Font = new System.Drawing.Font("Microsoft JhengHei", 7F);
-            this.save.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.save.Location = new System.Drawing.Point(600, 340);
-            this.save.Name = "save";
-            this.save.Size = new System.Drawing.Size(139, 37);
-            this.save.TabIndex = 63;
-            this.save.Text = "С О Х Р А Н И Т Ь";
-            this.save.UseVisualStyleBackColor = false;
-            this.save.Click += new System.EventHandler(this.save_Click);
+            this.labelLog.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelLog.AutoSize = true;
+            this.labelLog.Font = new System.Drawing.Font("Microsoft JhengHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLog.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.labelLog.Location = new System.Drawing.Point(55, 184);
+            this.labelLog.Name = "labelLog";
+            this.labelLog.Size = new System.Drawing.Size(83, 18);
+            this.labelLog.TabIndex = 60;
+            this.labelLog.Text = "Л О Г И Н *";
             // 
             // white
             // 
@@ -240,7 +206,7 @@
             this.white.Controls.Add(this.lastname);
             this.white.Controls.Add(this.labelPass);
             this.white.Controls.Add(this.login);
-            this.white.Controls.Add(this.label9);
+            this.white.Controls.Add(this.labelLog);
             this.white.Controls.Add(this.password);
             this.white.Controls.Add(this.labelLastname);
             this.white.Controls.Add(this.comboPosition);
@@ -277,6 +243,40 @@
             this.labelMain.TabIndex = 71;
             this.labelMain.Text = "И Н Ф О Р М А Ц И Я  О  С О Т Р У Д Н И К Е";
             // 
+            // back
+            // 
+            this.back.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.back.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.back.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("back.BackgroundImage")));
+            this.back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.back.Font = new System.Drawing.Font("Microsoft JhengHei", 7F);
+            this.back.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.back.Location = new System.Drawing.Point(58, 340);
+            this.back.Name = "back";
+            this.back.Size = new System.Drawing.Size(139, 37);
+            this.back.TabIndex = 64;
+            this.back.Text = "О Т М Е Н А";
+            this.back.UseVisualStyleBackColor = false;
+            this.back.Click += new System.EventHandler(this.back_Click_1);
+            // 
+            // save
+            // 
+            this.save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.save.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.save.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("save.BackgroundImage")));
+            this.save.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.save.Font = new System.Drawing.Font("Microsoft JhengHei", 7F);
+            this.save.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.save.Location = new System.Drawing.Point(600, 340);
+            this.save.Name = "save";
+            this.save.Size = new System.Drawing.Size(139, 37);
+            this.save.TabIndex = 63;
+            this.save.Text = "С О Х Р А Н И Т Ь";
+            this.save.UseVisualStyleBackColor = false;
+            this.save.Click += new System.EventHandler(this.save_Click);
+            // 
             // ADD_EDIT_EMPLOYEE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -312,7 +312,7 @@
         private System.Windows.Forms.Label labelSurname;
         private System.Windows.Forms.Label labelRole;
         private System.Windows.Forms.Label labelPass;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label labelLog;
         private System.Windows.Forms.Button back;
         private System.Windows.Forms.Button save;
         private System.Windows.Forms.Panel white;

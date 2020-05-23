@@ -29,25 +29,23 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ORDER_ADD));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.white = new System.Windows.Forms.Panel();
             this.buttonSelOrd = new System.Windows.Forms.Button();
             this.comboSelection = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelCount = new System.Windows.Forms.Label();
             this.labelSelection = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxCount = new System.Windows.Forms.ComboBox();
             this.labelTable = new System.Windows.Forms.Label();
             this.close = new System.Windows.Forms.Button();
             this.save = new System.Windows.Forms.Button();
             this.comboTable = new System.Windows.Forms.ComboBox();
             this.selectList = new System.Windows.Forms.DataGridView();
             this.form = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
             this.white.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.selectList)).BeginInit();
-            this.form.SuspendLayout();
             this.SuspendLayout();
             // 
             // white
@@ -58,9 +56,9 @@
             this.white.BackColor = System.Drawing.SystemColors.Window;
             this.white.Controls.Add(this.buttonSelOrd);
             this.white.Controls.Add(this.comboSelection);
-            this.white.Controls.Add(this.label1);
+            this.white.Controls.Add(this.labelCount);
             this.white.Controls.Add(this.labelSelection);
-            this.white.Controls.Add(this.comboBox1);
+            this.white.Controls.Add(this.comboBoxCount);
             this.white.Controls.Add(this.labelTable);
             this.white.Controls.Add(this.close);
             this.white.Controls.Add(this.save);
@@ -102,21 +100,20 @@
             this.comboSelection.Visible = false;
             this.comboSelection.SelectedIndexChanged += new System.EventHandler(this.comboSelection_SelectedIndexChanged);
             this.comboSelection.MouseClick += new System.Windows.Forms.MouseEventHandler(this.comboSelection_MouseClick);
-            this.comboSelection.MouseUp += new System.Windows.Forms.MouseEventHandler(this.comboSelection_MouseUp);
             // 
-            // label1
+            // labelCount
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label1.Image = global::SMART_REST.Properties.Resources.Image_1;
-            this.label1.Location = new System.Drawing.Point(271, 178);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(255, 20);
-            this.label1.TabIndex = 66;
-            this.label1.Text = "В Ы Б Е Р И Т Е   К О Л И Ч Е С Т В О";
-            this.label1.Visible = false;
+            this.labelCount.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelCount.AutoSize = true;
+            this.labelCount.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelCount.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.labelCount.Image = global::SMART_REST.Properties.Resources.Image_1;
+            this.labelCount.Location = new System.Drawing.Point(271, 178);
+            this.labelCount.Name = "labelCount";
+            this.labelCount.Size = new System.Drawing.Size(255, 20);
+            this.labelCount.TabIndex = 66;
+            this.labelCount.Text = "В Ы Б Е Р И Т Е   К О Л И Ч Е С Т В О";
+            this.labelCount.Visible = false;
             // 
             // labelSelection
             // 
@@ -132,25 +129,25 @@
             this.labelSelection.Text = "В Ы Б Е Р И Т Е  Р А З Д Е Л";
             this.labelSelection.Visible = false;
             // 
-            // comboBox1
+            // comboBoxCount
             // 
-            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBox1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.comboBoxCount.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBoxCount.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBoxCount.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.comboBoxCount.FormattingEnabled = true;
+            this.comboBoxCount.Items.AddRange(new object[] {
             "0",
             "1",
             "2",
             "3",
             "4",
             "5"});
-            this.comboBox1.Location = new System.Drawing.Point(340, 215);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 27);
-            this.comboBox1.TabIndex = 65;
-            this.comboBox1.Visible = false;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBoxCount.Location = new System.Drawing.Point(340, 215);
+            this.comboBoxCount.Name = "comboBoxCount";
+            this.comboBoxCount.Size = new System.Drawing.Size(121, 27);
+            this.comboBoxCount.TabIndex = 65;
+            this.comboBoxCount.Visible = false;
+            this.comboBoxCount.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // labelTable
             // 
@@ -220,36 +217,36 @@
             this.selectList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.selectList.BackgroundColor = System.Drawing.SystemColors.Window;
             this.selectList.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.selectList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.selectList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.selectList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.selectList.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.selectList.DefaultCellStyle = dataGridViewCellStyle2;
             this.selectList.EnableHeadersVisualStyles = false;
             this.selectList.GridColor = System.Drawing.SystemColors.ControlDarkDark;
             this.selectList.Location = new System.Drawing.Point(35, 69);
             this.selectList.Name = "selectList";
             this.selectList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.selectList.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.selectList.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.selectList.RowHeadersVisible = false;
             this.selectList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.selectList.RowTemplate.Height = 24;
@@ -260,25 +257,11 @@
             // 
             // form
             // 
-            this.form.Controls.Add(this.label3);
             this.form.Dock = System.Windows.Forms.DockStyle.Fill;
             this.form.Location = new System.Drawing.Point(0, 0);
             this.form.Name = "form";
             this.form.Size = new System.Drawing.Size(942, 503);
             this.form.TabIndex = 66;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft JhengHei", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label3.Location = new System.Drawing.Point(314, 221);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(314, 61);
-            this.label3.TabIndex = 67;
-            this.label3.Text = "С П И С О К";
-            this.label3.Visible = false;
             // 
             // ORDER_ADD
             // 
@@ -299,8 +282,6 @@
             this.white.ResumeLayout(false);
             this.white.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.selectList)).EndInit();
-            this.form.ResumeLayout(false);
-            this.form.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -312,12 +293,11 @@
         private System.Windows.Forms.DataGridView selectList;
         private System.Windows.Forms.Label labelTable;
         private System.Windows.Forms.Label labelSelection;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboSelection;
         private System.Windows.Forms.ComboBox comboTable;
         private System.Windows.Forms.Panel form;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label labelCount;
+        private System.Windows.Forms.ComboBox comboBoxCount;
         private System.Windows.Forms.Button buttonSelOrd;
     }
 }

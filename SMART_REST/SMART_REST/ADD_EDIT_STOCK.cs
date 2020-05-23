@@ -41,9 +41,9 @@ namespace SMART_REST
             {
                     switch (stock.SaveStock(stock.id_stock, maskedStart.Text, maskedEnd.Text, int.Parse(maskedDiscount.Text))) 
                     {
-                        case 0:label3.Visible = true; break;
-                        case 1: label4.Visible = true; break;
-                        case 2: label3.Visible = true; label4.Visible = true; break;
+                        case 0:labelEr.Visible = true; break;
+                        case 1: labelEr1.Visible = true; break;
+                        case 2: labelEr.Visible = true; labelEr1.Visible = true; break;
                         case 3: label6.Visible = true; break;
                         default:
                             SELECT_LIST selList = new SELECT_LIST(2, emp);
@@ -54,7 +54,7 @@ namespace SMART_REST
 
                     }
             }
-            catch { label3.Visible = true;label4.Visible = true; }
+            catch { labelEr.Visible = true;labelEr1.Visible = true; }
             
         }
 

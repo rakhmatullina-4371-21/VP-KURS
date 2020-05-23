@@ -219,7 +219,6 @@
     <EmbeddedResource Include="INPUT.resx">
       <DependentUpon>INPUT.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report.rdlc" />
     <EmbeddedResource Include="SELECT_LIST.resx">
       <DependentUpon>SELECT_LIST.cs</DependentUpon>
     </EmbeddedResource>
@@ -263,14 +262,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Image 1.png" />
-    <None Include="Resources\Image 3.png" />
-    <None Include="Resources\PIC 1.png" />
-    <None Include="Resources\PIC 2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\PIC3.png" />
-    <None Include="Resources\S_R.png" />
-    <None Include="Resources\iconUser1.png" />
+    <None Include="Resources\Image 2.png" />
     <Content Include="SrModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>SrModel.edmx</DependentUpon>

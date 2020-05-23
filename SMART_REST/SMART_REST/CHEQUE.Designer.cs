@@ -28,34 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CHEQUE));
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelOrd = new System.Windows.Forms.Label();
             this.selectList = new System.Windows.Forms.DataGridView();
+            this.comboBoxOrd = new System.Windows.Forms.ComboBox();
+            this.textBoxInf = new System.Windows.Forms.TextBox();
+            this.panelWhite = new System.Windows.Forms.Panel();
+            this.update = new System.Windows.Forms.Button();
             this.labelOrder = new System.Windows.Forms.Label();
             this.close = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonOut = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.selectList)).BeginInit();
             this.SuspendLayout();
             // 
-            // label2
+            // labelOrd
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.labelOrd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft JhengHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label2.Location = new System.Drawing.Point(265, 66);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(106, 22);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "З А К А З №";
+            this.labelOrd.AutoSize = true;
+            this.labelOrd.Font = new System.Drawing.Font("Microsoft JhengHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelOrd.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.labelOrd.Location = new System.Drawing.Point(265, 66);
+            this.labelOrd.Name = "labelOrd";
+            this.labelOrd.Size = new System.Drawing.Size(106, 22);
+            this.labelOrd.TabIndex = 14;
+            this.labelOrd.Text = "З А К А З №";
             // 
             // selectList
             // 
@@ -66,41 +66,93 @@
             this.selectList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.selectList.BackgroundColor = System.Drawing.SystemColors.Window;
             this.selectList.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.selectList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.selectList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.selectList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.selectList.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.selectList.DefaultCellStyle = dataGridViewCellStyle5;
             this.selectList.EnableHeadersVisualStyles = false;
             this.selectList.GridColor = System.Drawing.SystemColors.ControlDarkDark;
             this.selectList.Location = new System.Drawing.Point(46, 113);
             this.selectList.Name = "selectList";
             this.selectList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.selectList.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.selectList.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.selectList.RowHeadersVisible = false;
             this.selectList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.selectList.RowTemplate.Height = 24;
-            this.selectList.Size = new System.Drawing.Size(841, 237);
+            this.selectList.Size = new System.Drawing.Size(838, 209);
             this.selectList.TabIndex = 67;
+            // 
+            // comboBoxOrd
+            // 
+            this.comboBoxOrd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxOrd.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBoxOrd.FormattingEnabled = true;
+            this.comboBoxOrd.Location = new System.Drawing.Point(386, 65);
+            this.comboBoxOrd.Name = "comboBoxOrd";
+            this.comboBoxOrd.Size = new System.Drawing.Size(291, 27);
+            this.comboBoxOrd.TabIndex = 66;
+            this.comboBoxOrd.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // textBoxInf
+            // 
+            this.textBoxInf.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBoxInf.BackColor = System.Drawing.SystemColors.Window;
+            this.textBoxInf.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxInf.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxInf.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.textBoxInf.Location = new System.Drawing.Point(459, 328);
+            this.textBoxInf.Multiline = true;
+            this.textBoxInf.Name = "textBoxInf";
+            this.textBoxInf.Size = new System.Drawing.Size(428, 117);
+            this.textBoxInf.TabIndex = 70;
+            // 
+            // panelWhite
+            // 
+            this.panelWhite.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelWhite.BackColor = System.Drawing.SystemColors.Window;
+            this.panelWhite.Location = new System.Drawing.Point(46, 97);
+            this.panelWhite.Name = "panelWhite";
+            this.panelWhite.Size = new System.Drawing.Size(841, 351);
+            this.panelWhite.TabIndex = 71;
+            // 
+            // update
+            // 
+            this.update.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.update.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("update.BackgroundImage")));
+            this.update.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.update.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.update.Font = new System.Drawing.Font("Microsoft JhengHei", 7F);
+            this.update.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.update.Location = new System.Drawing.Point(377, 454);
+            this.update.Name = "update";
+            this.update.Size = new System.Drawing.Size(164, 37);
+            this.update.TabIndex = 72;
+            this.update.Text = "И З М Е Н И Т Ь";
+            this.update.UseVisualStyleBackColor = true;
+            this.update.Click += new System.EventHandler(this.button1_Click);
             // 
             // labelOrder
             // 
@@ -131,70 +183,22 @@
             this.close.UseVisualStyleBackColor = true;
             this.close.Click += new System.EventHandler(this.close_Click);
             // 
-            // button2
+            // buttonOut
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft JhengHei", 7F);
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button2.Location = new System.Drawing.Point(723, 454);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(164, 37);
-            this.button2.TabIndex = 59;
-            this.button2.Text = "В Ы Д А Т Ь";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Visible = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(386, 65);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(291, 27);
-            this.comboBox1.TabIndex = 66;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.textBox1.Location = new System.Drawing.Point(459, 356);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(428, 75);
-            this.textBox1.TabIndex = 70;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Window;
-            this.panel1.Location = new System.Drawing.Point(46, 97);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(841, 351);
-            this.panel1.TabIndex = 71;
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft JhengHei", 7F);
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button1.Location = new System.Drawing.Point(377, 454);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(164, 37);
-            this.button1.TabIndex = 72;
-            this.button1.Text = "И З М Е Н И Т Ь";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonOut.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonOut.BackgroundImage")));
+            this.buttonOut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonOut.Font = new System.Drawing.Font("Microsoft JhengHei", 7F);
+            this.buttonOut.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.buttonOut.Location = new System.Drawing.Point(723, 454);
+            this.buttonOut.Name = "buttonOut";
+            this.buttonOut.Size = new System.Drawing.Size(164, 37);
+            this.buttonOut.TabIndex = 59;
+            this.buttonOut.Text = "В Ы Д А Т Ь";
+            this.buttonOut.UseVisualStyleBackColor = true;
+            this.buttonOut.Visible = false;
+            this.buttonOut.Click += new System.EventHandler(this.button2_Click);
             // 
             // CHEQUE
             // 
@@ -203,15 +207,15 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(942, 503);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.update);
+            this.Controls.Add(this.textBoxInf);
+            this.Controls.Add(this.labelOrd);
             this.Controls.Add(this.selectList);
             this.Controls.Add(this.labelOrder);
             this.Controls.Add(this.close);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.comboBoxOrd);
+            this.Controls.Add(this.buttonOut);
+            this.Controls.Add(this.panelWhite);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(960, 550);
@@ -227,13 +231,13 @@
 
         #endregion
         private System.Windows.Forms.Button close;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button buttonOut;
+        private System.Windows.Forms.Label labelOrd;
         private System.Windows.Forms.Label labelOrder;
         private System.Windows.Forms.DataGridView selectList;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox comboBoxOrd;
+        private System.Windows.Forms.TextBox textBoxInf;
+        private System.Windows.Forms.Panel panelWhite;
+        private System.Windows.Forms.Button update;
     }
 }

@@ -41,9 +41,9 @@
             this.label1.ForeColor = System.Drawing.Color.DimGray;
             this.label1.Location = new System.Drawing.Point(12, 45);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(255, 34);
+            this.label1.Size = new System.Drawing.Size(263, 34);
             this.label1.TabIndex = 67;
-            this.label1.Text = "Н Е   У Д А Л О С Ь    С В Я З А Т Ь С Я  \r\n С Б А З О Й   Д А Н Н Ы Х";
+            this.label1.Text = "Н Е   У Д А Л О С Ь    С   В Я З А Т Ь С Я  \r\nС   Б А З О Й   Д А Н Н Ы Х";
             // 
             // save
             // 

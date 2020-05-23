@@ -24,7 +24,7 @@ namespace SMART_REST
             name.Text = empl.name;
             lastname.Text = empl.lastname;
             login.Text = empl.login;
-            password.Text = empl.password;
+            password.Text ="";
             var comboList = positions.ComboPos();
             foreach (positions i in comboList) 
             {

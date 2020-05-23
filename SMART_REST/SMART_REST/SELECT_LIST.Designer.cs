@@ -29,50 +29,48 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SELECT_LIST));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.panel2 = new System.Windows.Forms.Panel();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.panelMain = new System.Windows.Forms.Panel();
             this.delete = new System.Windows.Forms.Button();
             this.add = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonSearch = new System.Windows.Forms.Button();
             this.edit = new System.Windows.Forms.Button();
             this.update = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxsearch = new System.Windows.Forms.TextBox();
             this.save = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.comboBoxItem = new System.Windows.Forms.ComboBox();
+            this.panelWhite = new System.Windows.Forms.Panel();
+            this.labelNo = new System.Windows.Forms.Label();
+            this.selectList = new System.Windows.Forms.DataGridView();
+            this.comboBoxSearch = new System.Windows.Forms.ComboBox();
+            this.labelSearch = new System.Windows.Forms.Label();
+            this.searchh = new System.Windows.Forms.Label();
+            this.panelMain.SuspendLayout();
+            this.panelWhite.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.selectList)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel2
+            // panelMain
             // 
-            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel2.Controls.Add(this.delete);
-            this.panel2.Controls.Add(this.add);
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.edit);
-            this.panel2.Controls.Add(this.update);
-            this.panel2.Controls.Add(this.textBox1);
-            this.panel2.Controls.Add(this.save);
-            this.panel2.Controls.Add(this.comboBox1);
-            this.panel2.Controls.Add(this.panel1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(942, 503);
-            this.panel2.TabIndex = 63;
+            this.panelMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelMain.Controls.Add(this.delete);
+            this.panelMain.Controls.Add(this.add);
+            this.panelMain.Controls.Add(this.buttonSearch);
+            this.panelMain.Controls.Add(this.edit);
+            this.panelMain.Controls.Add(this.update);
+            this.panelMain.Controls.Add(this.save);
+            this.panelMain.Controls.Add(this.panelWhite);
+            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMain.Location = new System.Drawing.Point(0, 0);
+            this.panelMain.Name = "panelMain";
+            this.panelMain.Size = new System.Drawing.Size(942, 503);
+            this.panelMain.TabIndex = 63;
             // 
             // delete
             // 
-            this.delete.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.delete.AutoSize = true;
             this.delete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("delete.BackgroundImage")));
             this.delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
@@ -89,7 +87,7 @@
             // 
             // add
             // 
-            this.add.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.add.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.add.AutoSize = true;
             this.add.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("add.BackgroundImage")));
             this.add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
@@ -104,26 +102,26 @@
             this.add.UseVisualStyleBackColor = true;
             this.add.Click += new System.EventHandler(this.add_Click);
             // 
-            // button1
+            // buttonSearch
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.AutoSize = true;
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft JhengHei", 8F);
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button1.Location = new System.Drawing.Point(782, 43);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(148, 30);
-            this.button1.TabIndex = 64;
-            this.button1.Text = "П О И С К";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSearch.AutoSize = true;
+            this.buttonSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonSearch.BackgroundImage")));
+            this.buttonSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSearch.Font = new System.Drawing.Font("Microsoft JhengHei", 8F);
+            this.buttonSearch.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.buttonSearch.Location = new System.Drawing.Point(782, 38);
+            this.buttonSearch.Name = "buttonSearch";
+            this.buttonSearch.Size = new System.Drawing.Size(148, 30);
+            this.buttonSearch.TabIndex = 64;
+            this.buttonSearch.Text = "П О И С К";
+            this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.button1_Click);
             // 
             // edit
             // 
-            this.edit.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.edit.AutoSize = true;
             this.edit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("edit.BackgroundImage")));
             this.edit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
@@ -140,7 +138,7 @@
             // 
             // update
             // 
-            this.update.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.update.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.update.AutoSize = true;
             this.update.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("update.BackgroundImage")));
             this.update.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
@@ -155,23 +153,23 @@
             this.update.UseVisualStyleBackColor = true;
             this.update.Click += new System.EventHandler(this.update_Click);
             // 
-            // textBox1
+            // textBoxsearch
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBoxsearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.textBox1.ImeMode = System.Windows.Forms.ImeMode.Hiragana;
-            this.textBox1.Location = new System.Drawing.Point(343, 41);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(407, 27);
-            this.textBox1.TabIndex = 62;
-            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            this.textBoxsearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxsearch.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxsearch.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.textBoxsearch.ImeMode = System.Windows.Forms.ImeMode.Hiragana;
+            this.textBoxsearch.Location = new System.Drawing.Point(311, 12);
+            this.textBoxsearch.Name = "textBoxsearch";
+            this.textBoxsearch.Size = new System.Drawing.Size(407, 27);
+            this.textBoxsearch.TabIndex = 62;
+            this.textBoxsearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // save
             // 
-            this.save.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.save.AutoSize = true;
             this.save.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("save.BackgroundImage")));
             this.save.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
@@ -186,133 +184,134 @@
             this.save.UseVisualStyleBackColor = true;
             this.save.Click += new System.EventHandler(this.save_Click);
             // 
-            // panel1
+            // comboBoxItem
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Window;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Controls.Add(this.comboBox2);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(32, 29);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(735, 449);
-            this.panel1.TabIndex = 66;
+            this.comboBoxItem.BackColor = System.Drawing.SystemColors.Window;
+            this.comboBoxItem.Font = new System.Drawing.Font("Microsoft YaHei", 7.5F);
+            this.comboBoxItem.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.comboBoxItem.FormattingEnabled = true;
+            this.comboBoxItem.ImeMode = System.Windows.Forms.ImeMode.Hiragana;
+            this.comboBoxItem.Location = new System.Drawing.Point(133, 14);
+            this.comboBoxItem.Name = "comboBoxItem";
+            this.comboBoxItem.Size = new System.Drawing.Size(172, 25);
+            this.comboBoxItem.TabIndex = 63;
             // 
-            // label1
+            // panelWhite
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft JhengHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label1.Location = new System.Drawing.Point(239, 213);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(266, 22);
-            this.label1.TabIndex = 68;
-            this.label1.Text = "Н И Ч Е Г О   Н Е   Н А Й Д Е Н О";
-            this.label1.Visible = false;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.panelWhite.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dataGridView1.Location = new System.Drawing.Point(18, 55);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dataGridView1.Size = new System.Drawing.Size(700, 371);
-            this.dataGridView1.TabIndex = 2;
+            this.panelWhite.BackColor = System.Drawing.SystemColors.Window;
+            this.panelWhite.Controls.Add(this.labelNo);
+            this.panelWhite.Controls.Add(this.selectList);
+            this.panelWhite.Controls.Add(this.labelSearch);
+            this.panelWhite.Controls.Add(this.comboBoxItem);
+            this.panelWhite.Controls.Add(this.textBoxsearch);
+            this.panelWhite.Controls.Add(this.comboBoxSearch);
+            this.panelWhite.Controls.Add(this.searchh);
+            this.panelWhite.Location = new System.Drawing.Point(32, 29);
+            this.panelWhite.Name = "panelWhite";
+            this.panelWhite.Size = new System.Drawing.Size(735, 449);
+            this.panelWhite.TabIndex = 66;
             // 
-            // comboBox2
+            // labelNo
             // 
-            this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox2.BackColor = System.Drawing.SystemColors.Window;
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBox2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.ImeMode = System.Windows.Forms.ImeMode.Hiragana;
-            this.comboBox2.Location = new System.Drawing.Point(274, 12);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(444, 27);
-            this.comboBox2.TabIndex = 67;
-            this.comboBox2.Visible = false;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.labelNo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft JhengHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label2.Image = global::SMART_REST.Properties.Resources.Image_1;
-            this.label2.Location = new System.Drawing.Point(14, 17);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 22);
-            this.label2.TabIndex = 65;
-            this.label2.Text = "И С К А Т Ь";
+            this.labelNo.AutoSize = true;
+            this.labelNo.Font = new System.Drawing.Font("Microsoft JhengHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNo.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.labelNo.Location = new System.Drawing.Point(239, 213);
+            this.labelNo.Name = "labelNo";
+            this.labelNo.Size = new System.Drawing.Size(266, 22);
+            this.labelNo.TabIndex = 68;
+            this.labelNo.Text = "Н И Ч Е Г О   Н Е   Н А Й Д Е Н О";
+            this.labelNo.Visible = false;
             // 
-            // label3
+            // selectList
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.selectList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft JhengHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label3.Image = global::SMART_REST.Properties.Resources.Image_1;
-            this.label3.Location = new System.Drawing.Point(14, 17);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(218, 22);
-            this.label3.TabIndex = 67;
-            this.label3.Text = "С О Р Т И Р О В А Т  Ь  П О";
-            this.label3.Visible = false;
+            this.selectList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.selectList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.selectList.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.selectList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.selectList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.selectList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.selectList.DefaultCellStyle = dataGridViewCellStyle5;
+            this.selectList.EnableHeadersVisualStyles = false;
+            this.selectList.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.selectList.Location = new System.Drawing.Point(18, 55);
+            this.selectList.Name = "selectList";
+            this.selectList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.selectList.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.selectList.RowHeadersVisible = false;
+            this.selectList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.selectList.Size = new System.Drawing.Size(700, 371);
+            this.selectList.TabIndex = 2;
             // 
-            // comboBox1
+            // comboBoxSearch
             // 
-            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBox1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.ImeMode = System.Windows.Forms.ImeMode.Hiragana;
-            this.comboBox1.Location = new System.Drawing.Point(165, 41);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(172, 27);
-            this.comboBox1.TabIndex = 63;
+            this.comboBoxSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxSearch.BackColor = System.Drawing.SystemColors.Window;
+            this.comboBoxSearch.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBoxSearch.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.comboBoxSearch.FormattingEnabled = true;
+            this.comboBoxSearch.ImeMode = System.Windows.Forms.ImeMode.Hiragana;
+            this.comboBoxSearch.Location = new System.Drawing.Point(274, 12);
+            this.comboBoxSearch.Name = "comboBoxSearch";
+            this.comboBoxSearch.Size = new System.Drawing.Size(444, 27);
+            this.comboBoxSearch.TabIndex = 67;
+            this.comboBoxSearch.Visible = false;
+            this.comboBoxSearch.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // labelSearch
+            // 
+            this.labelSearch.AutoSize = true;
+            this.labelSearch.Font = new System.Drawing.Font("Microsoft JhengHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSearch.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.labelSearch.Location = new System.Drawing.Point(14, 17);
+            this.labelSearch.Name = "labelSearch";
+            this.labelSearch.Size = new System.Drawing.Size(97, 22);
+            this.labelSearch.TabIndex = 65;
+            this.labelSearch.Text = "И С К А Т Ь";
+            // 
+            // searchh
+            // 
+            this.searchh.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchh.AutoSize = true;
+            this.searchh.Font = new System.Drawing.Font("Microsoft JhengHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchh.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.searchh.Location = new System.Drawing.Point(14, 17);
+            this.searchh.Name = "searchh";
+            this.searchh.Size = new System.Drawing.Size(218, 22);
+            this.searchh.TabIndex = 67;
+            this.searchh.Text = "С О Р Т И Р О В А Т  Ь  П О";
+            this.searchh.Visible = false;
             // 
             // SELECT_LIST
             // 
@@ -321,7 +320,7 @@
             this.AutoSize = true;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(942, 503);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panelMain);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(960, 550);
@@ -329,30 +328,30 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SMART REST";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SELECT_LIST_FormClosed);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panelMain.ResumeLayout(false);
+            this.panelMain.PerformLayout();
+            this.panelWhite.ResumeLayout(false);
+            this.panelWhite.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.selectList)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.Button save;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxsearch;
         private System.Windows.Forms.Button update;
         private System.Windows.Forms.Button edit;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.Button add;
         private System.Windows.Forms.Button delete;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView selectList;
+        private System.Windows.Forms.Panel panelMain;
+        private System.Windows.Forms.ComboBox comboBoxItem;
+        private System.Windows.Forms.Panel panelWhite;
+        private System.Windows.Forms.Label labelSearch;
+        private System.Windows.Forms.ComboBox comboBoxSearch;
+        private System.Windows.Forms.Label searchh;
+        private System.Windows.Forms.Label labelNo;
     }
 }

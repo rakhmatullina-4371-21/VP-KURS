@@ -34,7 +34,7 @@ namespace SMART_REST
 
         SmartRestaurantEntities db = new SmartRestaurantEntities();
         public static Dictionary<string, int> list = new Dictionary<string, int>();
-        public void ListDihInOrder(int id_dish, int count)
+        public void ListDihInOrder(int id_dish, int count)         //заполнение промежутоного списка заказа
         {
             if (count != 0)
             {
@@ -53,7 +53,7 @@ namespace SMART_REST
                 orders.ListDishesinOrd.Add(content);
             }
         }
-        public  void EditContOrd(int id_cont, int count) 
+        public  void EditContOrd(int id_cont, int count)            //изменение конечного списка заказа (в случае возврата блюда)
         {
             var edit = db.content_orders.First(p => p.id_content_order == id_cont);
 

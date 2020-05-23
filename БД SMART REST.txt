@@ -149,37 +149,34 @@ CREATE TABLE EMPLOYEE
 	id_position INT REFERENCES POSITIONS(id_position)
 );
 INSERT INTO EMPLOYEE(surname,name,login,password, id_position)
-VALUES ('Волков','Арсений','admin','12345',1);
+VALUES ('Волков','Арсений','admin','gnzLDuqKcGxMNKFokfhOew==',1);
 
 INSERT INTO EMPLOYEE(surname,name,lastname, login,password, id_position)
-VALUES ('Ласточкина','Василиса','Алексеевна','user','12345',2);
-
-INSERT INTO EMPLOYEE(surname,name,lastname,login,password, id_position)
-VALUES ('Орешкин','Владимир','Вячеславович','SGFHGJG','12345',2);
+VALUES ('Ласточкина','Василиса','Алексеевна','user','gnzLDuqKcGxMNKFokfhOew==',2);
 
 INSERT INTO EMPLOYEE(surname,name,login,password, id_position)
-VALUES ('Ахматов','Сергей','DBVSFVBS','FHRFTGHD1',2);
+VALUES ('Ахматов','Сергей','DBVSFVBS','9Dz7YpKi7WQanYcpp8HpZQ==',2);
 
 INSERT INTO EMPLOYEE(surname,name,lastname,login,password, id_position)
-VALUES ('Гиниатуллин','Марат','Айратович','DGFGNFH','DGHDCG24',2);
+VALUES ('Гиниатуллин','Марат','Айратович','DGFGNFH','rRDrOSg+TRkOR7nT6szv6g==',2);
 
 INSERT INTO EMPLOYEE(surname,name,lastname,login,password, id_position)
-VALUES ('Сметанина','София','Викторовна','GHJKFS','DFHDGH36',2);
+VALUES ('Сметанина','София','Викторовна','GHJKFS','2mlgSStiWdH3i63hK7nZDg==',2);
 
 INSERT INTO EMPLOYEE(surname,name,lastname,login,password, id_position)
-VALUES ('Шукшин','Леонид','Федорович','RDGNGS','DHGJHKM24',2);
+VALUES ('Шукшин','Леонид','Федорович','RDGNGS','G6yjOcd73Gr3cTQ5ykPxng==',2);
 
 INSERT INTO EMPLOYEE(surname,name,login,password, id_position)
-VALUES ('Рябинин','Сергей','DGVBGV','DGJFH47',2);
+VALUES ('Рябинин','Сергей','DGVBGV','yf+3SW1EJBuwh03wtP1xPg==',2);
 
 INSERT INTO EMPLOYEE(surname,name,login,password, id_position)
 VALUES ('Кукушкин','Федор','JNFCGFC','DFHBGN25',2);
 
 INSERT INTO EMPLOYEE(surname,name,lastname,login,password, id_position)
-VALUES ('Панова','Мария','Алексеевна','DGNJDH','DGNKMCDH',2);
+VALUES ('Панова','Мария','Алексеевна','DGNJDH','cpPwBBfMn1/FmnEfD36MZA==',2);
 
 INSERT INTO EMPLOYEE(surname,name,lastname,login,password, id_position)
-VALUES ('Дружинина','Дарья','Даниловна','MGVSHH','FCGNG',2);
+VALUES ('Дружинина','Дарья','Даниловна','user2','gnzLDuqKcGxMNKFokfhOew==',2);
 
 
 

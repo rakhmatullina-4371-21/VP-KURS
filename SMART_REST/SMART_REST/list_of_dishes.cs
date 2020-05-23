@@ -63,9 +63,9 @@ namespace SMART_REST
             var dish = listDish.First(w => w.id_dish == id);
             return dish;
         }
-        public static string SearchDish(int id)
+        public static string SearchDish(int id)   //поиск названия блюда по id
         {
-
+            SmartRestaurantEntities dbs = new SmartRestaurantEntities();
             var dish = dbs.list_of_dishes.FirstOrDefault(w => w.id_dish == id).name_dish;
             return dish;
         }
@@ -96,7 +96,7 @@ namespace SMART_REST
                     dish = new list_of_dishes();
                     dish.id_dish = id_dish;
                 }
-                dish.name_dish = name_dish;
+                dish.name_dish =employee.Savestring(name_dish);
                 dish.id_selection = id_selection;
                 dish.availability = availability;
                 dish.price = rub + kop;
@@ -120,17 +120,16 @@ namespace SMART_REST
             }
             catch { return false; }
         }
-        static SmartRestaurantEntities dbs = new SmartRestaurantEntities();
-        public static List<dynamic> SelectListDishAva()
+        public static List<dynamic> SelectListDishAva()        //вывод списка доступных блюд
         {
-
+            SmartRestaurantEntities dbs = new SmartRestaurantEntities();
             var avaList = (from p in dbs.list_of_dishes
                            join m in dbs.menu on p.id_selection equals m.id_selection
                            where p.availability == true
                            select new { p.id_dish, p.name_dish, m.id_selection, m.name_selection, p.price }).ToList<dynamic>();
             return avaList;
         }
-        public static List<string> ComboBoxItem()
+        public static List<string> ComboBoxItem()   //заполнение критериев для combobox для поиска
         {
             List<string> items = new List<string>();
             items.Add("ПО НАЗВАНИЮ");
@@ -138,15 +137,16 @@ namespace SMART_REST
             return items;
 
         }
-        public List<dynamic> searchDish(int item, string searchString)
+        public List<dynamic> searchDish(int item, string search)   //поиск блюда
         {
             var dishList = new List<dynamic>();
+            string searchString = employee.Savestring(search);
             switch (item)
             {
                 case 0:
                     {
                         dishList = db.list_of_dishes.Where(p => p.name_dish == searchString)
-                             .Join(db.menu, p => p.id_selection, e => e.id_selection, (p, e) => new { p.id_dish, p.name_dish, e.name_selection, p.availability, p.price })
+                             .Join(db.menu, p => p.id_selection, e => e.id_selection, (p, e) => new { p.id_dish, p.name_dish,p.id_selection, e.name_selection, p.availability, p.price })
                              .ToList<dynamic>();
 
                     }
@@ -154,7 +154,7 @@ namespace SMART_REST
                 case 1:
                     {
                         dishList = db.menu.Where(p => p.name_selection == searchString)
-                            .Join(db.list_of_dishes, e => e.id_selection, p => p.id_selection, (p, e) => new { e.id_dish, e.name_dish, p.name_selection, e.availability, e.price })
+                            .Join(db.list_of_dishes, e => e.id_selection, p => p.id_selection, (p, e) => new { e.id_dish, e.name_dish,p.id_selection, p.name_selection, e.availability, e.price })
                             .ToList<dynamic>();
                     }
                     break;

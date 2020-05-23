@@ -34,7 +34,7 @@ namespace SMART_REST
 
         static SmartRestaurantEntities db = new SmartRestaurantEntities();
 
-        public static List<int> ComboTab(employee emp)   //вывод всеx столов 
+        public static List<int> ComboTab(employee emp)   //вывод всеx столов, которые не обслуживаются другими официантами
         {
             var table = db.orders.Where(p => p.id_employee != emp.id_employee).Select(p => (int)p.id_table).ToList();
             var selectTab = db.list_of_table.Select(p => p.id_table).ToList();
