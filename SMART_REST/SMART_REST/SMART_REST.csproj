@@ -265,6 +265,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Image 2.png" />
+    <None Include="Resources\Image.png" />
     <Content Include="SrModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>SrModel.edmx</DependentUpon>

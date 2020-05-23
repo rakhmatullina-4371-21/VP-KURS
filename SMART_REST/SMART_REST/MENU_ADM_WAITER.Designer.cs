@@ -48,6 +48,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelMain.BackColor = System.Drawing.SystemColors.Control;
+            this.panelMain.BackgroundImage = global::SMART_REST.Properties.Resources.Image_2;
             this.panelMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panelMain.Controls.Add(this.dish);
             this.panelMain.Controls.Add(this.stock);
