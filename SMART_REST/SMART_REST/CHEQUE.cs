@@ -74,15 +74,20 @@ namespace SMART_REST
                 waiter.Size = this.Size; waiter.Show(); this.Hide();
 
             }
-            catch { MessageForm f = new MessageForm("З А К А З  Н Е  У Д А Л Е Н"); f.ShowDialog(); }
+            catch { MessageForm f = new MessageForm("З А К А З  Н Е  В Ы Д А Н"); f.ShowDialog(); }
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ORDER_SELECT ordEdit = new ORDER_SELECT(ord.SelectOrder(int.Parse(comboBoxOrd.SelectedItem.ToString())),emp);
-            ordEdit.Show();
-            this.Hide();
+            try
+            {
+                ORDER_SELECT ordEdit = new ORDER_SELECT(ord.SelectOrder(int.Parse(comboBoxOrd.SelectedItem.ToString())), emp);
+                ordEdit.Location = this.Location;
+                ordEdit.Size = this.Size; ordEdit.Show(); this.Hide();
+            }
+            catch { MessageForm f = new MessageForm(); f.ShowDialog(); }
+
         }
     }
 }

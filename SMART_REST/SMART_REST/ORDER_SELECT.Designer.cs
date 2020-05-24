@@ -33,12 +33,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ORDER_SELECT));
             this.white = new System.Windows.Forms.Panel();
+            this.labelCount = new System.Windows.Forms.Label();
             this.comboBoxCount = new System.Windows.Forms.ComboBox();
             this.selectList = new System.Windows.Forms.DataGridView();
-            this.form = new System.Windows.Forms.Panel();
-            this.labelCount = new System.Windows.Forms.Label();
-            this.buttonInpMenu = new System.Windows.Forms.Button();
             this.save = new System.Windows.Forms.Button();
+            this.buttonInpMenu = new System.Windows.Forms.Button();
+            this.form = new System.Windows.Forms.Panel();
             this.labelOrder = new System.Windows.Forms.Label();
             this.white.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.selectList)).BeginInit();
@@ -60,6 +60,20 @@
             this.white.Name = "white";
             this.white.Size = new System.Drawing.Size(798, 407);
             this.white.TabIndex = 65;
+            // 
+            // labelCount
+            // 
+            this.labelCount.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelCount.AutoSize = true;
+            this.labelCount.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelCount.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.labelCount.Image = global::SMART_REST.Properties.Resources.Image_1;
+            this.labelCount.Location = new System.Drawing.Point(284, 171);
+            this.labelCount.Name = "labelCount";
+            this.labelCount.Size = new System.Drawing.Size(255, 20);
+            this.labelCount.TabIndex = 68;
+            this.labelCount.Text = "В Ы Б Е Р И Т Е   К О Л И Ч Е С Т В О";
+            this.labelCount.Visible = false;
             // 
             // comboBoxCount
             // 
@@ -128,28 +142,23 @@
             this.selectList.TabIndex = 3;
             this.selectList.MouseClick += new System.Windows.Forms.MouseEventHandler(this.selectList_MouseClick);
             // 
-            // form
+            // save
             // 
-            this.form.Controls.Add(this.labelOrder);
-            this.form.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.form.Location = new System.Drawing.Point(0, 0);
-            this.form.Name = "form";
-            this.form.Size = new System.Drawing.Size(942, 503);
-            this.form.TabIndex = 66;
-            // 
-            // labelCount
-            // 
-            this.labelCount.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelCount.AutoSize = true;
-            this.labelCount.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelCount.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.labelCount.Image = global::SMART_REST.Properties.Resources.Image_1;
-            this.labelCount.Location = new System.Drawing.Point(284, 171);
-            this.labelCount.Name = "labelCount";
-            this.labelCount.Size = new System.Drawing.Size(255, 20);
-            this.labelCount.TabIndex = 68;
-            this.labelCount.Text = "В Ы Б Е Р И Т Е   К О Л И Ч Е С Т В О";
-            this.labelCount.Visible = false;
+            this.save.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.save.BackColor = System.Drawing.Color.White;
+            this.save.BackgroundImage = global::SMART_REST.Properties.Resources.Image_1;
+            this.save.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.save.Font = new System.Drawing.Font("Microsoft JhengHei", 8F);
+            this.save.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.save.Location = new System.Drawing.Point(20, 358);
+            this.save.Name = "save";
+            this.save.Size = new System.Drawing.Size(760, 30);
+            this.save.TabIndex = 64;
+            this.save.Text = "К   М Е Н Ю";
+            this.save.UseVisualStyleBackColor = false;
+            this.save.Click += new System.EventHandler(this.save_Click);
             // 
             // buttonInpMenu
             // 
@@ -170,23 +179,14 @@
             this.buttonInpMenu.Visible = false;
             this.buttonInpMenu.Click += new System.EventHandler(this.button1_Click);
             // 
-            // save
+            // form
             // 
-            this.save.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.save.BackColor = System.Drawing.Color.White;
-            this.save.BackgroundImage = global::SMART_REST.Properties.Resources.Image_1;
-            this.save.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.save.Font = new System.Drawing.Font("Microsoft JhengHei", 8F);
-            this.save.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.save.Location = new System.Drawing.Point(20, 358);
-            this.save.Name = "save";
-            this.save.Size = new System.Drawing.Size(760, 30);
-            this.save.TabIndex = 64;
-            this.save.Text = "К   М Е Н Ю";
-            this.save.UseVisualStyleBackColor = false;
-            this.save.Click += new System.EventHandler(this.save_Click);
+            this.form.Controls.Add(this.labelOrder);
+            this.form.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.form.Location = new System.Drawing.Point(0, 0);
+            this.form.Name = "form";
+            this.form.Size = new System.Drawing.Size(942, 503);
+            this.form.TabIndex = 66;
             // 
             // labelOrder
             // 

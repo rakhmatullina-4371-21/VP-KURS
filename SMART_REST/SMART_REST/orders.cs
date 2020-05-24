@@ -104,7 +104,7 @@ namespace SMART_REST
 
             return infOrd;
         }
-        public List<int> SelectOrder(employee emp)   //вывод списка заказов конкретного официанта
+        public List<int> SelectOrder(employee emp)   //вывод списка заказов  официанта
         {
             var ordList = db.orders.Where(p => p.id_employee == emp.id_employee && p.given_out != true).Select(p => p.id_order).ToList();
             return ordList;

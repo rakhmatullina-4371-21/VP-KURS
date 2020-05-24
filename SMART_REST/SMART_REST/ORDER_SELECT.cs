@@ -19,6 +19,7 @@ namespace SMART_REST
             InitializeComponent();
             this.emp = emp;
             this.buttonInpMenu.Visible = true;
+            this.save.Visible = false;
             selectList.DataSource = listOrder;
             selectList.Columns[0].Visible = false;
             selectList.Columns[1].HeaderText = "ЗАКАЗ №";

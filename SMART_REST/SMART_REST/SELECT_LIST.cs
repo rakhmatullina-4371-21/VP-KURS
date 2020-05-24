@@ -24,63 +24,66 @@ namespace SMART_REST
             InitializeComponent();
             this.item = item;
             this.emp = emp;
-            switch (item) 
-            {
-                case 0: 
-                    {
-                        comboBoxItem.Visible = true;
-                        selectList.DataSource = emp.SelectListEmp();
-                        selectList.Columns[0].Visible = false;
-                        selectList.Columns[1].HeaderText = "ФАМИЛИЯ";
-                        selectList.Columns[2].HeaderText = "ИМЯ";
-                        selectList.Columns[3].HeaderText = "ОТЧЕСТВО";
-                        selectList.Columns[4].HeaderText = "ЛОГИН";
-                        selectList.Columns[5].HeaderText = "ПАРОЛЬ";
-                        selectList.Columns[6].Visible = false;
-                        selectList.Columns[7].HeaderText = "ДОЛЖНОСТЬ";
-                        foreach (string i in employee.ComboBoxItem())
+            try {
+                switch (item)
+                {
+                    case 0:
                         {
-                            comboBoxItem.Items.Add(i) ;
+                            comboBoxItem.Visible = true;
+                            selectList.DataSource = emp.SelectListEmp();
+                            selectList.Columns[0].Visible = false;
+                            selectList.Columns[1].HeaderText = "ФАМИЛИЯ";
+                            selectList.Columns[2].HeaderText = "ИМЯ";
+                            selectList.Columns[3].HeaderText = "ОТЧЕСТВО";
+                            selectList.Columns[4].HeaderText = "ЛОГИН";
+                            selectList.Columns[5].HeaderText = "ПАРОЛЬ";
+                            selectList.Columns[6].Visible = false;
+                            selectList.Columns[7].HeaderText = "ДОЛЖНОСТЬ";
+                            foreach (string i in employee.ComboBoxItem())
+                            {
+                                comboBoxItem.Items.Add(i);
+                            }
                         }
-                    }
-                    break;
-                case 1:
-                    {
-                        comboBoxItem.Visible = true;
-                        selectList.DataSource = dish.SelectListDish();
-                        selectList.Columns[0].Visible = false;
-                        selectList.Columns[1].HeaderText = "  НАЗВАНИЕ\r\nБЛЮДА";
-                        selectList.Columns[2].Visible = false;
-                        selectList.Columns[3].HeaderText = "  РАЗДЕЛ";
-                        selectList.Columns[4].HeaderText = "  ДОСТУПНОСТЬ";
-                        selectList.Columns[5].HeaderText = "  ЦЕНА (руб)";
-                        foreach (string i in list_of_dishes.ComboBoxItem())
+                        break;
+                    case 1:
                         {
-                            comboBoxItem.Items.Add(i);
+                            comboBoxItem.Visible = true;
+                            selectList.DataSource = dish.SelectListDish();
+                            selectList.Columns[0].Visible = false;
+                            selectList.Columns[1].HeaderText = "  НАЗВАНИЕ\r\nБЛЮДА";
+                            selectList.Columns[2].Visible = false;
+                            selectList.Columns[3].HeaderText = "  РАЗДЕЛ";
+                            selectList.Columns[4].HeaderText = "  ДОСТУПНОСТЬ";
+                            selectList.Columns[5].HeaderText = "  ЦЕНА (руб)";
+                            foreach (string i in list_of_dishes.ComboBoxItem())
+                            {
+                                comboBoxItem.Items.Add(i);
+                            }
                         }
-                    }
-                    break;
-                case 2: 
-                    {
-                        stocks stock=new stocks();
-                        selectList.DataSource = stock.SelectListStocks();
-                        selectList.Columns[0].Visible = false;
-                        selectList.Columns[1].HeaderText = "НАЧАЛО\r\nАКЦИИ";
-                        selectList.Columns[2].HeaderText = "КОНЕЦ\r\nАКЦИИ";
-                        selectList.Columns[3].HeaderText = "РАЗМЕР\r\n СКИДКИ В %";
-                        selectList.Columns[4].Visible = false;
-                        labelSearch.Visible = false;
-                        comboBoxItem.Visible = false;
-                        textBoxsearch.Visible = false;
-                        searchh.Visible = true;
-                        comboBoxSearch.Visible = true;
-                        buttonSearch.Visible = false;
-                        foreach (string i in stocks.ComboBoxItem())
+                        break;
+                    case 2:
                         {
-                            comboBoxSearch.Items.Add(i);
-                        }
-                    } break;
+                            stocks stock = new stocks();
+                            selectList.DataSource = stock.SelectListStocks();
+                            selectList.Columns[0].Visible = false;
+                            selectList.Columns[1].HeaderText = "НАЧАЛО\r\nАКЦИИ";
+                            selectList.Columns[2].HeaderText = "КОНЕЦ\r\nАКЦИИ";
+                            selectList.Columns[3].HeaderText = "РАЗМЕР\r\n СКИДКИ В %";
+                            selectList.Columns[4].Visible = false;
+                            labelSearch.Visible = false;
+                            comboBoxItem.Visible = false;
+                            textBoxsearch.Visible = false;
+                            searchh.Visible = true;
+                            comboBoxSearch.Visible = true;
+                            buttonSearch.Visible = false;
+                            foreach (string i in stocks.ComboBoxItem())
+                            {
+                                comboBoxSearch.Items.Add(i);
+                            }
+                        } break;
+                }
             }
+            catch { MessageForm f = new MessageForm(); f.ShowDialog(); }
         }
 
         private void SELECT_LIST_FormClosed(object sender, FormClosedEventArgs e)

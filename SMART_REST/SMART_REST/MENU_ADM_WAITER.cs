@@ -17,6 +17,7 @@ namespace SMART_REST
         {
 
             InitializeComponent();
+
             this.emp = emp;
             if (emp.lastname == null) { emp.lastname = ""; }
             labelFIO.Text = $"  {emp.surname.ToUpper()} {emp.name.ToUpper()} {emp.lastname.ToUpper()}" ;
@@ -90,5 +91,6 @@ namespace SMART_REST
             check.Show();
             this.Hide();
         }
+
     }
 }
