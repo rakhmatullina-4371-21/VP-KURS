@@ -36,7 +36,7 @@ namespace SMART_REST
                             selectList.Columns[2].HeaderText = "ИМЯ";
                             selectList.Columns[3].HeaderText = "ОТЧЕСТВО";
                             selectList.Columns[4].HeaderText = "ЛОГИН";
-                            selectList.Columns[5].HeaderText = "ПАРОЛЬ";
+                            selectList.Columns[5].Visible=false;
                             selectList.Columns[6].Visible = false;
                             selectList.Columns[7].HeaderText = "ДОЛЖНОСТЬ";
                             foreach (string i in employee.ComboBoxItem())
@@ -173,15 +173,32 @@ namespace SMART_REST
                 case 0:
                     {
                         selectList.DataSource = emp.SelectListEmp();
+                        selectList.Columns[0].Visible = false;
+                        selectList.Columns[1].HeaderText = "ФАМИЛИЯ";
+                        selectList.Columns[2].HeaderText = "ИМЯ";
+                        selectList.Columns[3].HeaderText = "ОТЧЕСТВО";
+                        selectList.Columns[4].HeaderText = "ЛОГИН";
+                        selectList.Columns[5].Visible = false;
+                        selectList.Columns[6].Visible = false;
+                        selectList.Columns[7].HeaderText = "ДОЛЖНОСТЬ";
                     }
                     break;
                 case 1: 
                     {
                         selectList.DataSource = dish.SelectListDish();
+                        selectList.Columns[0].Visible = false;
+                        selectList.Columns[1].HeaderText = "  НАЗВАНИЕ\r\nБЛЮДА";
+                        selectList.Columns[2].Visible = false;
+                        selectList.Columns[3].HeaderText = "  РАЗДЕЛ";
+                        selectList.Columns[4].HeaderText = "  ДОСТУПНОСТЬ";
+                        selectList.Columns[5].HeaderText = "  ЦЕНА (руб)";
                     } break;
                 case 2:
                     {
                         selectList.DataSource = stock.SelectListStocks();
+                        selectList.Columns[1].HeaderText = "НАЧАЛО\r\nАКЦИИ";
+                        selectList.Columns[2].HeaderText = "КОНЕЦ\r\nАКЦИИ";
+                        selectList.Columns[3].HeaderText = "РАЗМЕР\r\n СКИДКИ В %";
                     }
                     break;
             }
@@ -231,6 +248,7 @@ namespace SMART_REST
                         try
                         {
                             selectList.DataSource = emp.searchEmp(comboBoxItem.SelectedIndex, textBoxsearch.Text);
+                            if (selectList.RowCount == 0) { labelNo.Visible = true; }
                         }
                         catch { labelNo.Visible = true; }
                     
@@ -241,6 +259,7 @@ namespace SMART_REST
                         try
                         {
                             selectList.DataSource = dish.searchDish(comboBoxItem.SelectedIndex, textBoxsearch.Text);
+                            if (selectList.RowCount == 0) { labelNo.Visible = true; }
                         }
                         catch { labelNo.Visible = true; }
             }

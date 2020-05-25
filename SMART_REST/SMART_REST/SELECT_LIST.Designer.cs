@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SELECT_LIST));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelMain = new System.Windows.Forms.Panel();
             this.delete = new System.Windows.Forms.Button();
             this.add = new System.Windows.Forms.Button();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.edit = new System.Windows.Forms.Button();
             this.update = new System.Windows.Forms.Button();
-            this.textBoxsearch = new System.Windows.Forms.TextBox();
             this.save = new System.Windows.Forms.Button();
-            this.comboBoxItem = new System.Windows.Forms.ComboBox();
             this.panelWhite = new System.Windows.Forms.Panel();
             this.labelNo = new System.Windows.Forms.Label();
             this.selectList = new System.Windows.Forms.DataGridView();
-            this.comboBoxSearch = new System.Windows.Forms.ComboBox();
             this.labelSearch = new System.Windows.Forms.Label();
+            this.comboBoxItem = new System.Windows.Forms.ComboBox();
+            this.textBoxsearch = new System.Windows.Forms.TextBox();
+            this.comboBoxSearch = new System.Windows.Forms.ComboBox();
             this.searchh = new System.Windows.Forms.Label();
             this.panelMain.SuspendLayout();
             this.panelWhite.SuspendLayout();
@@ -153,20 +153,6 @@
             this.update.UseVisualStyleBackColor = true;
             this.update.Click += new System.EventHandler(this.update_Click);
             // 
-            // textBoxsearch
-            // 
-            this.textBoxsearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxsearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxsearch.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxsearch.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.textBoxsearch.ImeMode = System.Windows.Forms.ImeMode.Hiragana;
-            this.textBoxsearch.Location = new System.Drawing.Point(311, 12);
-            this.textBoxsearch.Name = "textBoxsearch";
-            this.textBoxsearch.Size = new System.Drawing.Size(407, 27);
-            this.textBoxsearch.TabIndex = 62;
-            this.textBoxsearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
-            // 
             // save
             // 
             this.save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -183,18 +169,6 @@
             this.save.Text = "С О Х Р А Н И Т Ь";
             this.save.UseVisualStyleBackColor = true;
             this.save.Click += new System.EventHandler(this.save_Click);
-            // 
-            // comboBoxItem
-            // 
-            this.comboBoxItem.BackColor = System.Drawing.SystemColors.Window;
-            this.comboBoxItem.Font = new System.Drawing.Font("Microsoft YaHei", 7.5F);
-            this.comboBoxItem.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.comboBoxItem.FormattingEnabled = true;
-            this.comboBoxItem.ImeMode = System.Windows.Forms.ImeMode.Hiragana;
-            this.comboBoxItem.Location = new System.Drawing.Point(133, 14);
-            this.comboBoxItem.Name = "comboBoxItem";
-            this.comboBoxItem.Size = new System.Drawing.Size(172, 25);
-            this.comboBoxItem.TabIndex = 63;
             // 
             // panelWhite
             // 
@@ -216,8 +190,7 @@
             // 
             // labelNo
             // 
-            this.labelNo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelNo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelNo.AutoSize = true;
             this.labelNo.Font = new System.Drawing.Font("Microsoft JhengHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNo.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
@@ -237,40 +210,77 @@
             this.selectList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.selectList.BackgroundColor = System.Drawing.SystemColors.Window;
             this.selectList.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.selectList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.selectList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.selectList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.selectList.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.selectList.DefaultCellStyle = dataGridViewCellStyle2;
             this.selectList.EnableHeadersVisualStyles = false;
             this.selectList.GridColor = System.Drawing.SystemColors.ControlDarkDark;
             this.selectList.Location = new System.Drawing.Point(18, 55);
             this.selectList.Name = "selectList";
             this.selectList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.selectList.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.selectList.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.selectList.RowHeadersVisible = false;
             this.selectList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.selectList.Size = new System.Drawing.Size(700, 371);
             this.selectList.TabIndex = 2;
+            // 
+            // labelSearch
+            // 
+            this.labelSearch.AutoSize = true;
+            this.labelSearch.Font = new System.Drawing.Font("Microsoft JhengHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSearch.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.labelSearch.Location = new System.Drawing.Point(14, 17);
+            this.labelSearch.Name = "labelSearch";
+            this.labelSearch.Size = new System.Drawing.Size(97, 22);
+            this.labelSearch.TabIndex = 65;
+            this.labelSearch.Text = "И С К А Т Ь";
+            // 
+            // comboBoxItem
+            // 
+            this.comboBoxItem.BackColor = System.Drawing.SystemColors.Window;
+            this.comboBoxItem.Font = new System.Drawing.Font("Microsoft YaHei", 7.5F);
+            this.comboBoxItem.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.comboBoxItem.FormattingEnabled = true;
+            this.comboBoxItem.ImeMode = System.Windows.Forms.ImeMode.Hiragana;
+            this.comboBoxItem.Location = new System.Drawing.Point(133, 14);
+            this.comboBoxItem.Name = "comboBoxItem";
+            this.comboBoxItem.Size = new System.Drawing.Size(172, 25);
+            this.comboBoxItem.TabIndex = 63;
+            // 
+            // textBoxsearch
+            // 
+            this.textBoxsearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxsearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxsearch.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxsearch.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.textBoxsearch.ImeMode = System.Windows.Forms.ImeMode.Hiragana;
+            this.textBoxsearch.Location = new System.Drawing.Point(311, 12);
+            this.textBoxsearch.Name = "textBoxsearch";
+            this.textBoxsearch.Size = new System.Drawing.Size(407, 27);
+            this.textBoxsearch.TabIndex = 62;
+            this.textBoxsearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // comboBoxSearch
             // 
@@ -287,17 +297,6 @@
             this.comboBoxSearch.TabIndex = 67;
             this.comboBoxSearch.Visible = false;
             this.comboBoxSearch.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
-            // 
-            // labelSearch
-            // 
-            this.labelSearch.AutoSize = true;
-            this.labelSearch.Font = new System.Drawing.Font("Microsoft JhengHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSearch.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.labelSearch.Location = new System.Drawing.Point(14, 17);
-            this.labelSearch.Name = "labelSearch";
-            this.labelSearch.Size = new System.Drawing.Size(97, 22);
-            this.labelSearch.TabIndex = 65;
-            this.labelSearch.Text = "И С К А Т Ь";
             // 
             // searchh
             // 
